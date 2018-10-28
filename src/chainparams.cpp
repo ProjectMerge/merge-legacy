@@ -47,19 +47,19 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0000000000000000000000000000000000000000000000000000000000000000"));
+    (0, uint256("000003157c25b14e0585dc737dc853c2d945f3624ecc24e32c23d29c0843252c"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    0, 0, 0 };
+    1540688660, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0000000000000000000000000000000000000000000000000000000000000000"));
+    (0, uint256("000003b8dac0676e875d0ecded0127562be6ae0daead595680e555ce34e92551"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    0, 0, 0 };
+    1540688670, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
@@ -77,10 +77,10 @@ public:
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
 
-        pchMessageStart[0] = 0x00;
-        pchMessageStart[1] = 0x00;
-        pchMessageStart[2] = 0x00;
-        pchMessageStart[3] = 0x00;
+        pchMessageStart[0] = 0x34;
+        pchMessageStart[1] = 0xfa;
+        pchMessageStart[2] = 0xaf;
+        pchMessageStart[3] = 0x43;
         vAlertPubKey = ParseHex("");
         nDefaultPort = 52000;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
@@ -95,7 +95,7 @@ public:
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 500;
-        nModifierUpdateBlock = 5;
+        nModifierUpdateBlock = 50;
 
         const char* pszTimestamp = "anything can interfere with anything, if you user it hard enough.";
         CMutableTransaction txNew;
@@ -108,23 +108,22 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 123456789;
+        genesis.nTime = 1540688660;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1;
+        genesis.nNonce = 993068;
 
-/*
 	if (genesis.nNonce == 0) {
 	    while (genesis.GetHash() > bnProofOfWorkLimit) {
 		genesis.nNonce++;
 		if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
 	    }
 	    printf("nonce was %d \n", genesis.nNonce);
+            printf("genesis block %s\n", genesis.ToString().c_str());
 	}
-*/
 
         hashGenesisBlock = genesis.GetHash();
-        //assert(hashGenesisBlock == uint256("0x0000000000000000000000000000000000000000000000000000000000000000"));
-        //assert(genesis.hashMerkleRoot == uint256("0x0000000000000000000000000000000000000000000000000000000000000000"));
+        assert(hashGenesisBlock == uint256("0x000003157c25b14e0585dc737dc853c2d945f3624ecc24e32c23d29c0843252c"));
+        assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 50); // M
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 53); // N
@@ -147,8 +146,8 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "";
-        strObfuscationPoolDummyAddress = "";
-        nStartMasternodePayments = genesis.nTime + 10200;
+        strObfuscationPoolDummyAddress = "MERGEXXXXXXXXXXXXXXXXXXXXXXXYmkoB4";
+        nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
     }
 
@@ -188,12 +187,12 @@ public:
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 500;
-        nModifierUpdateBlock = 5;
+        nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1539460000;
+        genesis.nTime = 1540688670;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2307007;
+        genesis.nNonce = 1712348;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -201,15 +200,12 @@ public:
                 if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
             }
             printf("nonce was %d \n", genesis.nNonce);
+            printf("genesis block %s\n", genesis.ToString().c_str());
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000f14cdc5fa99d346958d4742e37204979dd9bad51156a6a6abc07c18399a"));
+        assert(hashGenesisBlock == uint256("0x000003b8dac0676e875d0ecded0127562be6ae0daead595680e555ce34e92551"));
         assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
-
-        // prevent testnet from existing for more than 10 days
-        if (GetTime() > genesis.nTime + (10 * 86400))
-            exit(0);
 
         vSeeds.push_back(CDNSSeedData("test.quantumcheddar.pw", "test.quantumcheddar.pw"));
 
@@ -234,8 +230,8 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "";
-        strObfuscationPoolDummyAddress = "";
-        nStartMasternodePayments = genesis.nTime + 10200;
+        strObfuscationPoolDummyAddress = "ZERGEXXXXXXXXXXXXXXXXXXXXXXXcMy12n";
+        nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
     }
 
