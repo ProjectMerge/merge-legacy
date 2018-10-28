@@ -198,13 +198,13 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     // zMERGE labels
     QString szPercentage = "";
     QString sPercentage = "";
-    CAmount nLockedBalance = 0;
-    if (pwalletMain) {
-        nLockedBalance = pwalletMain->GetLockedCoins();
-    }
+    //CAmount nLockedBalance = 0;
+    //if (pwalletMain) {
+    //    nLockedBalance = pwalletMain->GetLockedCoins();
+    //}
 
-    CAmount nTotalBalance = balance + unconfirmedBalance;
-    CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
+    //CAmount nTotalBalance = balance + unconfirmedBalance;
+    //CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

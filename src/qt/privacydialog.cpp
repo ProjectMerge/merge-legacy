@@ -281,10 +281,10 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
 
-    int64_t nCoins = 0;
-    int64_t nSumPerCoin = 0;
-    int64_t nUnconfirmed = 0;
-    int64_t nImmature = 0;
+    //int64_t nCoins = 0;
+    //int64_t nSumPerCoin = 0;
+    //int64_t nUnconfirmed = 0;
+    //int64_t nImmature = 0;
     QString strDenomStats, strUnconfirmed = "";
 
 }
