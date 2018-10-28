@@ -297,7 +297,18 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sph_jh.h \
   crypto/sph_keccak.h \
   crypto/sph_skein.h \
-  crypto/sph_types.h
+  crypto/sph_types.h \
+  crypto/argon2d/argon2.c \
+  crypto/argon2d/argon2.h \
+  crypto/argon2d/core.c \
+  crypto/argon2d/core.h \
+  crypto/argon2d/encoding.c \
+  crypto/argon2d/encoding.h \
+  crypto/argon2d/opt.c \
+  crypto/argon2d/thread.c \
+  crypto/argon2d/thread.h \
+  crypto/blake2/blake2b.c \
+  crypto/blake2/blake2.h
 
 # univalue JSON library
 univalue_libbitcoin_univalue_a_SOURCES = \
