@@ -3464,7 +3464,7 @@ void CWallet::AutoCombineDust()
         CAmount nTotalRewardsValue = 0;
         BOOST_FOREACH (const COutput& out, vCoins) {
             //no coins should get this far if they dont have proper maturity, this is double checking
-            if (out.tx->IsCoinStake() && out.tx->GetDepthInMainChain() < COINBASE_MATURITY + 1)
+            if (out.tx->IsCoinStake() && out.tx->GetDepthInMainChain() < COINBASE_MATURITY)
                 continue;
 
             if (out.Value() > nAutoCombineThreshold * COIN)
@@ -3533,7 +3533,7 @@ bool CWallet::MultiSend()
     int mnSent = 0;
     BOOST_FOREACH (const COutput& out, vCoins) {
         //need output with precise confirm count - this is how we identify which is the output to send
-        if (out.tx->GetDepthInMainChain() != COINBASE_MATURITY + 1)
+        if (out.tx->GetDepthInMainChain() != COINBASE_MATURITY)
             continue;
 
         COutPoint outpoint(out.tx->GetHash(), out.i);
@@ -3730,7 +3730,7 @@ int CMerkleTx::GetBlocksToMaturity() const
     LOCK(cs_main);
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
-    return max(0, (Params().COINBASE_MATURITY() + 1) - GetDepthInMainChain());
+    return max(0, Params().COINBASE_MATURITY() - GetDepthInMainChain());
 }
 
 
