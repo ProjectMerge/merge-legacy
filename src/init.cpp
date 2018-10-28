@@ -623,7 +623,7 @@ void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
 }
 
 /** Sanity checks
- *  Ensure that PIVX is running in a usable environment with all
+ *  Ensure that MERGE is running in a usable environment with all
  *  necessary library support.
  */
 bool InitSanityCheck(void)
