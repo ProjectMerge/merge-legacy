@@ -29,9 +29,12 @@
 
 using namespace std;
 
+bool fIsMinerRunning = false;
+bool fHasMinerLogged = false;
+
 //////////////////////////////////////////////////////////////////////////////
 //
-// PIVXMiner
+// MergeMiner
 //
 
 //
@@ -346,8 +349,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-        LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize);
-
 
         // Compute final coinbase transaction.
         if (!fProofOfStake) {
@@ -420,7 +421,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("PIVXMiner : generated block is stale");
+            return error("MergeMiner : generated block is stale");
     }
 
     // Remove key from key pool
@@ -435,7 +436,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     // Process this block the same as if we had received it from another node
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock))
-        return error("PIVXMiner : ProcessNewBlock, block not accepted");
+        return error("MergeMiner : ProcessNewBlock, block not accepted");
 
     return true;
 }
@@ -446,9 +447,11 @@ bool fGenerateBitcoins = false;
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("PIVXMiner started\n");
+    fIsMinerRunning = true;
+    fHasMinerLogged = false;
+    LogPrintf("MergeMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("pivxminer");
+    RenameThread("mergeminer");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -520,8 +523,13 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             continue;
         }
 
-        LogPrintf("Running PIVXMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
-            ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+        // Prevent flooding debug.log
+        if (fIsMinerRunning == true) {
+           if (fHasMinerLogged == false) {
+              LogPrintf("Running MergeMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(), ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
+              fHasMinerLogged = true;
+           }
+        }
 
         //
         // Search
@@ -613,6 +621,9 @@ void static ThreadBitcoinMiner(void* parg)
     } catch (...) {
         LogPrintf("ThreadBitcoinMiner() exception");
     }
+
+    fIsMinerRunning = false;
+    fHasMinerLogged = false;
 
     LogPrintf("ThreadBitcoinMiner exiting\n");
 }
