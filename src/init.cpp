@@ -923,7 +923,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (strWalletFile != boost::filesystem::basename(strWalletFile) + boost::filesystem::extension(strWalletFile))
         return InitError(strprintf(_("Wallet %s resides outside data directory %s"), strWalletFile, strDataDir));
 #endif
-    // Make sure only a single PIVX process is using the data directory.
+    // Make sure only a single MERGE process is using the data directory.
     boost::filesystem::path pathLockFile = GetDataDir() / ".lock";
     FILE* file = fopen(pathLockFile.string().c_str(), "a"); // empty lock file; created if it doesn't exist.
     if (file) fclose(file);
@@ -1318,7 +1318,7 @@ bool AppInit2(boost::thread_group& threadGroup)
                 if (fReindex)
                     pblocktree->WriteReindexing(true);
 
-                // PIVX: load previous sessions sporks if we have them.
+                // MERGE: load previous sessions sporks if we have them.
                 uiInterface.InitMessage(_("Loading sporks..."));
                 LoadSporksFromDB();
 
