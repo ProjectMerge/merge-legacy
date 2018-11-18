@@ -2,7 +2,7 @@
 name: "merge-win-3.0"
 enable_cache: true
 suites:
-- "trusty"
+- "precise"
 architectures:
 - "amd64"
 packages:
