@@ -694,13 +694,13 @@ QWidget#PrivacyDialog QLabel {
 border:0px solid #000;
 }
 
-QWidget#PrivacyDialog QLabel#zPIVLabel {
+QWidget#PrivacyDialog QLabel#zMERGELabel {
 font-size:14px;
 color:#ffffff;
 background-color:#5B4C7C;
 }
 
-QWidget#PrivacyDialog QLabel#oPIVLabel {
+QWidget#PrivacyDialog QLabel#oMERGELabel {
 font-size:14px;
 color:#ffffff;
 background-color:#5B4C7C;

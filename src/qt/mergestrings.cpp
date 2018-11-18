@@ -89,10 +89,10 @@ QT_TRANSLATE_NOOP("merge-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("merge-core", ""
-"Fees (in PIV/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in MERGE/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("merge-core", ""
-"Fees (in PIV/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in MERGE/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("merge-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -187,10 +187,10 @@ QT_TRANSLATE_NOOP("merge-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("merge-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 10000 PIV."),
+"transaction that are not equal 10000 MERGE."),
 QT_TRANSLATE_NOOP("merge-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
-"PIV."),
+"MERGE."),
 QT_TRANSLATE_NOOP("merge-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
@@ -258,7 +258,7 @@ QT_TRANSLATE_NOOP("merge-core", "Connect to a node to retrieve peer addresses, a
 QT_TRANSLATE_NOOP("merge-core", "Connection options:"),
 QT_TRANSLATE_NOOP("merge-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
 QT_TRANSLATE_NOOP("merge-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("merge-core", "Copyright (C) 2015-%i The PIVX Core Developers"),
+QT_TRANSLATE_NOOP("merge-core", "Copyright (C) 2015-%i The MERGE Core Developers"),
 QT_TRANSLATE_NOOP("merge-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("merge-core", "Could not parse -rpcbind value %s as network address"),
 QT_TRANSLATE_NOOP("merge-core", "Could not parse masternode.conf"),
@@ -304,7 +304,7 @@ QT_TRANSLATE_NOOP("merge-core", "Failed to listen on any port. Use -listen=0 if 
 QT_TRANSLATE_NOOP("merge-core", "Failed to read block index"),
 QT_TRANSLATE_NOOP("merge-core", "Failed to read block"),
 QT_TRANSLATE_NOOP("merge-core", "Failed to write block index"),
-QT_TRANSLATE_NOOP("merge-core", "Fee (in PIV/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("merge-core", "Fee (in MERGE/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("merge-core", "Finalizing transaction."),
 QT_TRANSLATE_NOOP("merge-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("merge-core", "Found enough users, signing ( waiting %s )"),

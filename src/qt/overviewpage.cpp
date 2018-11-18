@@ -149,7 +149,7 @@ OverviewPage::~OverviewPage()
     delete ui;
 }
 
-void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBalance, QString& sPIVPercentage, QString& szPIVPercentage)
+void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBalance, QString& sMERGEPercentage, QString& szMERGEPercentage)
 {
     int nPrecision = 2;
     double dzPercentage = 0.0;
@@ -168,8 +168,8 @@ void OverviewPage::getPercentage(CAmount nUnlockedBalance, CAmount nZerocoinBala
 
     double dPercentage = 100.0 - dzPercentage;
     
-    szPIVPercentage = "(" + QLocale(QLocale::system()).toString(dzPercentage, 'f', nPrecision) + " %)";
-    sPIVPercentage = "(" + QLocale(QLocale::system()).toString(dPercentage, 'f', nPrecision) + " %)";
+    szMERGEPercentage = "(" + QLocale(QLocale::system()).toString(dzPercentage, 'f', nPrecision) + " %)";
+    sMERGEPercentage = "(" + QLocale(QLocale::system()).toString(dPercentage, 'f', nPrecision) + " %)";
     
 }
 
@@ -184,11 +184,10 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     currentWatchImmatureBalance = watchImmatureBalance;
 
     // MERGE labels
-    if ((balance - immatureBalance) < 0) {
+    if (balance < 0)
        ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, 0, false, BitcoinUnits::separatorAlways));
-    } else {
-       ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, abs(balance - immatureBalance), false, BitcoinUnits::separatorAlways));
-    }
+    else
+       ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, balance, false, BitcoinUnits::separatorAlways));
 
     ui->labelUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedBalance, false, BitcoinUnits::separatorAlways));
     ui->labelImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, immatureBalance, false, BitcoinUnits::separatorAlways));
@@ -204,13 +203,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     // zMERGE labels
     QString szPercentage = "";
     QString sPercentage = "";
-    //CAmount nLockedBalance = 0;
-    //if (pwalletMain) {
-    //    nLockedBalance = pwalletMain->GetLockedCoins();
-    //}
-
-    //CAmount nTotalBalance = balance + unconfirmedBalance;
-    //CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users

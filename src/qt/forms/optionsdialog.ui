@@ -138,7 +138,7 @@
             <string>Percentage of incoming MERGE which get automatically converted to zMERGE via Zerocoin Protocol (min: 10%)</string>
            </property>
            <property name="text">
-            <string>Percentage of autominted zPIV</string>
+            <string>Percentage of autominted zMERGE</string>
            </property>
           </widget>
          </item>

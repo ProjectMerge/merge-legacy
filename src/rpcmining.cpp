@@ -136,6 +136,9 @@ Value setgenerate(const Array& params, bool fHelp)
     if (pwalletMain == NULL)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found (disabled)");
 
+    if (chainActive.Height() > Params().LAST_POW_BLOCK())
+        throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Last PoW block passed (function disabled)");
+
     bool fGenerate = true;
     if (params.size() > 0)
         fGenerate = params[0].get_bool();

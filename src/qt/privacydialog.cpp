@@ -31,13 +31,13 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
     ui->setupUi(this);
 
     // "Spending 999999 zMERGE ought to be enough for anybody." - Bill Gates, 2017
-    ui->zPIVpayAmount->setValidator( new QDoubleValidator(0.0, 21000000.0, 20, this) );
+    ui->zMERGEpayAmount->setValidator( new QDoubleValidator(0.0, 21000000.0, 20, this) );
     ui->labelMintAmountValue->setValidator( new QIntValidator(0, 999999, this) );
 
     // Default texts for (mini-) coincontrol
     ui->labelCoinControlQuantity->setText (tr("Coins automatically selected"));
     ui->labelCoinControlAmount->setText (tr("Coins automatically selected"));
-    ui->labelzPIVSyncStatus->setText("(" + tr("out of sync") + ")");
+    ui->labelzMERGESyncStatus->setText("(" + tr("out of sync") + ")");
 
     // Sunken frame for minting messages
     ui->TEMintStatus->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
@@ -66,7 +66,7 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
     ui->labelzDenom7Text->setText("Denom. with value <b>1000</b>:");
     ui->labelzDenom8Text->setText("Denom. with value <b>5000</b>:");
 
-    // PIVX settings
+    // MERGE settings
     QSettings settings;
     if (!settings.contains("nSecurityLevel")){
         nSecurityLevel = 42;
@@ -94,11 +94,11 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent),
 
     //temporary disable for maintenance
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
-        ui->pushButtonMintzPIV->setEnabled(false);
-        ui->pushButtonMintzPIV->setToolTip(tr("zMERGE is currently disabled due to maintenance."));
+        ui->pushButtonMintzMERGE->setEnabled(false);
+        ui->pushButtonMintzMERGE->setToolTip(tr("zMERGE is currently disabled due to maintenance."));
 
-        ui->pushButtonSpendzPIV->setEnabled(false);
-        ui->pushButtonSpendzPIV->setToolTip(tr("zMERGE is currently disabled due to maintenance."));
+        ui->pushButtonSpendzMERGE->setEnabled(false);
+        ui->pushButtonSpendzMERGE->setToolTip(tr("zMERGE is currently disabled due to maintenance."));
     }
 }
 
@@ -136,11 +136,11 @@ void PrivacyDialog::on_addressBookButton_clicked()
     dlg.setModel(walletModel->getAddressTableModel());
     if (dlg.exec()) {
         ui->payTo->setText(dlg.getReturnValue());
-        ui->zPIVpayAmount->setFocus();
+        ui->zMERGEpayAmount->setFocus();
     }
 }
 
-void PrivacyDialog::on_pushButtonMintzPIV_clicked()
+void PrivacyDialog::on_pushButtonMintzMERGE_clicked()
 {
     return;
 }
@@ -155,7 +155,7 @@ void PrivacyDialog::on_pushButtonSpentReset_clicked()
     return;
 }
 
-void PrivacyDialog::on_pushButtonSpendzPIV_clicked()
+void PrivacyDialog::on_pushButtonSpendzMERGE_clicked()
 {
 
     if (!walletModel || !walletModel->getOptionsModel() || !pwalletMain)
@@ -175,12 +175,12 @@ void PrivacyDialog::on_pushButtonSpendzPIV_clicked()
             // Unlock wallet was cancelled
             return;
         }
-        // Wallet is unlocked now, sedn zPIV
-        sendzPIV();
+        // Wallet is unlocked now, sedn zMERGE
+        sendzMERGE();
         return;
     }
-    // Wallet already unlocked or not encrypted at all, send zPIV
-    sendzPIV();
+    // Wallet already unlocked or not encrypted at all, send zMERGE
+    sendzMERGE();
 }
 
 void PrivacyDialog::on_pushButtonZPivControl_clicked()
@@ -201,7 +201,7 @@ static inline int64_t roundint64(double d)
     return (int64_t)(d > 0 ? d + 0.5 : d - 0.5);
 }
 
-void PrivacyDialog::sendzPIV()
+void PrivacyDialog::sendzMERGE()
 {
     return;
 }
@@ -301,7 +301,7 @@ void PrivacyDialog::updateDisplayUnit()
 
 void PrivacyDialog::showOutOfSyncWarning(bool fShow)
 {
-    ui->labelzPIVSyncStatus->setVisible(fShow);
+    ui->labelzMERGESyncStatus->setVisible(fShow);
 }
 
 void PrivacyDialog::keyPressEvent(QKeyEvent* event)

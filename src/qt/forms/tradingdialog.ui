@@ -181,7 +181,7 @@
       <string>Asks</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PIVSupply">
+    <widget class="QLabel" name="MERGESupply">
      <property name="geometry">
       <rect>
        <x>540</x>
@@ -197,7 +197,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="PIVDemand">
+    <widget class="QLabel" name="MERGEDemand">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -432,7 +432,7 @@
     <attribute name="title">
      <string>Buy</string>
     </attribute>
-    <widget class="QPushButton" name="BuyPIV">
+    <widget class="QPushButton" name="BuyMERGE">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -442,7 +442,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Buy PIV</string>
+      <string>Buy MERGE</string>
      </property>
      <property name="icon">
       <iconset resource="../merge.qrc">
@@ -512,7 +512,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>PIV</string>
+      <string>MERGE</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -1704,10 +1704,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>PIV</string>
+      <string>MERGE</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="UnitsInputPIV">
+    <widget class="QLineEdit" name="UnitsInputMERGE">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1741,7 +1741,7 @@
       </font>
      </property>
     </widget>
-    <widget class="QPushButton" name="SellPIVBTN">
+    <widget class="QPushButton" name="SellMERGEBTN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -1751,7 +1751,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Sell PIV</string>
+      <string>Sell MERGE</string>
      </property>
      <property name="icon">
       <iconset resource="../merge">
@@ -1782,7 +1782,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="PIVAvailableLabel">
+       <widget class="QLabel" name="MERGEAvailableLabel">
         <property name="palette">
          <palette>
           <active>
@@ -2213,7 +2213,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="labelPIV">
+       <widget class="QLabel" name="labelMERGE">
         <property name="font">
          <font>
           <weight>75</weight>
@@ -2221,7 +2221,7 @@
          </font>
         </property>
         <property name="text">
-         <string>PIV</string>
+         <string>MERGE</string>
         </property>
        </widget>
       </item>
@@ -2733,7 +2733,7 @@
       <string>TextLabel</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PIVBalanceLabel">
+    <widget class="QLabel" name="MERGEBalanceLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2784,7 +2784,7 @@
       <string>BTC Balance:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PIVAvailableLabel_2">
+    <widget class="QLabel" name="MERGEAvailableLabel_2">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2835,7 +2835,7 @@
       <string>MERGE Pending:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="PIVPendingLabel">
+    <widget class="QLabel" name="MERGEPendingLabel">
      <property name="geometry">
       <rect>
        <x>150</x>

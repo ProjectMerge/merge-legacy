@@ -51,8 +51,8 @@ static const int MAX_URI_LENGTH = 255;
 
 #define QAPP_ORG_NAME "MERGE"
 #define QAPP_ORG_DOMAIN "projectmerge.org"
-#define QAPP_APP_NAME_DEFAULT "PIVX-Qt"
-#define QAPP_APP_NAME_TESTNET "PIVX-Qt-testnet"
+#define QAPP_APP_NAME_DEFAULT "MERGE-Qt"
+#define QAPP_APP_NAME_TESTNET "MERGE-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
 

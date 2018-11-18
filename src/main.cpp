@@ -88,7 +88,7 @@ int64_t nReserveBalance = 0;
  * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
  * so it's still 10 times lower comparing to bitcoin.
  */
-CFeeRate minRelayTxFee = CFeeRate(10000);
+CFeeRate minRelayTxFee = CFeeRate(0);
 
 CTxMemPool mempool(::minRelayTxFee);
 
@@ -1073,29 +1073,7 @@ bool CheckFinalTx(const CTransaction& tx, int flags)
 
 CAmount GetMinRelayFee(const CTransaction& tx, unsigned int nBytes, bool fAllowFree)
 {
-    {
-        LOCK(mempool.cs);
-        uint256 hash = tx.GetHash();
-        double dPriorityDelta = 0;
-        CAmount nFeeDelta = 0;
-        mempool.ApplyDeltas(hash, dPriorityDelta, nFeeDelta);
-        if (dPriorityDelta > 0 || nFeeDelta > 0)
-            return 0;
-    }
-
-    CAmount nMinFee = ::minRelayTxFee.GetFee(nBytes);
-
-    if (fAllowFree) {
-        // There is a free transaction area in blocks created by most miners,
-        // * If we are relaying we allow transactions up to DEFAULT_BLOCK_PRIORITY_SIZE - 1000
-        //   to be considered to fall into this category. We don't want to encourage sending
-        //   multiple transactions instead of one big transaction to avoid fees.
-        if (nBytes < (DEFAULT_BLOCK_PRIORITY_SIZE - 1000))
-            nMinFee = 0;
-    }
-
-    if (!MoneyRange(nMinFee))
-        nMinFee = Params().MaxMoneyOut();
+    CAmount nMinFee = 0;
     return nMinFee;
 }
 
@@ -1219,46 +1197,6 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
 
         CTxMemPoolEntry entry(tx, nFees, GetTime(), dPriority, chainActive.Height());
         unsigned int nSize = entry.GetTxSize();
-
-        // Don't accept it if it can't get into a block
-        // but prioritise dstx and don't check fees for it
-        if (mapObfuscationBroadcastTxes.count(hash)) {
-            mempool.PrioritiseTransaction(hash, hash.ToString(), 1000, 0.1 * COIN);
-        } else if (!ignoreFees) {
-            CAmount txMinFee = GetMinRelayFee(tx, nSize, true);
-            if (fLimitFree && nFees < txMinFee)
-                return state.DoS(0, error("AcceptToMemoryPool : not enough fees %s, %d < %d",
-                                        hash.ToString(), nFees, txMinFee),
-                    REJECT_INSUFFICIENTFEE, "insufficient fee");
-
-            // Require that free transactions have sufficient priority to be mined in the next block.
-            if (GetBoolArg("-relaypriority", true) && nFees < ::minRelayTxFee.GetFee(nSize) && !AllowFree(view.GetPriority(tx, chainActive.Height() + 1))) {
-                return state.DoS(0, false, REJECT_INSUFFICIENTFEE, "insufficient priority");
-            }
-
-            // Continuously rate-limit free (really, very-low-fee) transactions
-            // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
-            // be annoying or make others' transactions take longer to confirm.
-            if (fLimitFree && nFees < ::minRelayTxFee.GetFee(nSize)) {
-                static CCriticalSection csFreeLimiter;
-                static double dFreeCount;
-                static int64_t nLastTime;
-                int64_t nNow = GetTime();
-
-                LOCK(csFreeLimiter);
-
-                // Use an exponentially decaying ~10-minute window:
-                dFreeCount *= pow(1.0 - 1.0 / 600.0, (double)(nNow - nLastTime));
-                nLastTime = nNow;
-                // -limitfreerelay unit is thousand-bytes-per-minute
-                // At default rate it would take over a month to fill 1GB
-                if (dFreeCount >= GetArg("-limitfreerelay", 15) * 10 * 1000)
-                    return state.DoS(0, error("AcceptToMemoryPool : free transaction rejected by rate limiter"),
-                        REJECT_INSUFFICIENTFEE, "rate limited free transaction");
-                LogPrint("mempool", "Rate limit dFreeCount: %g => %g\n", dFreeCount, dFreeCount + nSize);
-                dFreeCount += nSize;
-            }
-        }
 
         if (fRejectInsaneFee && nFees > ::minRelayTxFee.GetFee(nSize) * 10000)
             return error("AcceptToMemoryPool: : insane fees %s, %d > %d",
@@ -1641,32 +1579,104 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight)
 {
-    int64_t nSubsidy = 0;
-    if (nHeight == 0) { nSubsidy = 33000000 * COIN;	
-        } else if (nHeight > 0 && nHeight <= 57600)       { nSubsidy = 15 * COIN;	    
-        } else if (nHeight > 57600 && nHeight <= 72000)   { nSubsidy = 20 * COIN;	
-        } else if (nHeight > 72000 && nHeight <= 86400)   { nSubsidy = 30 * COIN;    
-	} else if (nHeight > 86400 && nHeight <= 100800)  { nSubsidy = 40 * COIN;
-	} else if (nHeight > 100800 && nHeight <= 144000) { nSubsidy = 50 * COIN;	
-	} else if (nHeight > 144000 && nHeight <= 273600) { nSubsidy = 55 * COIN;
-	} else if (nHeight > 273600 && nHeight <= 316800) { nSubsidy = 50 * COIN;
-        } else if (nHeight > 316800 && nHeight <= 360000) { nSubsidy = 45 * COIN;
-	} else if (nHeight > 360000 && nHeight <= 403200) { nSubsidy = 40 * COIN;
-        } else if (nHeight > 403200 && nHeight <= 446400) { nSubsidy = 35 * COIN;
-	} else if (nHeight > 446400 && nHeight <= 489600) { nSubsidy = 30 * COIN;
-	} else if (nHeight > 489600 && nHeight <= 532800) { nSubsidy = 25 * COIN;
-	} else if (nHeight > 532800) { 
-          nSubsidy = ((42 - ((nHeight - 532799) / 100000)) / 2) * COIN;
+    if (Params().NetworkID() == CBaseChainParams::MAIN) {
+      if (nHeight == 0) { return 33000000 * COIN;	
+        } else if (nHeight > 0 && nHeight <= 43201)     { return 15 * COIN;
+        } else if (nHeight > 43201 && nHeight <= 57601) { return 10 * COIN;
+        } else if (nHeight > 57601 && nHeight <= 72001) { return 20 * COIN;
+        } else if (nHeight > 72001 && nHeight <= 86401) { return 30 * COIN;
+        } else if (nHeight > 86401 && nHeight <= 100801) { return 40 * COIN;
+        } else if (nHeight > 100801 && nHeight <= 144001) { return 50 * COIN;
+        } else if (nHeight > 144001 && nHeight <= 273601) { return 55 * COIN;
+        } else if (nHeight > 273601 && nHeight <= 316801) { return 50 * COIN;
+        } else if (nHeight > 316801 && nHeight <= 360001) { return 45 * COIN;
+        } else if (nHeight > 360001 && nHeight <= 403201) { return 40 * COIN;
+        } else if (nHeight > 403201 && nHeight <= 446401) { return 35 * COIN;
+        } else if (nHeight > 446401 && nHeight <= 489601) { return 30 * COIN;
+        } else if (nHeight > 489601 && nHeight <= 532802) { return 25 * COIN;
+        } else if (nHeight > 532802 && nHeight <= 576003) { return 24 * COIN;
+        } else if (nHeight > 576003 && nHeight <= 662404) { return 23 * COIN;
+        } else if (nHeight > 662404 && nHeight <= 748805) { return 22 * COIN;
+        } else if (nHeight > 748805 && nHeight <= 835206) { return 21 * COIN;
+        } else if (nHeight > 835206 && nHeight <= 969127) { return 20 * COIN;
+        } else if (nHeight > 969127 && nHeight <= 1098728) { return 19 * COIN;
+        } else if (nHeight > 1098728 && nHeight <= 1228329) { return 18 * COIN;
+        } else if (nHeight > 1228329 && nHeight <= 1357930) { return 17 * COIN;
+        } else if (nHeight > 1357930 && nHeight <= 1487531) { return 16 * COIN;
+        } else if (nHeight > 1487531 && nHeight <= 1660332) { return 15 * COIN;
+        } else if (nHeight > 1660332 && nHeight <= 1833133) { return 14 * COIN;
+        } else if (nHeight > 1833133 && nHeight <= 2049134) { return 13 * COIN;
+        } else if (nHeight > 2049134 && nHeight <= 2265135) { return 12 * COIN;
+        } else if (nHeight > 2265135 && nHeight <= 2481136) { return 11 * COIN;
+        } else if (nHeight > 2481136 && nHeight <= 2697137) { return 10 * COIN;
+        } else if (nHeight > 2697137 && nHeight <= 2956338) { return 9 * COIN;
+        } else if (nHeight > 2956338 && nHeight <= 3215539) { return 8 * COIN;
+        } else if (nHeight > 3215539 && nHeight <= 3474740) { return 7 * COIN;
+        } else if (nHeight > 3474740 && nHeight <= 3733941) { return 6 * COIN;
+        } else if (nHeight > 3733941 && nHeight <= 3993142) { return 5 * COIN;
+        } else if (nHeight > 3993142 && nHeight <= 4338743) { return 4 * COIN;
+        } else if (nHeight > 4338743 && nHeight <= 4684344) { return 3 * COIN;
+        } else if (nHeight > 4684344 && nHeight <= 5029945) { return 2 * COIN;
+        } else if (nHeight > 5029945 && nHeight <= 5314421) { return 1 * COIN;
+        } else if (nHeight > 5314421 && nHeight <= 9999999) { return 0 * COIN;
+      }
+    } else {
+      if (nHeight == 0) { return 33000000 * COIN;
+        } else if (nHeight > 0 && nHeight <= 500)      { return 15 * COIN;
+        } else if (nHeight > 500 && nHeight <= 999999) { return 30 * COIN;
+      }
     }
-    return nSubsidy;
+    return 0;
 }
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
-    int64_t ret = blockValue;
-    if (nHeight > 0 && nHeight <= 57600)     { ret = blockValue * 0;   }
-	else if (nHeight > 57600)            { ret = blockValue * 0.5; }
-    return ret;
+    if (Params().NetworkID() == CBaseChainParams::MAIN) {
+        if (nHeight >= 0 && nHeight <= 43201) { return 0 * COIN;
+        } else if (nHeight > 43201 && nHeight <= 57601) { return 0 * COIN;
+        } else if (nHeight > 57601 && nHeight <= 72001) { return 10.0 * COIN;
+        } else if (nHeight > 72001 && nHeight <= 86401) { return 15.0 * COIN;
+        } else if (nHeight > 86401 && nHeight <= 100801) { return 20.0 * COIN;
+        } else if (nHeight > 100801 && nHeight <= 144001) { return 25.0 * COIN;
+        } else if (nHeight > 144001 && nHeight <= 273601) { return 27.5 * COIN;
+        } else if (nHeight > 273601 && nHeight <= 316801) { return 25.0 * COIN;
+        } else if (nHeight > 316801 && nHeight <= 360001) { return 22.5 * COIN;
+        } else if (nHeight > 360001 && nHeight <= 403201) { return 20.0 * COIN;
+        } else if (nHeight > 403201 && nHeight <= 446401) { return 17.5 * COIN;
+        } else if (nHeight > 446401 && nHeight <= 489601) { return 15.0 * COIN;
+        } else if (nHeight > 489601 && nHeight <= 532802) { return 12.5 * COIN;
+        } else if (nHeight > 532802 && nHeight <= 576003) { return 12.0 * COIN;
+        } else if (nHeight > 576003 && nHeight <= 662404) { return 11.5 * COIN;
+        } else if (nHeight > 662404 && nHeight <= 748805) { return 11.0 * COIN;
+        } else if (nHeight > 748805 && nHeight <= 835206) { return 10.5 * COIN;
+        } else if (nHeight > 835206 && nHeight <= 969127) { return 10.0 * COIN;
+        } else if (nHeight > 969127 && nHeight <= 1098728) { return 9.5 * COIN;
+        } else if (nHeight > 1098728 && nHeight <= 1228329) { return 9.0 * COIN;
+        } else if (nHeight > 1228329 && nHeight <= 1357930) { return 8.5 * COIN;
+        } else if (nHeight > 1357930 && nHeight <= 1487531) { return 8.0 * COIN;
+        } else if (nHeight > 1487531 && nHeight <= 1660332) { return 7.5 * COIN;
+        } else if (nHeight > 1660332 && nHeight <= 1833133) { return 7.0 * COIN;
+        } else if (nHeight > 1833133 && nHeight <= 2049134) { return 6.5 * COIN;
+        } else if (nHeight > 2049134 && nHeight <= 2265135) { return 6.0 * COIN;
+        } else if (nHeight > 2265135 && nHeight <= 2481136) { return 5.5 * COIN;
+        } else if (nHeight > 2481136 && nHeight <= 2697137) { return 5.0 * COIN;
+        } else if (nHeight > 2697137 && nHeight <= 2956338) { return 4.5 * COIN;
+        } else if (nHeight > 2956338 && nHeight <= 3215539) { return 4.0 * COIN;
+        } else if (nHeight > 3215539 && nHeight <= 3474740) { return 3.5 * COIN;
+        } else if (nHeight > 3474740 && nHeight <= 3733941) { return 3.0 * COIN;
+        } else if (nHeight > 3733941 && nHeight <= 3993142) { return 2.5 * COIN;
+        } else if (nHeight > 3993142 && nHeight <= 4338743) { return 2.0 * COIN;
+        } else if (nHeight > 4338743 && nHeight <= 4684344) { return 1.5 * COIN;
+        } else if (nHeight > 4684344 && nHeight <= 5029945) { return 1.0 * COIN;
+        } else if (nHeight > 5029945 && nHeight <= 5314421) { return 0.5 * COIN;
+        } else if (nHeight > 5314421 && nHeight <= 9999999) { return 0.0 * COIN;
+      }
+    } else {
+      if (nHeight < 501) { return 0 * COIN;
+        } else { return 15 * COIN;
+      }
+    }
+    return 0;
 }
 
 bool IsInitialBlockDownload()
