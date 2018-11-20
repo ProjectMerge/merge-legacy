@@ -907,10 +907,6 @@ bool AppInit2(boost::thread_group& threadGroup)
 #endif // ENABLE_WALLET
 
     fIsBareMultisigStd = GetBoolArg("-permitbaremultisig", true) != 0;
-    fPeerlessAllowed = GetBoolArg("-peerless", false) != 0;
-
-    if (fPeerlessAllowed == true)
-       LogPrintf("Peerless mining enabled.\n");
 
     nMaxDatacarrierBytes = GetArg("-datacarriersize", nMaxDatacarrierBytes);
 

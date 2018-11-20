@@ -473,6 +473,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 
     while (fGenerateBitcoins || fProofOfStake) {
         if (fProofOfStake) {
+
             if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
                 MilliSleep(5000);
                 continue;
@@ -542,8 +543,11 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         uint256 hashTarget = uint256().SetCompact(pblock->nBits);
         while (true) {
 
-            if (chainActive.Height() > Params().LAST_POW_BLOCK())
+            if (chainActive.Height() >= Params().LAST_POW_BLOCK())
+            {
+                LogPrintf("Automatically stopped generation via PoW.\n");
                 break;
+	    }
 
             unsigned int nHashesDone = 0;
 

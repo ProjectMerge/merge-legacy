@@ -16,7 +16,7 @@
 
 using namespace std;
 
-bool fTestNet = false; //Params().NetworkID() == CBaseChainParams::TESTNET;
+bool fTestNet = false;
 
 // Modifier interval: time to elapse before new modifier is computed
 // Set to 3-hour for production network and 20-minute for test network

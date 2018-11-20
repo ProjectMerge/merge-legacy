@@ -186,13 +186,13 @@ public:
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
-        nLastPOWBlock = 500;
+        nLastPOWBlock = 200;
         nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1540688670;
+        genesis.nTime = 1542710000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1712348;
+        genesis.nNonce = 4653267;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -204,10 +204,8 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000003b8dac0676e875d0ecded0127562be6ae0daead595680e555ce34e92551"));
+        assert(hashGenesisBlock == uint256("0x00000043bf969015451291590c4c197d7900347ec09d124274c4cbcd05027619"));
         assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
-
-        vSeeds.push_back(CDNSSeedData("test.quantumcheddar.pw", "test.quantumcheddar.pw"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 83); // a

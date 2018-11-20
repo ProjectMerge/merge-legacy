@@ -75,7 +75,6 @@ bool fImporting = false;
 bool fReindex = false;
 bool fTxIndex = true;
 bool fIsBareMultisigStd = true;
-bool fPeerlessAllowed = false;
 bool fCheckBlockIndex = false;
 bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
