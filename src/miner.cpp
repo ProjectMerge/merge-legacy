@@ -163,9 +163,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     unsigned int nBlockMinSize = GetArg("-blockminsize", DEFAULT_BLOCK_MIN_SIZE);
     nBlockMinSize = std::min(nBlockMaxSize, nBlockMinSize);
 
-    // Collect memory pool transactions into the block
-    CAmount nFees = 0;
-
     {
         LOCK2(cs_main, mempool.cs);
 
@@ -316,7 +313,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             nBlockSize += nTxSize;
             ++nBlockTx;
             nBlockSigOps += nTxSigOps;
-            nFees += nTxFees;
 
             if (fPrintPriority) {
                 LogPrintf("priority %.1f fee %s txid %s\n",
@@ -339,7 +335,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         if (!fProofOfStake) {
             //Masternode and general budget payments
-            FillBlockPayee(txNew, nFees, fProofOfStake);
+            FillBlockPayee(txNew, 0, fProofOfStake);
 
             //Make payee
             if (txNew.vout.size() > 1) {
@@ -358,7 +354,6 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             txNew.vin[0].scriptSig = CScript() << nHeight << OP_0;
             pblock->vtx[0] = txNew;
 	    pblock->vtx[0].vout[0].nValue = GetBlockValue(pindexPrev->nHeight);
-            pblocktemplate->vTxFees[0] = -nFees;
         }
 
         // Fill in header
