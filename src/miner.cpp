@@ -349,8 +349,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
         nLastBlockTx = nBlockTx;
         nLastBlockSize = nBlockSize;
-        LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize);
-
+        // LogPrintf("CreateNewBlock(): total size %u\n", nBlockSize);
 
         // Compute final coinbase transaction.
         if (fProofOfStake) {
@@ -447,7 +446,6 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 
 bool fGenerateBitcoins = false;
 
-// ***TODO*** that part changed in bitcoin, we are using a mix with old one here for now
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
     fIsMinerRunning = true;
@@ -542,12 +540,6 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         int64_t nStart = GetTime();
         uint256 hashTarget = uint256().SetCompact(pblock->nBits);
         while (true) {
-
-            if (chainActive.Height() >= Params().LAST_POW_BLOCK())
-            {
-                LogPrintf("Automatically stopped generation via PoW.\n");
-                break;
-	    }
 
             unsigned int nHashesDone = 0;
 
