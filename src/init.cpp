@@ -528,21 +528,20 @@ std::string HelpMessage(HelpMessageMode mode)
 
 std::string LicenseInfo()
 {
-    return FormatParagraph(_("Copyright (C) 2009-2010 Satoshi Nakamoto")) + "\n" +
+    return FormatParagraph(strprintf(_("Copyright (C) 2009-%i The Bitcoin Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(_("Copyright (C) 2009-2014 The Bitcoin developers")) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2014-%i The Dash Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(_("Copyright (C) 2014-2015 The Dash developers")) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2015-%i The PIVX Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(_("Copyright (C) 2015-2017 The PIVX developers")) + "\n" +
-           "\n" +
-           FormatParagraph(_("Copyright (C) 2018 The MERGE developers")) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) %i The MERGE Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
            FormatParagraph(_("This is experimental software.")) + "\n" +
            "\n" +
            FormatParagraph(_("Distributed under the MIT software license, see the accompanying file COPYING or <http://www.opensource.org/licenses/mit-license.php>.")) + "\n" +
            "\n" +
-           FormatParagraph(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard."));
+           FormatParagraph(_("This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.")) +
+           "\n";
 }
 
 static void BlockNotifyCallback(const uint256& hashNewTip)
