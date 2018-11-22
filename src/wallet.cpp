@@ -42,8 +42,8 @@ CAmount maxTxFee = DEFAULT_TRANSACTION_MAXFEE;
 unsigned int nTxConfirmTarget = 1;
 bool bSpendZeroConfChange = true;
 bool bdisableSystemnotifications = false; // Those bubbles can be annoying and slow down the UI when you get lots of trx
-bool fSendFreeTransactions = false;
-bool fPayAtLeastCustomFee = true;
+bool fSendFreeTransactions = true;
+bool fPayAtLeastCustomFee = false;
 
 /**
  * Fees smaller than this (in duffs) are considered zero fee (for transaction creation)
@@ -51,7 +51,7 @@ bool fPayAtLeastCustomFee = true;
  * so it's still 10 times lower comparing to bitcoin.
  * Override with -mintxfee
  */
-CFeeRate CWallet::minTxFee = CFeeRate(10000);
+CFeeRate CWallet::minTxFee = CFeeRate(0);
 int64_t nStartupTime = GetAdjustedTime();
 
 /** @defgroup mapWallet
@@ -2221,7 +2221,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
     bool useIX,
     CAmount nFeePay)
 {
-    if (useIX && nFeePay < CENT) nFeePay = CENT;
+    if (useIX && nFeePay < CENT) nFeePay = 0;
 
     CAmount nValue = 0;
 
