@@ -20,7 +20,6 @@
 #include "masternode-payments.h"
 #include "masternodeman.h"
 #include "merkleblock.h"
-#include "miner.h"
 #include "net.h"
 #include "obfuscation.h"
 #include "pow.h"
@@ -2129,9 +2128,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         return state.DoS(100, error("ConnectBlock() : PoS period not active"),
             REJECT_INVALID, "PoS-early");
 
-    if (pindex->nHeight > Params().LAST_POW_BLOCK() && block.IsProofOfWork())
-    {
-	GenerateBitcoins(false, NULL, 0);
+    if (pindex->nHeight > Params().LAST_POW_BLOCK() && block.IsProofOfWork()) {
         return state.DoS(100, error("ConnectBlock() : PoW period ended"), REJECT_INVALID, "PoW-ended");
     }
 
