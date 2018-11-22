@@ -469,7 +469,6 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
     }
 
     while (fGenerateBitcoins || fProofOfStake) {
-      try {
         if (fProofOfStake) {
 
             if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
@@ -604,16 +603,6 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 // Changing pblock->nTime can change work required on testnet:
                 hashTarget.SetCompact(pblock->nBits);
             }
-          }
-        }
-        catch (const boost::thread_interrupted&)
-        {
-            LogPrintf("MergeMiner -- terminated\n");
-            throw;
-        }
-        catch (const std::runtime_error &e)
-        {
-            LogPrintf("MergeMiner -- runtime error: %s\n", e.what());
         }
     }
 }
