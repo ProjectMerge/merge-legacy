@@ -55,11 +55,11 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("000003b8dac0676e875d0ecded0127562be6ae0daead595680e555ce34e92551"));
+    (0, uint256("00000bc1722ea4f2d79bd7bb042159082ff0adb2aa7fc3d7563d8aaa33d5880b"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1540688670, 1, 1};
+    1542897395, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
@@ -190,9 +190,9 @@ public:
         nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1542710000;
+        genesis.nTime = 1542897395;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 4653267;
+        genesis.nNonce = 1832120;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -204,8 +204,12 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000043bf969015451291590c4c197d7900347ec09d124274c4cbcd05027619"));
+        assert(hashGenesisBlock == uint256("0x00000bc1722ea4f2d79bd7bb042159082ff0adb2aa7fc3d7563d8aaa33d5880b"));
         assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
+
+        vFixedSeeds.clear();
+        vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("bazco.in", "lab.bazco.in"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 83); // a
