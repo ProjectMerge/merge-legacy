@@ -32,7 +32,6 @@ using namespace std;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE / 50;
 bool fIsMinerRunning = false;
 bool fHasMinerLogged = false;
-bool fStakeKernDebug = true;
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -463,7 +462,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
     static bool fMintableCoins = false;
     static int nMintableLastCheck = 0;
 
-    if (fProofOfStake && (GetTime() - nMintableLastCheck > 5 * 60)) // 5 minute check time
+    if (fProofOfStake && (GetTime() - nMintableLastCheck > 120)) // 2 minute check time
     {
         nMintableLastCheck = GetTime();
         fMintableCoins = pwallet->MintableCoins();
@@ -474,20 +473,22 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         if (fProofOfStake) 
         {
             if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
-		if (fStakeKernDebug) LogPrintf("miner.cpp: falling through as we arent at height %d\n", Params().LAST_POW_BLOCK());
+		if (fDebug) LogPrintf("miner.cpp: falling through as we arent at height %d\n", Params().LAST_POW_BLOCK());
                 MilliSleep(5000);
                 continue;
+            } else {
+                // switch off cpu miner
+                fGenerateBitcoins = false;
             }
 
             while (vNodes.size() < 3 || pwallet->IsLocked() || !fMintableCoins || nReserveBalance >= pwallet->GetBalance() || !masternodeSync.IsSynced()) {
 
-                if (fStakeKernDebug)
+                if (fDebug)
                 {
 			LogPrintf("miner.cpp: looping as criteria for staking not yet met\n");
-
-			if (vNodes.size() < 3)   LogPrintf("REASON: connected nodes less than 3\n");
+			if (vNodes.size() < 3) LogPrintf("REASON: connected nodes less than 3 (%d nodes)\n", vNodes.size());
 			if (pwallet->IsLocked()) LogPrintf("REASON: wallet is locked\n");
-			if (!fMintableCoins)     LogPrintf("REASON: no mintable coins\n");
+			if (!fMintableCoins) LogPrintf("REASON: no mintable coins\n");
 			if (nReserveBalance >= pwallet->GetBalance()) LogPrintf("REASON: no balance to stake (some is reserved)\n");
 			if (!masternodeSync.IsSynced()) LogPrintf("REASON: mnsync not complete\n");
 		}
@@ -498,11 +499,11 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                     continue;
             }
 
-            if (mapHashedBlocks.count(chainActive.Tip()->nHeight)) //search our map of hashed blocks, see if bestblock has been hashed yet
+            if (mapHashedBlocks.count(chainActive.Tip()->nHeight))
             {
-                if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < max(pwallet->nHashInterval, (unsigned int)1)) // wait half of the nHashDrift with max wait of 3 minutes
+                if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < max(pwallet->nHashInterval, (unsigned int)1))
                 {
-                    if (fStakeKernDebug) LogPrintf("miner.cpp: waiting as bestblock not hashed yet\n");
+                    if (fDebug) LogPrintf("miner.cpp: staking..\n");
                     MilliSleep(5000);
                     continue;
                 }

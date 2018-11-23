@@ -89,7 +89,7 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60;
+        nTargetTimespan = 10 * 60;
         nTargetSpacing = 1 * 60;
         nMaturity = 25;
         nMasternodeCountDrift = 20;
@@ -181,7 +181,7 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 60;
+        nTargetTimespan = 10 * 60;
         nTargetSpacing = 1 * 60;
         nMaturity = 25;
         nMasternodeCountDrift = 20;

@@ -19,7 +19,6 @@
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader* pblock)
 {
-    /* current difficulty formula, pivx - DarkGravity v3, written by Evan Duffield - evan@dashpay.io */
     const CBlockIndex* BlockLastSolved = pindexLast;
     const CBlockIndex* BlockReading = pindexLast;
     int64_t nActualTimespan = 0;
@@ -39,9 +38,10 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     if (pindexLast->nHeight > Params().LAST_POW_BLOCK())
     {
-        uint256 bnTargetLimit = (~uint256(0) >> 20);
-        int64_t nTargetSpacing = 60;
-        int64_t nTargetTimespan = 60 * 10;
+        // effectively chainparams.cpp for PoS
+        uint256 bnTargetLimit = (~uint256(0) >> 24);
+        int64_t nTargetSpacing = Params().TargetSpacing();
+        int64_t nTargetTimespan = Params().TargetTimespan();
 
         int64_t nActualSpacing = 0;
         if (pindexLast->nHeight != 0)
@@ -61,6 +61,9 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
         if (bnNew <= 0 || bnNew > bnTargetLimit)
             bnNew = bnTargetLimit;
+
+        if (fDebug)
+            LogPrintf("pow.cpp: next PoS target %s\n", bnNew.ToString().c_str());
 
         return bnNew.GetCompact();
     }
@@ -109,6 +112,9 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     if (bnNew > Params().ProofOfWorkLimit())
         bnNew = Params().ProofOfWorkLimit();
 
+    if (fDebug)
+        LogPrintf("pow.cpp: next PoW target %s\n", bnNew.ToString().c_str());
+
     return bnNew.GetCompact();
 }
 
@@ -126,9 +132,6 @@ bool CheckProofOfWork(uint256 hash, unsigned int nBits)
     // Check range
     if (fNegative || bnTarget == 0 || fOverflow || bnTarget > Params().ProofOfWorkLimit())
         return error("CheckProofOfWork() : nBits below minimum work");
-
-    // Print hash and bnTarget every time we're called
-    LogPrintf("* CheckProofOfWork - hash: %s bnTarget: %s\n", hash.ToString().c_str(), bnTarget.ToString().c_str());
 
     // Check proof of work matches claimed amount
     if (hash > bnTarget)
