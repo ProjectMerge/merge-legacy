@@ -30,11 +30,15 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     uint256 PastDifficultyAverage;
     uint256 PastDifficultyAveragePrev;
 
-    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin) {
+    // in testnet all but last 20 blocks before LAST_POW_BLOCK are mindiff
+    if (Params().NetworkID() == CBaseChainParams::TESTNET && pindexLast->nHeight < (Params().LAST_POW_BLOCK() - 20))
         return Params().ProofOfWorkLimit().GetCompact();
-    }
 
-    if (pindexLast->nHeight > Params().LAST_POW_BLOCK()) {
+    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin)
+        return Params().ProofOfWorkLimit().GetCompact();
+
+    if (pindexLast->nHeight > Params().LAST_POW_BLOCK())
+    {
         uint256 bnTargetLimit = (~uint256(0) >> 20);
         int64_t nTargetSpacing = 60;
         int64_t nTargetTimespan = 60 * 10;
@@ -102,9 +106,8 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     bnNew *= nActualTimespan;
     bnNew /= _nTargetTimespan;
 
-    if (bnNew > Params().ProofOfWorkLimit()) {
+    if (bnNew > Params().ProofOfWorkLimit())
         bnNew = Params().ProofOfWorkLimit();
-    }
 
     return bnNew.GetCompact();
 }

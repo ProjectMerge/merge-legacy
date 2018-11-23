@@ -32,6 +32,7 @@ using namespace std;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE / 50;
 bool fIsMinerRunning = false;
 bool fHasMinerLogged = false;
+bool fStakeKernDebug = true;
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -468,15 +469,29 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
         fMintableCoins = pwallet->MintableCoins();
     }
 
-    while (fGenerateBitcoins || fProofOfStake) {
-        if (fProofOfStake) {
-
+    while (fGenerateBitcoins || fProofOfStake) 
+    {
+        if (fProofOfStake) 
+        {
             if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
+		if (fStakeKernDebug) LogPrintf("miner.cpp: falling through as we arent at height %d\n", Params().LAST_POW_BLOCK());
                 MilliSleep(5000);
                 continue;
             }
 
             while (vNodes.size() < 3 || pwallet->IsLocked() || !fMintableCoins || nReserveBalance >= pwallet->GetBalance() || !masternodeSync.IsSynced()) {
+
+                if (fStakeKernDebug)
+                {
+			LogPrintf("miner.cpp: looping as criteria for staking not yet met\n");
+
+			if (vNodes.size() < 3)   LogPrintf("REASON: connected nodes less than 3\n");
+			if (pwallet->IsLocked()) LogPrintf("REASON: wallet is locked\n");
+			if (!fMintableCoins)     LogPrintf("REASON: no mintable coins\n");
+			if (nReserveBalance >= pwallet->GetBalance()) LogPrintf("REASON: no balance to stake (some is reserved)\n");
+			if (!masternodeSync.IsSynced()) LogPrintf("REASON: mnsync not complete\n");
+		}
+
                 nLastCoinStakeSearchInterval = 0;
                 MilliSleep(5000);
                 if (!fGenerateBitcoins && !fProofOfStake)
@@ -487,6 +502,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             {
                 if (GetTime() - mapHashedBlocks[chainActive.Tip()->nHeight] < max(pwallet->nHashInterval, (unsigned int)1)) // wait half of the nHashDrift with max wait of 3 minutes
                 {
+                    if (fStakeKernDebug) LogPrintf("miner.cpp: waiting as bestblock not hashed yet\n");
                     MilliSleep(5000);
                     continue;
                 }

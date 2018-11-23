@@ -136,7 +136,7 @@ Value setgenerate(const Array& params, bool fHelp)
     if (pwalletMain == NULL)
         throw JSONRPCError(RPC_METHOD_NOT_FOUND, "Method not found (disabled)");
 
-    bool fGenerate = true;
+    bool fGenerate = false;
     if (params.size() > 0)
         fGenerate = params[0].get_bool();
 
@@ -148,7 +148,8 @@ Value setgenerate(const Array& params, bool fHelp)
     }
 
     // -regtest mode: don't return until nGenProcLimit blocks are generated
-    if (fGenerate && Params().MineBlocksOnDemand()) {
+    if (fGenerate && Params().MineBlocksOnDemand()) 
+    {
         int nHeightStart = 0;
         int nHeightEnd = 0;
         int nHeight = 0;
