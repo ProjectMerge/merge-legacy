@@ -47,7 +47,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("000003157c25b14e0585dc737dc853c2d945f3624ecc24e32c23d29c0843252c"));
+    (0, uint256("0x000003157c25b14e0585dc737dc853c2d945f3624ecc24e32c23d29c0843252c"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -55,15 +55,15 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("00000bc1722ea4f2d79bd7bb042159082ff0adb2aa7fc3d7563d8aaa33d5880b"));
+    (0, uint256("0x0000042ca1eaabf17ab7c8000f3282508a5fb9a710d3f5c8cb41a4e7820be64"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1542897395, 1, 1};
+    1542977000, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
-    (0, uint256("0000000000000000000000000000000000000000000000000000000000000000"));
+    (0, uint256("0x0000000000000000000000000000000000000000000000000000000000000000"));
 
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
@@ -190,9 +190,9 @@ public:
         nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1542897395;
+        genesis.nTime = 1542977000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1832120;
+        genesis.nNonce = 3739677;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -204,11 +204,12 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000bc1722ea4f2d79bd7bb042159082ff0adb2aa7fc3d7563d8aaa33d5880b"));
+        assert(hashGenesisBlock == uint256("0x0000042ca1eaabf17ab7c8000f3282508a5fb9a710d3f5c8cb41a4e7820be64e"));
         assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
+
         vSeeds.push_back(CDNSSeedData("bazco.in", "lab.bazco.in"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
