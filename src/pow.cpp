@@ -62,9 +62,6 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
         if (bnNew <= 0 || bnNew > bnTargetLimit)
             bnNew = bnTargetLimit;
 
-        if (fDebug)
-            LogPrintf("pow.cpp: next PoS target %s\n", bnNew.ToString().c_str());
-
         return bnNew.GetCompact();
     }
 
@@ -111,9 +108,6 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
     if (bnNew > Params().ProofOfWorkLimit())
         bnNew = Params().ProofOfWorkLimit();
-
-    if (fDebug)
-        LogPrintf("pow.cpp: next PoW target %s\n", bnNew.ToString().c_str());
 
     return bnNew.GetCompact();
 }

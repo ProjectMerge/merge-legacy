@@ -444,6 +444,8 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
 }
 
 bool fGenerateBitcoins = false;
+bool fMintableCoins = false;
+int nMintableLastCheck = 0;
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
@@ -458,20 +460,17 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
     CReserveKey reservekey(pwallet);
     unsigned int nExtraNonce = 0;
 
-    //control the amount of times the client will check for mintable coins
-    static bool fMintableCoins = false;
-    static int nMintableLastCheck = 0;
-
-    if (fProofOfStake && (GetTime() - nMintableLastCheck > 120)) // 2 minute check time
-    {
-        nMintableLastCheck = GetTime();
-        fMintableCoins = pwallet->MintableCoins();
-    }
-
     while (fGenerateBitcoins || fProofOfStake) 
     {
         if (fProofOfStake) 
         {
+            //control the amount of times the client will check for mintable coins
+            if ((GetTime() - nMintableLastCheck > 5 * 60)) // 5 minute check time
+            {
+                nMintableLastCheck = GetTime();
+                fMintableCoins = pwallet->MintableCoins();
+            }
+
             if (chainActive.Tip()->nHeight < Params().LAST_POW_BLOCK()) {
 		if (fDebug) LogPrintf("miner.cpp: falling through as we arent at height %d\n", Params().LAST_POW_BLOCK());
                 MilliSleep(5000);
@@ -481,7 +480,8 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 fGenerateBitcoins = false;
             }
 
-            while (vNodes.size() < 3 || pwallet->IsLocked() || !fMintableCoins || nReserveBalance >= pwallet->GetBalance() || !masternodeSync.IsSynced()) {
+            // while (vNodes.empty() || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced()) {
+            while (pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance())) {
 
                 if (fDebug)
                 {
@@ -489,11 +489,19 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 			if (vNodes.size() < 3) LogPrintf("REASON: connected nodes less than 3 (%d nodes)\n", vNodes.size());
 			if (pwallet->IsLocked()) LogPrintf("REASON: wallet is locked\n");
 			if (!fMintableCoins) LogPrintf("REASON: no mintable coins\n");
-			if (nReserveBalance >= pwallet->GetBalance()) LogPrintf("REASON: no balance to stake (some is reserved)\n");
+			if ((pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance())) LogPrintf("REASON: no balance to stake (some is reserved)\n");
 			if (!masternodeSync.IsSynced()) LogPrintf("REASON: mnsync not complete\n");
 		}
 
                 nLastCoinStakeSearchInterval = 0;
+                // Do a separate 1 minute check here to ensure fMintableCoins is updated
+                if (!fMintableCoins) {
+                    if (GetTime() - nMintableLastCheck > 1 * 60) // 1 minute check time
+                    {
+                        nMintableLastCheck = GetTime();
+                        fMintableCoins = pwallet->MintableCoins();
+                    }
+                }
                 MilliSleep(5000);
                 if (!fGenerateBitcoins && !fProofOfStake)
                     continue;
