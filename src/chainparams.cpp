@@ -47,19 +47,19 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000003157c25b14e0585dc737dc853c2d945f3624ecc24e32c23d29c0843252c"));
+    (0, uint256("0x0000059e66c2455fff8dd09b2dc11610ec1b50fc9b14f91ea0285bfec13a4764"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1540688660, 1, 1};
+    1543230000, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0x0000042ca1eaabf17ab7c8000f3282508a5fb9a710d3f5c8cb41a4e7820be64"));
+    (0, uint256("0x000004c1c106b740381eff0d95832832a82b21871c1f825b04ef3d09e6684630"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1542977000, 1, 1};
+    1543230001, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
@@ -91,13 +91,14 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 10 * 60;
         nTargetSpacing = 1 * 60;
+        nStakeMinAge = 60 * 60;
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 500;
         nModifierUpdateBlock = 50;
 
-        const char* pszTimestamp = "anything can interfere with anything, if you user it hard enough.";
+        const char* pszTimestamp = "MERGE: Bringing blockchain together.";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -108,9 +109,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1540688660;
+        genesis.nTime = 1543230000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 993068;
+        genesis.nNonce = 540716;
 
 	if (genesis.nNonce == 0) {
 	    while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -122,8 +123,8 @@ public:
 	}
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000003157c25b14e0585dc737dc853c2d945f3624ecc24e32c23d29c0843252c"));
-        assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
+        assert(hashGenesisBlock == uint256("0x0000059e66c2455fff8dd09b2dc11610ec1b50fc9b14f91ea0285bfec13a4764"));
+        assert(genesis.hashMerkleRoot == uint256("0xf54ada25473548138a2dc58cabaef3412e39ea8e86b95a71335f89d37f287029"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 50); // M
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 53); // N
@@ -183,6 +184,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 10 * 60;
         nTargetSpacing = 1 * 60;
+        nStakeMinAge = 20 * 60;
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
@@ -190,9 +192,9 @@ public:
         nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1542977000;
+        genesis.nTime = 1543230001;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 3739677;
+        genesis.nNonce = 1014602;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -204,13 +206,10 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000042ca1eaabf17ab7c8000f3282508a5fb9a710d3f5c8cb41a4e7820be64e"));
-        assert(genesis.hashMerkleRoot == uint256("0x4ace56be2b6886af1ee2b67d9626e02f63e803893c3816fbe2bac487a44804ae"));
+        assert(hashGenesisBlock == uint256("0x000004c1c106b740381eff0d95832832a82b21871c1f825b04ef3d09e6684630"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
-
-        vSeeds.push_back(CDNSSeedData("bazco.in", "lab.bazco.in"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 83); // a
@@ -266,6 +265,7 @@ public:
         nMinerThreads = 1;
         nTargetTimespan = 24 * 60 * 60;
         nTargetSpacing = 1 * 60;
+        nStakeMinAge = 20 * 60;
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1454124731;
         genesis.nBits = 0x207fffff;

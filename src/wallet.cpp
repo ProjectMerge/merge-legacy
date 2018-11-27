@@ -1687,7 +1687,7 @@ bool CWallet::SelectStakeCoins(std::set<std::pair<const CWalletTx*, unsigned int
         }
 
         //check for min age
-        if (GetAdjustedTime() - nTxTime < nStakeMinAge)
+        if (GetAdjustedTime() - nTxTime < Params().StakeMinAge())
             continue;
 
         //check that it is matured
@@ -1705,38 +1705,43 @@ bool CWallet::MintableCoins()
 {
     LOCK(cs_main);
     CAmount nBalance = GetBalance();
-    if (mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
-        return error("MintableCoins() : invalid reserve balance amount");
-    if (nBalance <= nReserveBalance)
+
+    if (nBalance > 0)
     {
-        if (fDebug) LogPrintf("wallet.cpp: all balance is in reserves\n");
-        return false;
+		if (mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
+			return error("%s : invalid reserve balance amount", __func__);
+		if (nBalance <= nReserveBalance)
+			return false;
+
+		// loop and remember our best
+		string bestCandidate;
+		int64_t bestCandidateTime = 65536;
+
+		vector<COutput> vCoins;
+		AvailableCoins(vCoins, true);
+
+		for (const COutput& out : vCoins)
+		{
+			int64_t nTxTime = out.tx->GetTxTime();
+			if (GetAdjustedTime() - nTxTime > Params().StakeMinAge())
+			{
+				return true;
+
+			} else {
+
+				int64_t nTimeToStake = (GetAdjustedTime() - nTxTime) - Params().StakeMinAge();
+				LogPrintf("- %s has %ds till mintable\n", out.ToString().c_str(), abs(nTimeToStake));
+
+				if (nTimeToStake < bestCandidateTime)
+				{
+				   bestCandidate = out.ToString().c_str();
+				   bestCandidateTime = abs(nTimeToStake);
+				}
+			}
+		}
+		if (fDebug && (bestCandidateTime < 65536))
+			LogPrintf("- %s is %ds till mintable\n", bestCandidate, bestCandidateTime);
     }
-
-    // loop and remember our best
-    string bestCandidate;
-    int64_t bestCandidateTime = 65536;
-
-    vector<COutput> vCoins;
-    AvailableCoins(vCoins, true);
-
-    for (const COutput& out : vCoins) {
-        int64_t nTxTime = out.tx->GetTxTime();
-        if (GetAdjustedTime() - nTxTime > nStakeMinAge) {
-            return true;
-        } else {
-            int64_t nTimeToStake = (GetAdjustedTime() - nTxTime) - nStakeMinAge;
-            if (nTimeToStake < bestCandidateTime)
-            {
-               bestCandidate = out.ToString().c_str();
-               bestCandidateTime = abs(nTimeToStake);
-            }
-        }
-    }
-
-    if (fDebug && (bestCandidateTime < 65536))
-       LogPrintf("- %s has %ds till mintable\n", bestCandidate, bestCandidateTime);
-
     return false;
 }
 
@@ -2458,7 +2463,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     if (mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
         return error("CreateCoinStake : invalid reserve balance amount");
 
-    if (nBalance <= nReserveBalance)
+    if (nBalance > 0 && nBalance <= nReserveBalance)
         return false;
 
     // presstab HyperStake - Initialize as static and don't update the set on every run of CreateCoinStake() in order to lighten resource use
