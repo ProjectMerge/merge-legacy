@@ -211,6 +211,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
+        vSeeds.push_back(CDNSSeedData("bazco.in", "lab.bazco.in"));
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 83); // a
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 208);
