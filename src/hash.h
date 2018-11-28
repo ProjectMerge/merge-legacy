@@ -262,7 +262,7 @@ inline uint256 argon2m_hash(const T1 pbegin, const T1 pend)
         context.adlen = 0;
         context.allocate_cbk = NULL;
         context.free_cbk = NULL;
-        context.flags = (unsigned int)2;
+        context.flags = DEFAULT_ARGON2_FLAG;
         context.m_cost = 2;
         context.lanes = 1;
         context.threads = 1;
