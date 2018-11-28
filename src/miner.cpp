@@ -480,12 +480,14 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 fGenerateBitcoins = false;
             }
 
-            while (vNodes.size() < 4 || pwallet->IsLocked() || !fMintableCoins || (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced())
+            while (IsInitialBlockDownload() || vNodes.size() < 4 || pwallet->IsLocked() || !fMintableCoins ||
+                   (pwallet->GetBalance() > 0 && nReserveBalance >= pwallet->GetBalance()) || !masternodeSync.IsSynced())
             {
 
                 if (fDebug)
                 {
 			LogPrintf("miner.cpp: looping as criteria for staking not yet met\n");
+                        if (IsInitialBlockDownload()) LogPrintf("REASON: we are still in initial block download\n");
 			if (vNodes.size() < 4) LogPrintf("REASON: connected nodes less than 4 (%d nodes)\n", vNodes.size());
 			if (pwallet->IsLocked()) LogPrintf("REASON: wallet is locked\n");
 			if (!fMintableCoins) LogPrintf("REASON: no mintable coins\n");
