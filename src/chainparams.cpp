@@ -47,19 +47,19 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x0000059e66c2455fff8dd09b2dc11610ec1b50fc9b14f91ea0285bfec13a4764"));
+    (0, uint256("0x000001c4a289240d099024fee00809dbc85a70ecc67024440be99ea27f73e4ca"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1543230000, 1, 1};
+    1543848100, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0x000004c1c106b740381eff0d95832832a82b21871c1f825b04ef3d09e6684630"));
+    (0, uint256("0x00000fc3a44cba50edc8e2f64a4cae9c6a88f3d66f6cceb81ffec81633dd6e78"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1543230001, 1, 1};
+    1543848101, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
@@ -111,7 +111,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1543848100;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 0;
+        genesis.nNonce = 339972;
 
 	if (genesis.nNonce == 0) {
 	    while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -123,7 +123,7 @@ public:
 	}
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000059e66c2455fff8dd09b2dc11610ec1b50fc9b14f91ea0285bfec13a4764"));
+        assert(hashGenesisBlock == uint256("0x000001c4a289240d099024fee00809dbc85a70ecc67024440be99ea27f73e4ca"));
         assert(genesis.hashMerkleRoot == uint256("0xf54ada25473548138a2dc58cabaef3412e39ea8e86b95a71335f89d37f287029"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 50); // M
@@ -194,7 +194,7 @@ public:
         genesis.nVersion = 1;
         genesis.nTime = 1543848101;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 0;
+        genesis.nNonce = 1473242;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -206,7 +206,7 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000004c1c106b740381eff0d95832832a82b21871c1f825b04ef3d09e6684630"));
+        assert(hashGenesisBlock == uint256("0x00000fc3a44cba50edc8e2f64a4cae9c6a88f3d66f6cceb81ffec81633dd6e78"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
