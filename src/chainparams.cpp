@@ -96,7 +96,7 @@ public:
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 500;
-        nModifierUpdateBlock = 50;
+        nModifierUpdateBlock = 1;
 
         const char* pszTimestamp = "MERGE: Bringing blockchain together.";
         CMutableTransaction txNew;
@@ -109,9 +109,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1543230000;
+        genesis.nTime = 1543848100;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 540716;
+        genesis.nNonce = 0;
 
 	if (genesis.nNonce == 0) {
 	    while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -184,17 +184,17 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 10 * 60;
         nTargetSpacing = 1 * 60;
-        nStakeMinAge = 20 * 60;
+        nStakeMinAge = 60 * 60;
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 200;
-        nModifierUpdateBlock = 50;
+        nModifierUpdateBlock = 1;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1543230001;
+        genesis.nTime = 1543848101;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1014602;
+        genesis.nNonce = 0;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {

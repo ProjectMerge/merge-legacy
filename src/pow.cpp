@@ -29,9 +29,9 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     uint256 PastDifficultyAverage;
     uint256 PastDifficultyAveragePrev;
 
-    // in testnet all but last 20 blocks before LAST_POW_BLOCK are mindiff
-    if (Params().NetworkID() == CBaseChainParams::TESTNET && pindexLast->nHeight < (Params().LAST_POW_BLOCK() - 20))
-        return Params().ProofOfWorkLimit().GetCompact();
+    //in testnet all but last 20 blocks before LAST_POW_BLOCK are mindiff
+    //if (Params().NetworkID() == CBaseChainParams::TESTNET && pindexLast->nHeight < (Params().LAST_POW_BLOCK() - 20))
+    //    return Params().ProofOfWorkLimit().GetCompact();
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || BlockLastSolved->nHeight < PastBlocksMin)
         return Params().ProofOfWorkLimit().GetCompact();
