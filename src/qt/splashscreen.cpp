@@ -28,14 +28,10 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     // set reference point, paddings
     int paddingLeft = 14;
     int paddingTop = 470;
-    int titleVersionVSpace = 17;
     int titleCopyrightVSpace = 32;
-
     float fontFactor = 1.0;
 
     // define text to place
-    QString titleText = tr("MERGE Core");
-    QString versionText = QString(tr("Version %1")).arg(QString::fromStdString(FormatFullVersion()));
     QString copyrightTextBtc = QChar(0xA9) + QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
     QString copyrightTextDash = QChar(0xA9) + QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core developers"));
     QString copyrightTextPIVX = QChar(0xA9) + QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The PIVX Core developers"));
@@ -46,26 +42,15 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
 
     // load the bitmap for writing some text over it
     pixmap = networkStyle->getSplashImage();
-
     QPainter pixPaint(&pixmap);
     pixPaint.setPen(QColor(100, 100, 100));
 
     // check font size and drawing with
     pixPaint.setFont(QFont(font, 28 * fontFactor));
     QFontMetrics fm = pixPaint.fontMetrics();
-    int titleTextWidth = fm.width(titleText);
-    if (titleTextWidth > 160) {
-        // strange font rendering, Arial probably not found
-        fontFactor = 0.75;
-    }
-
+    fontFactor = 0.75;
     pixPaint.setFont(QFont(font, 28 * fontFactor));
     fm = pixPaint.fontMetrics();
-    //titleTextWidth = fm.width(titleText);
-    pixPaint.drawText(paddingLeft, paddingTop, titleText);
-
-    pixPaint.setFont(QFont(font, 15 * fontFactor));
-    pixPaint.drawText(paddingLeft, paddingTop + titleVersionVSpace, versionText);
 
     // draw copyright stuff
     pixPaint.setFont(QFont(font, 10 * fontFactor));
@@ -85,9 +70,6 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
     }
 
     pixPaint.end();
-
-    // Set window title
-    setWindowTitle(titleText + " " + titleAddText);
 
     // Resize window and move to center of desktop, disallow resizing
     QRect r(QPoint(), pixmap.size());
