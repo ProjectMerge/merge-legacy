@@ -302,7 +302,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
     }
 
     // essentially a spork, if we are before last pow block, no mn pays (needs testing)
-    if (pindexPrev->nHeight + 1 < Params().LAST_POW_BLOCK())
+    if (pindexPrev->nHeight < Params().LAST_POW_BLOCK())
         hasPayment = false;
 
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
