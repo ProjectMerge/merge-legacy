@@ -42,7 +42,7 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case MERGE:
-        return QString("merge");
+        return QString("MERGE");
     case mMERGE:
         return QString("mmerge");
     case uMERGE:

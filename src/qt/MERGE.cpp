@@ -253,7 +253,7 @@ private:
     void startThread();
 };
 
-#include "merge.moc"
+#include "MERGE.moc"
 
 BitcoinCore::BitcoinCore() : QObject()
 {
@@ -536,8 +536,8 @@ int main(int argc, char* argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(merge_locale);
-    Q_INIT_RESOURCE(merge);
+    Q_INIT_RESOURCE(MERGE_locale);
+    Q_INIT_RESOURCE(MERGE);
 
     BitcoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100
@@ -653,7 +653,7 @@ int main(int argc, char* argv[])
         exit(0);
 
     // Start up the payment server early, too, so impatient users that click on
-    // merge: links repeatedly have their payment requests routed to this process:
+    // MERGE: links repeatedly have their payment requests routed to this process:
     app.createPaymentServer();
 #endif
 

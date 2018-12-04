@@ -78,7 +78,7 @@ extern double NSAppKitVersionNumber;
 #endif
 #endif
 
-#define URI_SCHEME "merge"
+#define URI_SCHEME "MERGE"
 
 namespace GUIUtil
 {
@@ -180,9 +180,9 @@ bool parseBitcoinURI(const QUrl& uri, SendCoinsRecipient* out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient* out)
 {
-    // Convert merge:// to merge:
+    // Convert MERGE:// to MERGE:
     //
-    //    Cannot handle this later, because merge:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because MERGE:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
     if (uri.startsWith(URI_SCHEME "://", Qt::CaseInsensitive)) {
         uri.replace(0, std::strlen(URI_SCHEME) + 3, URI_SCHEME ":");
@@ -661,7 +661,7 @@ boost::filesystem::path static GetAutostartDir()
 
 boost::filesystem::path static GetAutostartFilePath()
 {
-    return GetAutostartDir() / "merge.desktop";
+    return GetAutostartDir() / "MERGE.desktop";
 }
 
 bool GetStartOnSystemStartup()

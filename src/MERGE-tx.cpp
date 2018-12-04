@@ -50,8 +50,8 @@ static bool AppInitRawTx(int argc, char* argv[])
         // First part of help message is specific to this utility
         std::string strUsage = _("MERGE Core MERGE-tx utility version") + " " + FormatFullVersion() + "\n\n" +
                                _("Usage:") + "\n" +
-                               "  MERGE-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded merge transaction") + "\n" +
-                               "  MERGE-tx [options] -create [commands]   " + _("Create hex-encoded merge transaction") + "\n" +
+                               "  MERGE-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded MERGE transaction") + "\n" +
+                               "  MERGE-tx [options] -create [commands]   " + _("Create hex-encoded MERGE transaction") + "\n" +
                                "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());
@@ -553,7 +553,7 @@ static int CommandLineRawTx(int argc, char* argv[])
             if (argc < 2)
                 throw runtime_error("too few parameters");
 
-            // param: hex-encoded merge transaction
+            // param: hex-encoded MERGE transaction
             string strHexTx(argv[1]);
             if (strHexTx == "-") // "-" implies standard input
                 strHexTx = readStdin();

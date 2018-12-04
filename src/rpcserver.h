@@ -97,7 +97,7 @@ public:
 };
 
 /**
- * PIVX RPC command dispatcher.
+ * MERGE RPC command dispatcher.
  */
 class CRPCTable
 {
