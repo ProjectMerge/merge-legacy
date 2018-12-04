@@ -626,8 +626,8 @@
         <translation>Enviar moedas para um endereço MERGE</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Requisitar pagamentos (gera códigos QR e merge: URIs)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Requisitar pagamentos (gera códigos QR e MERGE: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -862,8 +862,8 @@ MultiSend: %1</translation>
         <translation>Rótulo</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Nem todas as transações serão exibidas. Para visualizar todas as transações você precisa definir txindex=1 no arquivo de configuração (merge.conf). </translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Nem todas as transações serão exibidas. Para visualizar todas as transações você precisa definir txindex=1 no arquivo de configuração (MERGE.conf). </translation>
     </message>
 </context>
 <context>
@@ -3731,7 +3731,7 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Deletar todas as transações da carteira e somente recuperar aquelas partes da blockchain através de -rescan na inicialização</translation>

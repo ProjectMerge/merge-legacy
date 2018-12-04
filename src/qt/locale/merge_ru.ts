@@ -602,7 +602,7 @@
         <translation>Отправить монеты на MERGE адрес</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
         <translation>Запросить платежи (генерирует QR-код и MERGE: URI)</translation>
     </message>
     <message>
@@ -817,8 +817,8 @@ MultiSend: %1</translation>
         <translation>Текстовая метка</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Будут показаны не все транзакции. Для отображения всех транзакций необходимо выставить txindex=1 в конфигурационном файле (merge.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Будут показаны не все транзакции. Для отображения всех транзакций необходимо выставить txindex=1 в конфигурационном файле (MERGE.conf).</translation>
     </message>
 </context>
 <context>
@@ -1945,8 +1945,8 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>Неверный адрес оплаты %1</translation>
     </message>
     <message>
-        <source>Cannot start merge: click-to-pay handler</source>
-        <translation>Не удалось запустить merge: обработчик click-to-pay </translation>
+        <source>Cannot start MERGE: click-to-pay handler</source>
+        <translation>Не удалось запустить MERGE: обработчик click-to-pay </translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid MERGE address or malformed URI parameters.</source>
@@ -3204,7 +3204,7 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Block creation options:</source>
         <translation>Варианты создания блока:</translation>

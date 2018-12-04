@@ -606,8 +606,8 @@
         <translation>Odoslať mince na adresu MERGE</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Vyžiadať platby (generuje QR kódy a merge: identifikátory URI)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Vyžiadať platby (generuje QR kódy a MERGE: identifikátory URI)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -809,8 +809,8 @@ MultiSend: %1</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (merge.conf) nastaviť txindex = 1.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (MERGE.conf) nastaviť txindex = 1.</translation>
     </message>
 </context>
 <context>
@@ -1309,7 +1309,7 @@ MultiSend: %1</translation>
     <name>ZPivControlDialog</name>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

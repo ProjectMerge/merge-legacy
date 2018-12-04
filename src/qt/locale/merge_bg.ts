@@ -610,7 +610,7 @@
         <translation>Изпратете монети до MERGE адрес</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
         <translation>Поискай плащане (генерира QR кодове и  MERGE:URI)</translation>
     </message>
     <message>
@@ -845,8 +845,8 @@ Address: %4
         <translation>ТекстовЕтикет</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Не всички преводи ще бъдат показани. За да разгледате всички преводи, трябва да зададете txindex=1 в конфигурационния файл (merge.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Не всички преводи ще бъдат показани. За да разгледате всички преводи, трябва да зададете txindex=1 в конфигурационния файл (MERGE.conf).</translation>
     </message>
 </context>
 <context>
@@ -1985,8 +1985,8 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>Грешен адрес за плащане %1</translation>
     </message>
     <message>
-        <source>Cannot start merge: click-to-pay handler</source>
-        <translation>Провал при стартирането на merge: click-to-pay обработвател</translation>
+        <source>Cannot start MERGE: click-to-pay handler</source>
+        <translation>Провал при стартирането на MERGE: click-to-pay обработвател</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid MERGE address or malformed URI parameters.</source>
@@ -4237,7 +4237,7 @@ Please be patient...</source>
     </message>
 </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
         <translation>Промяна на поведението на автоматично финализираното гласоподаване. mode=auto: Гласувай само за точни финализирани бюджети, които съвпадат с моят генериран бюджет. (string, default:auto)</translation>

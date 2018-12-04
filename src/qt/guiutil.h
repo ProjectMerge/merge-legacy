@@ -103,7 +103,7 @@ bool isObscured(QWidget* w);
 // Open debug.log
 void openDebugLogfile();
 
-// Open merge.conf
+// Open MERGE.conf
 void openConfigfile();
 
 // Open masternode.conf

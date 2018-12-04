@@ -805,7 +805,7 @@
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Error</source>
         <translation>Greška</translation>

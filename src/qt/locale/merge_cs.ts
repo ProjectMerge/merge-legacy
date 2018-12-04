@@ -642,8 +642,8 @@
         <translation>Odeslat platbuna MERGE adresu</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Vyžádat platbu (generování QK kódu a merge: URIs)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Vyžádat platbu (generování QK kódu a MERGE: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -877,8 +877,8 @@ MultiSend: %1</translation>
         <translation>TextPopisku</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Ne všechny transakce budou zobrazeny. Pro zobrazení všech transackí nastavte v konfiguračním souboru (merge.conf) txindex=1.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Ne všechny transakce budou zobrazeny. Pro zobrazení všech transackí nastavte v konfiguračním souboru (MERGE.conf) txindex=1.</translation>
     </message>
 </context>
 <context>
@@ -2459,7 +2459,7 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

@@ -610,8 +610,8 @@
         <translation>发送数字货币到MERGE地址</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>请求支付（生成二维码和merge：URIs）</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>请求支付（生成二维码和MERGE：URIs）</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -1586,7 +1586,7 @@ Address: %4
     <name>ZPivControlDialog</name>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Execute command when a relevant alert is received or we see a really long fork (%s in cmd is replaced by message)</source>
         <translation>在收到相关警报时执行命令，或者看到一个很长的分叉（cmd中的%s被消息替换）</translation>

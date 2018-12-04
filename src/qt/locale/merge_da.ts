@@ -606,7 +606,7 @@
         <translation>Send mønter til en MERGE adresse</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
         <translation>Anmod om betaling (genrerer QR kode og MERGE URL)</translation>
     </message>
     <message>
@@ -809,8 +809,8 @@ Adresse: %4
         <translation>Tekstmærke</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Ikke alle transaktioner vil blive vist. For at vise alle transaktioner må De sætte "txindex=1" i konfigurationsfilen (merge.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Ikke alle transaktioner vil blive vist. For at vise alle transaktioner må De sætte "txindex=1" i konfigurationsfilen (MERGE.conf).</translation>
     </message>
 </context>
 <context>
@@ -1905,7 +1905,7 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>Ugyldig betalingsadresse: %1</translation>
     </message>
     <message>
-        <source>Cannot start merge: click-to-pay handler</source>
+        <source>Cannot start MERGE: click-to-pay handler</source>
         <translation>Kan ikke starte MERGE "klik for at betale" systemet</translation>
     </message>
     <message>
@@ -3739,7 +3739,7 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = beholdtx metadata. For eksempel information om kontoejer og betalngsanmodninger, 2 = drop TX metadata)</translation>
@@ -3914,7 +3914,7 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>Dette produkt anvender software udviklet i OpenSSL projektet til brug i OpenSSL værktøjssættet &lt;https://www.openssl.org/&gt; og kryptosoftware skrevet afEric Young og UPnP software skrevet af Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use merged, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
+        <source>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc
@@ -3925,7 +3925,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
 </source>
-        <translation>For at bruge merged eller -server muligheden sammen med merge-qt skal der angives et rpc kodeord i konfigurationsfilen:
+        <translation>For at bruge MERGEd eller -server muligheden sammen med MERGE-qt skal der angives et rpc kodeord i konfigurationsfilen:
 %s
 De anbefales at benytte følgende tilfældige kodeord
 Rpcuser=mergerpc

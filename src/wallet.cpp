@@ -2349,7 +2349,7 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
                 if (nChange > 0) {
                     // Fill a vout to ourself
                     // TODO: pass in scriptChange instead of reservekey so
-                    // change transaction isn't always pay-to-merge-address
+                    // change transaction isn't always pay-to-MERGE-address
                     CScript scriptChange;
 
                     // coin control: send change to custom address

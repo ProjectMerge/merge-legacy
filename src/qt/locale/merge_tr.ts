@@ -621,8 +621,8 @@
         <translation>Koinleri MERGE adresine gönder</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Ödeme talep etme (QR kodları ve merge üretir: URI'ler)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Ödeme talep etme (QR kodları ve MERGE üretir: URI'ler)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -830,8 +830,8 @@ Adres: %4</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Tüm işlemler gösterilmez. Tüm işlemleri görmek için yapılandırma dosyasında txindex = 1 ayarlamanız gerekir (merge.conf).
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Tüm işlemler gösterilmez. Tüm işlemleri görmek için yapılandırma dosyasında txindex = 1 ayarlamanız gerekir (MERGE.conf).
 </translation>
     </message>
 </context>
@@ -1701,7 +1701,7 @@ Adres: %4</translation>
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Error</source>
         <translation>hata</translation>

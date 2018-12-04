@@ -638,8 +638,8 @@
         <translation>MERGE 주소로 전송하기</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>결제 요청 (QR 코드 및 merge: URI 생성)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>결제 요청 (QR 코드 및 MERGE: URI 생성)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -873,8 +873,8 @@ Address: %4
         <translation>텍스트라벨</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>모든 트랜잭션이 표시되지는 않습니다. 모든 트랜잭션을 보려면 구성 파일 (merge.conf)에 txindex = 1을 설정해야합니다.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>모든 트랜잭션이 표시되지는 않습니다. 모든 트랜잭션을 보려면 구성 파일 (MERGE.conf)에 txindex = 1을 설정해야합니다.</translation>
     </message>
 </context>
 <context>
@@ -2078,8 +2078,8 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>자동 생성기능이 현재 작동중 그리고 </translation>
     </message>
     <message>
-        <source>To disable AutoMint add 'enablezeromint=0' in merge.conf.</source>
-        <translation>자동생성 기능을 사용하지 않으시려면, merge.conf 화일에 enablezeromint=0 를 추가하세요.</translation>
+        <source>To disable AutoMint add 'enablezeromint=0' in MERGE.conf.</source>
+        <translation>자동생성 기능을 사용하지 않으시려면, MERGE.conf 화일에 enablezeromint=0 를 추가하세요.</translation>
     </message>
     </context>
 <context>
@@ -2105,7 +2105,7 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>잘못된 결제 주소 %1</translation>
     </message>
     <message>
-        <source>Cannot start merge: click-to-pay handler</source>
+        <source>Cannot start MERGE: click-to-pay handler</source>
         <translation>MERGE을 시작할 수 없습니다: 결제하기 위한 클릭 처리</translation>
     </message>
     <message>
@@ -4433,7 +4433,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = tx 메타 데이터 유지 예 : 계정 소유자 및 지불 요청 정보, 2 = tx 메타 데이터 삭제)</translation>
@@ -4611,7 +4611,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>이 제품은 OpenSSL이 개발한 Open SSL 툴킷 &lt;https://www.openssl.org/&gt; 에서 사용하기 위한 프로젝트 소프트웨어, Eric Young이 개발한 암호화 소프트웨어, Thomas Bernard가 개발한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
     </message>
     <message>
-        <source>To use merged, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
+        <source>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc

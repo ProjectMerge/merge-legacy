@@ -71,9 +71,9 @@ static bool AppInitRPC(int argc, char* argv[])
         std::string strUsage = _("MERGE Core RPC client version") + " " + FormatFullVersion() + "\n";
         if (!mapArgs.count("-version")) {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  merge-cli [options] <command> [params]  " + _("Send command to MERGE Core") + "\n" +
-                        "  merge-cli [options] help                " + _("List commands") + "\n" +
-                        "  merge-cli [options] help <command>      " + _("Get help for a command") + "\n";
+                        "  MERGE-cli [options] <command> [params]  " + _("Send command to MERGE Core") + "\n" +
+                        "  MERGE-cli [options] help                " + _("List commands") + "\n" +
+                        "  MERGE-cli [options] help <command>      " + _("Get help for a command") + "\n";
 
             strUsage += "\n" + HelpMessageCli();
         }

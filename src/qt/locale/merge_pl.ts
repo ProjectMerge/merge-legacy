@@ -526,8 +526,8 @@
         <translation>Wyślij monety do adresu MERGE</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Zarządaj płatności (generuje kod QR i merge:URI)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Zarządaj płatności (generuje kod QR i MERGE:URI)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -2049,7 +2049,7 @@ https://www.transifex.com/merge-project/merge-project-translations </translation
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Error</source>
         <translation>Błąd</translation>

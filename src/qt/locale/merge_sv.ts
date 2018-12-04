@@ -591,8 +591,8 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Skicka mynt till en MERGE adress</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Begär betalning (genererar QR kod och merge: URls)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Begär betalning (genererar QR kod och MERGE: URls)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -1426,7 +1426,7 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
     <name>ZPivControlDialog</name>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Error</source>
         <translation>Fel</translation>

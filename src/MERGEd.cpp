@@ -65,7 +65,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/MERGE.conf are parsed in qt/merge.cpp's main()
+    // If Qt is used, parameters/MERGE.conf are parsed in qt/MERGE.cpp's main()
     ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir
@@ -76,7 +76,7 @@ bool AppInit(int argc, char* argv[])
             strUsage += LicenseInfo();
         } else {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  merged [options]                     " + _("Start MERGE Core Daemon") + "\n";
+                        "  MERGEd [options]                     " + _("Start MERGE Core Daemon") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -112,11 +112,11 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "merge:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "MERGE:"))
                 fCommandLine = true;
 
         if (fCommandLine) {
-            fprintf(stderr, "Error: There is no RPC client functionality in merged anymore. Use the merge-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in MERGEd anymore. Use the MERGE-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32
@@ -175,7 +175,7 @@ int main(int argc, char* argv[])
 {
     SetupEnvironment();
 
-    // Connect merged signal handlers
+    // Connect MERGEd signal handlers
     noui_connect();
 
     return (AppInit(argc, argv) ? 0 : 1);

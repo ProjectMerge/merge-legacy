@@ -590,8 +590,8 @@
         <translation>送出錢幣到 MERGE 地址</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>請求付款 (會產生 QR Code跟 merge 位址)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>請求付款 (會產生 QR Code跟 MERGE 位址)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -977,6 +977,6 @@
     <name>ZPivControlDialog</name>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     </context>
 </TS>

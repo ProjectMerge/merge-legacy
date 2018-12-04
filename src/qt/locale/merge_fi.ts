@@ -599,8 +599,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Lähetä kolikkoja MERGE osoitteeseen</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
-        <translation>Pyydä maksuja (Generoi QR koodeja ja merge: URIja)</translation>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
+        <translation>Pyydä maksuja (Generoi QR koodeja ja MERGE: URIja)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -2552,7 +2552,7 @@ Please check the address and try again.</source>
     </message>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
         <translation>Varoitus: Verkko ei näytä olevan samaa mieltä! Jotkin mainaajat saattavat kokea ongelmia.</translation>

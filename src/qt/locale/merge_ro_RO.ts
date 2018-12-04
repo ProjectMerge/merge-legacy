@@ -189,6 +189,6 @@
     <name>ZPivControlDialog</name>
     </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     </context>
 </TS>

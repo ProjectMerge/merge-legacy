@@ -610,7 +610,7 @@
         <translation>Verstuur munten naar een MERGE adres</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and merge: URIs)</source>
+        <source>Request payments (generates QR codes and MERGE: URIs)</source>
         <translation>Vraag betaling aan (genereert QR-codes en MERGE: URI's)</translation>
     </message>
     <message>
@@ -841,8 +841,8 @@ MultiSend: %1</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (merge.conf).</source>
-        <translation>Niet alle transacties worden getoond. Om alle transacties te bekijken moet u txindex=1 instellen in het configuratie bestand (merge.conf).</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).</source>
+        <translation>Niet alle transacties worden getoond. Om alle transacties te bekijken moet u txindex=1 instellen in het configuratie bestand (MERGE.conf).</translation>
     </message>
 </context>
 <context>
@@ -1976,8 +1976,8 @@ https://www.transifex.com/merge-project/merge-project-translations</translation>
         <translation>Ongeldig betalingsadres %1</translation>
     </message>
     <message>
-        <source>Cannot start merge: click-to-pay handler</source>
-        <translation>Kan merge niet starten: click-to-pay handler</translation>
+        <source>Cannot start MERGE: click-to-pay handler</source>
+        <translation>Kan MERGE niet starten: click-to-pay handler</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid MERGE address or malformed URI parameters.</source>
@@ -4241,7 +4241,7 @@ Wees alsjeblieft geduldig...</translation>
     </message>
 </context>
 <context>
-    <name>merge-core</name>
+    <name>MERGE-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = houd tx meta data, bijvoorbeeld account eigenaar en betalingsverzoek informatie, 2 = drop tx meta data)</translation>
@@ -4423,7 +4423,7 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in de OpenSSL Toolkit &lt;https://www.openssl.org/&gt; en cryptografische software geschreven door Eric Young en UPnP software geschreven door Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use merged, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
+        <source>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc
@@ -4434,7 +4434,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
 </source>
-        <translation>Om merged of de -server optie om merge-qt te gebruiken, moet je een rpcpassword instellen in het configuratiebestand:
+        <translation>Om MERGEd of de -server optie om MERGE-qt te gebruiken, moet je een rpcpassword instellen in het configuratiebestand:
 %s
 Het is aan te raden het volgende willekeurige wachtwoord te gebruiken:
 rpcuser=mergerpc

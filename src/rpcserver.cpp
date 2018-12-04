@@ -319,7 +319,7 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Pivx features */
+        /* MERGE features */
         {"merge", "masternode", &masternode, true, true, false},
         {"merge", "listmasternodes", &listmasternodes, true, true, false},
         {"merge", "getmasternodecount", &getmasternodecount, true, true, false},
@@ -1074,7 +1074,7 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> merge-cli " + methodname + " " + args + "\n";
+    return "> MERGE-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)

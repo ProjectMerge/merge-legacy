@@ -66,11 +66,11 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += merged
+  bin_PROGRAMS += MERGEd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += merge-cli merge-tx
+  bin_PROGRAMS += MERGE-cli MERGE-tx
 endif
 
 .PHONY: FORCE
@@ -188,7 +188,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between merged and merge-qt
+# server: shared between MERGEd and MERGE-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -234,7 +234,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between merged and merge-qt, but only linked
+# wallet: shared between MERGEd and MERGE-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -328,7 +328,7 @@ libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
   libzerocoin/Params.cpp \
   libzerocoin/SerialNumberSignatureOfKnowledge.cpp
 
-# common: shared between merged, and merge-qt and non-server tools
+# common: shared between MERGEd, and MERGE-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -386,7 +386,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between merge-cli and merge-qt
+# cli: shared between MERGE-cli and MERGE-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -396,7 +396,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-merged_LDADD = \
+MERGEd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -408,26 +408,26 @@ merged_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-merged_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+MERGEd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-merged_LDADD += libbitcoin_wallet.a
+MERGEd_LDADD += libbitcoin_wallet.a
 endif
-merged_SOURCES = merged.cpp
+MERGEd_SOURCES = MERGEd.cpp
 #
 
 if TARGET_WINDOWS
-merged_SOURCES += merged-res.rc
+MERGEd_SOURCES += MERGEd-res.rc
 endif
 
-merged_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-merged_CPPFLAGS = $(BITCOIN_INCLUDES)
-merged_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+MERGEd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+MERGEd_CPPFLAGS = $(BITCOIN_INCLUDES)
+MERGEd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# merge-cli binary #
-merge_cli_LDADD = \
+# MERGE-cli binary #
+MERGE_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
@@ -435,14 +435,14 @@ merge_cli_LDADD = \
   $(CRYPTO_LIBS) \
   $(EVENT_LIBS)
 
-merge_cli_SOURCES = \
-  merge-cli.cpp
+MERGE_cli_SOURCES = \
+  MERGE-cli.cpp
 
-merge_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+MERGE_cli_CPPFLAGS = $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
 #
 
-# merge-tx binary #
-merge_tx_LDADD = \
+# MERGE-tx binary #
+MERGE_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_ZEROCOIN) \
@@ -452,15 +452,15 @@ merge_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-merge_tx_SOURCES = merge-tx.cpp
-merge_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+MERGE_tx_SOURCES = MERGE-tx.cpp
+MERGE_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-merge_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+MERGE_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-merge_cli_SOURCES += merge-cli-res.rc
+MERGE_cli_SOURCES += MERGE-cli-res.rc
 endif
-merge_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+MERGE_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h
