@@ -58,8 +58,8 @@ Value obfuscation(const Array& params, bool fHelp)
 
     if (fHelp || params.size() == 0)
         throw runtime_error(
-            "obfuscation <mergeaddress> <amount>\n"
-            "mergeaddress, reset, or auto (AutoDenominate)"
+            "obfuscation <MERGEaddress> <amount>\n"
+            "MERGEaddress, reset, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 
@@ -80,8 +80,8 @@ Value obfuscation(const Array& params, bool fHelp)
 
     if (params.size() != 2)
         throw runtime_error(
-            "obfuscation <mergeaddress> <amount>\n"
-            "mergeaddress, denominate, or auto (AutoDenominate)"
+            "obfuscation <MERGEaddress> <amount>\n"
+            "MERGEaddress, denominate, or auto (AutoDenominate)"
             "<amount> is a real and will be rounded to the next 0.1" +
             HelpRequiringPassphrase());
 

@@ -1232,9 +1232,9 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/merge-project/merge-project-translations</source>
+https://www.transifex.com/MERGE-project/MERGE-project-translations</source>
         <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
-https://www.transifex.com/merge-project/merge-project-translations </translation>
+https://www.transifex.com/MERGE-project/MERGE-project-translations </translation>
     </message>
     <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>

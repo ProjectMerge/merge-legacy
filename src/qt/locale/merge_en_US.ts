@@ -1719,9 +1719,9 @@ Please check the address and try again.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/merge-project/merge-project-translations</source>
+https://www.transifex.com/MERGE-project/MERGE-project-translations</source>
         <translation>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/merge-project/merge-project-translations</translation>
+https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>

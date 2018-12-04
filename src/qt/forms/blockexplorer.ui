@@ -168,7 +168,7 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../merge.qrc"/>
+  <include location="../MERGE.qrc"/>
  </resources>
  <connections/>
 </ui>

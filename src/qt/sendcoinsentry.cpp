@@ -32,9 +32,9 @@ SendCoinsEntry::SendCoinsEntry(QWidget* parent) : QStackedWidget(parent),
     ui->addAsLabel->setPlaceholderText(tr("Enter a label for this address to add it to your address book"));
 #endif
 
-    // normal merge address field
+    // normal MERGE address field
     GUIUtil::setupAddressWidget(ui->payTo, this);
-    // just a label for displaying merge address(es)
+    // just a label for displaying MERGE address(es)
     ui->payTo_is->setFont(GUIUtil::bitcoinAddressFont());
 
     // Connect signals

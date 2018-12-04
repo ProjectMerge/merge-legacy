@@ -28,7 +28,7 @@
       </sizepolicy>
      </property>
      <property name="pixmap">
-      <pixmap resource="../merge.qrc">:/images/about</pixmap>
+      <pixmap resource="../MERGE.qrc">:/images/about</pixmap>
      </property>
     </widget>
    </item>
@@ -97,7 +97,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../merge.qrc"/>
+  <include location="../MERGE.qrc"/>
  </resources>
  <connections>
   <connection>

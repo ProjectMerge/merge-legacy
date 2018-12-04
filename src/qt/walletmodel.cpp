@@ -258,7 +258,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
                 return InvalidAmount;
             }
             total += subtotal;
-        } else { // User-entered merge address / amount:
+        } else { // User-entered MERGE address / amount:
             if (!validateAddress(rcp.address)) {
                 return InvalidAddress;
             }

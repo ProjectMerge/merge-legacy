@@ -58,9 +58,9 @@ const QString BITCOIN_IPC_PREFIX("merge:");
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
 // BIP71 payment protocol media types
-const char* BIP71_MIMETYPE_PAYMENT = "application/merge-payment";
-const char* BIP71_MIMETYPE_PAYMENTACK = "application/merge-paymentack";
-const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/merge-paymentrequest";
+const char* BIP71_MIMETYPE_PAYMENT = "application/MERGE-payment";
+const char* BIP71_MIMETYPE_PAYMENTACK = "application/MERGE-paymentack";
+const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/MERGE-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
 const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 
@@ -525,7 +525,7 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
             // Append destination address
             addresses.append(QString::fromStdString(CBitcoinAddress(dest).ToString()));
         } else if (!recipient.authenticatedMerchant.isEmpty()) {
-            // Insecure payments to custom merge addresses are not supported
+            // Insecure payments to custom MERGE addresses are not supported
             // (there is no good way to tell the user where they are paying in a way
             // they'd have a chance of understanding).
             emit message(tr("Payment request rejected"),
