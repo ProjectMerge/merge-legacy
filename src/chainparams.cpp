@@ -47,19 +47,19 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000001c4a289240d099024fee00809dbc85a70ecc67024440be99ea27f73e4ca"));
+    (0, uint256("0x00000227ce485a1725470282315ea42bf6ed496d7cd15b18ae752ffd6b3f62e9"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1543848100, 1, 1};
+    1544349000, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0x00000fc3a44cba50edc8e2f64a4cae9c6a88f3d66f6cceb81ffec81633dd6e78"));
+    (0, uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1543848101, 1, 1};
+    1544349001, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
@@ -109,9 +109,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1543848100;
+        genesis.nTime = 1544349000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 339972;
+        genesis.nNonce = 432516;
 
 	if (genesis.nNonce == 0) {
 	    while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -123,7 +123,7 @@ public:
 	}
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000001c4a289240d099024fee00809dbc85a70ecc67024440be99ea27f73e4ca"));
+        assert(hashGenesisBlock == uint256("0x00000227ce485a1725470282315ea42bf6ed496d7cd15b18ae752ffd6b3f62e9"));
         assert(genesis.hashMerkleRoot == uint256("0xf54ada25473548138a2dc58cabaef3412e39ea8e86b95a71335f89d37f287029"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 50); // M
@@ -192,9 +192,9 @@ public:
         nModifierUpdateBlock = 1;
 
         genesis.nVersion = 1;
-        genesis.nTime = ////TBD////
+        genesis.nTime = 1544349001;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 0;
+        genesis.nNonce = 3101483;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -206,7 +206,7 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0"));
+        assert(hashGenesisBlock == uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
 
         // prevent testnet from existing for more than 7 days
         if (GetTime() > genesis.nTime + (7 * 86400))
