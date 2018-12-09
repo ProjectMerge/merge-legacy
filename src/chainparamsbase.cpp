@@ -110,7 +110,7 @@ CBaseChainParams::Network NetworkIdFromCommandLine()
         return CBaseChainParams::REGTEST;
     if (fTestNet)
         return CBaseChainParams::TESTNET;
-    return CBaseChainParams::MAIN;
+    return CBaseChainParams::TESTNET;                 // temp hardlocked testnet
 }
 
 bool SelectBaseParamsFromCommandLine()

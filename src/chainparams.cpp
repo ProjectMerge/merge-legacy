@@ -188,13 +188,13 @@ public:
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
-        nLastPOWBlock = 200;
+        nLastPOWBlock = 1000;
         nModifierUpdateBlock = 1;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1543848101;
+        genesis.nTime = ////TBD////
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1473242;
+        genesis.nNonce = 0;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -206,7 +206,11 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000fc3a44cba50edc8e2f64a4cae9c6a88f3d66f6cceb81ffec81633dd6e78"));
+        assert(hashGenesisBlock == uint256("0x0"));
+
+        // prevent testnet from existing for more than 7 days
+        if (GetTime() > genesis.nTime + (7 * 86400))
+            exit(0);
 
         vFixedSeeds.clear();
         vSeeds.clear();
