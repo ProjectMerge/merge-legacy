@@ -192,9 +192,9 @@ public:
         nModifierUpdateBlock = 1;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1544349001;
+        genesis.nTime = 1544437794;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 3101483;
+        genesis.nNonce = 1214277;
 
         if (genesis.nNonce == 0) {
             while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -206,7 +206,8 @@ public:
         }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
+        // assert(hashGenesisBlock == uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
+        assert(hashGenesisBlock == uint256("000008856503aafffd8e4e638efcc332409e57169b427e6cbcee7d47fd5b7f8b"));
 
         // prevent testnet from existing for more than 7 days
         if (GetTime() > genesis.nTime + (7 * 86400))
@@ -215,7 +216,7 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("bazco.in", "lab.bazco.in"));
+        vSeeds.push_back(CDNSSeedData("myexplorer.org", "mergetestnet.myexplorer.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 83); // a
