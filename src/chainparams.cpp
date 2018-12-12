@@ -96,7 +96,7 @@ public:
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 500;
-        nModifierUpdateBlock = 1;
+        nModifierUpdateBlock = 50;
 
         const char* pszTimestamp = "MERGE: Bringing blockchain together.";
         CMutableTransaction txNew;
