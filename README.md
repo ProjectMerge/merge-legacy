@@ -1,33 +1,47 @@
-MERGE Core integration/staging repository
-=========================================
+Merge Coin
+==========
 
-MERGE is a cutting edge cryptocurrency, with many features not available in most other cryptocurrencies.
-Its main purpose is to form a common ecosystem with an underlaying business logic protocol, to be implemented. We call it Membrane.
-This common ecosystem will be based on the core concept of MERGE, which is incorporating other coins and their ideas, by means of the Swap.
+The Merge Coin is a cutting edge cryptocurrency, with many features not available in other cryptocurrencies.
+It is the engine and the connector to the products and solutions of [Merge](http://www.projectmerge.org).
+
+Merge bridges the gap to crypto and provide a platform that will allow non-crypto developers to build apps or projects that interact with the blockchain. 
+Such a platform helps forming a common ecosystem with an underlaying business logic protocol that we call The Membrane.
+This common ecosystem will be based on the core concept of Merge, which is incorporating other coins and their ideas by means of a coin swap.
 - Fast transactions featuring guaranteed zero confirmation transactions.
-- Decentralized blockchain voting providing for consensus based advancement of the current Masternode
-  technology used to secure the network and provide the above features, each Masternode is secured
-  with a collateral of 10K MERGE.
+- Decentralized blockchain voting providing for consensus based advancement of the current masternode technology used to secure the network and provide the above features. 
+- Each Masternode is secured with a collateral of 10,000 MERGE.
 
-More information at [merge.org](http://www.projectmerge.org) Visit our ANN thread at [BitcoinTalk](http://www.bitcointalk.org/index.php?topic=xxxxxx)
+More information at [projectmerge.org](http://www.projectmerge.org).
+
+Visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/index.php?topic=5034723).
+
+See the status of the Merge Coin network at the [Merge Coin Block Explorer](https://explorer.projectmerge.org).
+
+Install your Merge Coin remote masternode with this [script](https://github.com/ProjectMerge/merge).
+
 
 ### Coin Specs
 <table>
-<tr><td>Algo</td><td>Quark</td></tr>
+<tr><td>Ticker</td><td>MERGE</td></tr>
+<tr><td>Algorithm</td><td>PoW: Argon2m - PoS: See-Saw</td></tr>
+<tr><td>Max Coin Supply</td><td>100,000,000 MERGE</td></tr>
+<tr><td>Masternode Collateral</td><td>10,000 MERGE</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Max Coin Supply </td><td>100,000,000 MERGE</td></tr>
-<tr><td>Premine</td><td>41,000,000 MERG*</td></tr>
+<tr><td>Premine</td><td>41,000,000 MERGE*</td></tr>
 </table>
 
-* 40,000,000 Premine is exclusively for the swaps.
+* 40,000,000 of the premine is exclusively for the swaps.
 
 ### Reward Distribution
+
+[![Merge Coin Reward Distribution](https://cdn.discordapp.com/attachments/470509313484390400/510102425684672523/Artboard_1-8.png)]
+
 
 <table>
 <th colspan=4>PoW Phase</th>
 <tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th><th>Duration (Days)</th></tr>
-<tr><td>1</td><td>41,000,000 MERG</td><td>Initial Premine</td><td>0 Days</td></tr>
+<tr><td>1</td><td>41,000,000 MERGE</td><td>Initial Premine</td><td>0 Days</td></tr>
 <tr><td>2-86400</td><td>10 MERGE</td><td rowspan=2>Open Mining</td><td rowspan=2> Approx 60 Days</td></tr>
 <tr><td>86401- </td><td>50 MERGE - 25 MERGE</td></tr>
 <tr><th colspan=4>PoS Phase</th></tr>
@@ -59,5 +73,3 @@ More information at [merge.org](http://www.projectmerge.org) Visit our ANN threa
 <tr><td>Phase 9</td><td>604800-647999</td><td>10 MERGE</td><td>90% (9 MERGE)</td><td>10% (1 MERGE)</td></tr>
 <tr><td>Phase X</td><td>648000-Infinite</td><td>5 MERGE</td><td>90% (4.5 MERGE)</td><td>10% (0.5 MERGE)</td></tr>
 </table>
-
-Work in Progress
