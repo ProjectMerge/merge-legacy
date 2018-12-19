@@ -189,7 +189,7 @@ public:
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 1000;
-        nModifierUpdateBlock = 1;
+        nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
         genesis.nTime = 1544437794;
