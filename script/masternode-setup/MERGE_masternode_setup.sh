@@ -47,7 +47,7 @@ rm merge-testnet-1.0.0-linux64.tar.gz
 echo "Masternode Configuration"
 echo "Type the IP address for this masternode, followed by [ENTER]: "
 read IP
-echo "Enter the masternode's private key, followed by [ENTER]: $ALIAS"
+echo "Enter the masternode's private key, followed by [ENTER]: "
 read PRIVKEY
 CONF_DIR=~/.merge\/
 CONF_FILE=merge.conf
