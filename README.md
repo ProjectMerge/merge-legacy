@@ -1,24 +1,24 @@
 Merge Coin
 ==========
 
-The Merge Coin is a cutting edge cryptocurrency, with many features not available in other cryptocurrencies.
-It is the engine and the connector to the products and solutions of [Merge](http://www.projectmerge.org).
+The Merge Coin is a cutting-edge cryptocurrency, the engine and the connector to the products and solutions of [Merge](http://www.projectmerge.org).
+
+Some of its features are:
+- Fast transactions featuring guaranteed zero confirmation transactions.
+- Proof-of-work for the first blocks with GPU-resistant algorithm.
+- Proof-of-stake and masternode to support the network and reward those users that hold the coin.
 
 Merge bridges the gap to crypto and provide a platform that will allow non-crypto developers to build apps or projects that interact with the blockchain. 
 Such a platform helps forming a common ecosystem with an underlaying business logic protocol that we call The Membrane.
 This common ecosystem will be based on the core concept of Merge, which is incorporating other coins and their ideas by means of a coin swap.
-- Fast transactions featuring guaranteed zero confirmation transactions.
-- Decentralized blockchain voting providing for consensus based advancement of the current masternode technology used to secure the network and provide the above features. 
-- Each Masternode is secured with a collateral of 10,000 MERGE.
 
-More information at [projectmerge.org](http://www.projectmerge.org).
+More information at Merge's [Website](http://www.projectmerge.org) and [Knowledge Base](http://kb.projectmerge.org).
 
-Visit our ANN thread at [BitcoinTalk](https://bitcointalk.org/index.php?topic=5034723).
+Learn how to setup the [Merge Wallet](https://kb.projectmerge.org/guides/wallet).
 
-See the status of the Merge Coin network at the [Merge Coin Block Explorer](https://explorer.projectmerge.org).
+Setup your Merge Wallet for [PoW](https://kb.projectmerge.org/guides/wallet/pow-cpu-mining), [PoS](https://kb.projectmerge.org/guides/wallet/pos-staking) and [masternode](https://kb.projectmerge.org/guides/wallet/masternodes).
 
-Install your Merge Coin remote masternode with this [script](https://github.com/ProjectMerge/merge).
-
+See the status of the Merge Coin's network at the [Merge Coin Block Explorer](https://explorer.projectmerge.org).
 
 ### Coin Specs
 <table>
@@ -28,48 +28,13 @@ Install your Merge Coin remote masternode with this [script](https://github.com/
 <tr><td>Masternode Collateral</td><td>10,000 MERGE</td></tr>
 <tr><td>Block Time</td><td>60 Seconds</td></tr>
 <tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Premine</td><td>41,000,000 MERGE*</td></tr>
+<tr><td>Premine</td><td>33,000,000 MERGE*</td></tr>
 </table>
 
-* 40,000,000 of the premine is exclusively for the swaps.
+*23,000,000 of the premine is exclusively for the swaps.
+ The remaining 10,000,000 will be used to cost community, development, business and marketing tasks.
 
 ### Reward Distribution
 
 [![Merge Coin Reward Distribution](https://cdn.discordapp.com/attachments/470509313484390400/510102425684672523/Artboard_1-8.png)]
 
-
-<table>
-<th colspan=4>PoW Phase</th>
-<tr><th>Block Height</th><th>Reward Amount</th><th>Notes</th><th>Duration (Days)</th></tr>
-<tr><td>1</td><td>41,000,000 MERGE</td><td>Initial Premine</td><td>0 Days</td></tr>
-<tr><td>2-86400</td><td>10 MERGE</td><td rowspan=2>Open Mining</td><td rowspan=2> Approx 60 Days</td></tr>
-<tr><td>86401- </td><td>50 MERGE - 25 MERGE</td></tr>
-<tr><th colspan=4>PoS Phase</th></tr>
-<tr><th>Block Height</th><th colspan=3>Reward Amount</th></tr>
-<tr><td>259201-Infinite</td><td colspan=3>Variable based on SeeSaw Reward Mechanism</td></tr>
-</table>
-
-### PoW Rewards Breakdown
-
-<table>
-<th>Block Height</th><th>Masternodes</th><th>Miner</th><th>Budget</th>
-<tr><td>2-43200</td><td>20% (50 MERGE)</td><td>80% (200 MERGE)</td><td>N/A</td></tr>
-<tr><td>43201-151200</td><td>20% (50 MERGE)</td><td>70% (200 MERGE)</td><td>10% (25 MERGE)</td></tr>
-<tr><td>151201-259200</td><td>45% (22.5 MERGE)</td><td>45% (22.5 MERGE)</td><td>10% (5 MERGE)</td></tr>
-</table>
-
-### PoS Rewards Breakdown
-
-<table>
-<th>Phase</th><th>Block Height</th><th>Reward</th><th>Masternodes & Stakers</th><th>Budget</th>
-<tr><td>Phase 1</td><td>259201-302399</td><td>50 MERGE</td><td>90% (45 MERGE)</td><td>10% (5 MERGE)</td></tr>
-<tr><td>Phase 2</td><td>302400-345599</td><td>45 MERGE</td><td>90% (40.5 MERGE)</td><td>10% (4.5 MERGE)</td></tr>
-<tr><td>Phase 3</td><td>345600-388799</td><td>40 MERGE</td><td>90% (36 MERGE)</td><td>10% (4 MERGE)</td></tr>
-<tr><td>Phase 4</td><td>388800-431999</td><td>35 MERGE</td><td>90% (31.5 MERGE)</td><td>10% (3.5 MERGE)</td></tr>
-<tr><td>Phase 5</td><td>432000-475199</td><td>30 MERGE</td><td>90% (27 MERGE)</td><td>10% (3 MERGE)</td></tr>
-<tr><td>Phase 6</td><td>475200-518399</td><td>25 MERGE</td><td>90% (22.5 MERGE)</td><td>10% (2.5 MERGE)</td></tr>
-<tr><td>Phase 7</td><td>518400-561599</td><td>20 MERGE</td><td>90% (18 MERGE)</td><td>10% (2 MERGE)</td></tr>
-<tr><td>Phase 8</td><td>561600-604799</td><td>15 MERGE</td><td>90% (13.5 MERGE)</td><td>10% (1.5 MERGE)</td></tr>
-<tr><td>Phase 9</td><td>604800-647999</td><td>10 MERGE</td><td>90% (9 MERGE)</td><td>10% (1 MERGE)</td></tr>
-<tr><td>Phase X</td><td>648000-Infinite</td><td>5 MERGE</td><td>90% (4.5 MERGE)</td><td>10% (0.5 MERGE)</td></tr>
-</table>
