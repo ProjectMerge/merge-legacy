@@ -40,15 +40,29 @@ echo "Installing/Updating your masternode..."
 rm merged
 rm merge-cli
 rm merge-tx
-wget https://github.com/ProjectMerge/merge/releases/download/1.0.0/merge-testnet-1.0.0-linux64.tar.gz
-tar -xf merge-testnet-1.0.0-linux64.tar.gz
-rm merge-testnet-1.0.0-linux64.tar.gz
+# Retrieve the latest wallet release
+LATEST_RELEASE_URL=https://api.github.com/repos/ProjectMerge/merge/releases/latest
+FILE_ENDIND=linux64.tar.gz
+release_file_url=$(curl -s $LATEST_RELEASE_URL | grep "browser_download_url.*$FILE_ENDIND" | cut -d : -f 2,3 | tr -d \")
+release_file_name=$(basename $release_file_url)
+wget $release_file_url
+tar -xf $release_file_name
+rm $release_file_name
 
 echo "Masternode Configuration"
-echo "Type the IP address for this masternode, followed by [ENTER]: "
-read IP
+# Ask for the IP address
+IP=$(sudo ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | tail -n 1)
+echo "Your IP address is: $IP"
+echo "Is this the IP address you wish to use for your masternode? [y/n], followed by [ENTER]"
+read ipd
+if [[ $ipd =~ "n" ]] || [[ $ipd =~ "N" ]] ; then
+	echo "Type the custom IP address for this masternode, followed by [ENTER]: "
+    read IP
+fi
+# Ask for the masternode's private key
 echo "Enter the masternode's private key, followed by [ENTER]: "
 read PRIVKEY
+# Edit configuration file
 CONF_DIR=~/.merge\/
 CONF_FILE=merge.conf
 PORT=62000
