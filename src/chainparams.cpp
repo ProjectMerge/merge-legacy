@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -210,8 +210,8 @@ public:
         assert(hashGenesisBlock == uint256("000008856503aafffd8e4e638efcc332409e57169b427e6cbcee7d47fd5b7f8b"));
 
         // prevent testnet from existing for more than 7 days
-        if (GetTime() > genesis.nTime + (7 * 86400))
-            exit(0);
+       /* if (GetTime() > genesis.nTime + (7 * 86400))
+            exit(0); */
 
         vFixedSeeds.clear();
         vSeeds.clear();

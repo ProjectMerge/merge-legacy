@@ -3,7 +3,7 @@
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-# This script will locally construct a merge commit for a pull request on a
+# This script will locally construct a Merge commit for a pull request on a
 # github repository, inspect it, sign it and optionally push it.
 
 # The following temporary branches are created/overwritten and deleted:
@@ -290,7 +290,7 @@ def main():
             if os.path.isfile('/etc/debian_version'): # Show pull number on Debian default prompt
                 os.putenv('debian_chroot',pull)
             subprocess.call([BASH,'-i'])
-            reply = ask_prompt("Type 'm' to accept the merge.")
+            reply = ask_prompt("Type 'm' to accept The Merge.")
             if reply.lower() == 'm':
                 print("Merge accepted.",file=stderr)
             else:
@@ -302,8 +302,8 @@ def main():
             print("ERROR: Tree hash changed unexpectedly",file=stderr)
             exit(8)
 
-        # Sign the merge commit.
-        reply = ask_prompt("Type 's' to sign off on the merge.")
+        # Sign The Merge commit.
+        reply = ask_prompt("Type 's' to sign off on The Merge.")
         if reply == 's':
             try:
                 subprocess.check_call([GIT,'commit','-q','--gpg-sign','--amend','--no-edit'])

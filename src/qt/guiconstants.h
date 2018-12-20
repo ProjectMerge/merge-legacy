@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -51,8 +51,8 @@ static const int MAX_URI_LENGTH = 255;
 
 #define QAPP_ORG_NAME "MERGE"
 #define QAPP_ORG_DOMAIN "projectmerge.org"
-#define QAPP_APP_NAME_DEFAULT "MERGE-Qt"
-#define QAPP_APP_NAME_TESTNET "MERGE-Qt-testnet"
+#define QAPP_APP_NAME_DEFAULT "Merge-Qt"
+#define QAPP_APP_NAME_TESTNET "Merge-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H
 

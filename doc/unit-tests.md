@@ -6,13 +6,13 @@ and tests weren't explicitly disabled.
 
 After configuring, they can be run with 'make check'.
 
-To run the MERGEd tests manually, launch src/test/test_MERGE .
+To run the merged tests manually, launch src/test/test_MERGE .
 
-To add more MERGEd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
+To add more merged tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the MERGE-qt tests manually, launch src/qt/test/MERGE-qt_test
+To run The Merge-qt tests manually, launch src/qt/test/merge-qt_test
 
-To add more MERGE-qt tests, add them to the `src/qt/test/` directory and
+To add more merge-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

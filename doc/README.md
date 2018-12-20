@@ -1,9 +1,9 @@
-MERGE Core
+Merge Core
 =====================
 
 Setup
 ---------------------
-[MERGE Core](http://MERGE.org/wallet) is the original MERGE client and it builds the backbone of the network. However, it downloads and stores the entire history of MERGE transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Merge Core](http://MERGE.org/wallet) is the original MERGE client and it builds the backbone of the network. However, it downloads and stores the entire history of MERGE transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
@@ -13,16 +13,16 @@ The following are some helpful notes on how to run MERGE on your native platform
 
 Unpack the files into a directory and run:
 
-- bin/32/MERGE-qt (GUI, 32-bit) or bin/32/MERGEd (headless, 32-bit)
-- bin/64/MERGE-qt (GUI, 64-bit) or bin/64/MERGEd (headless, 64-bit)
+- bin/32/merge-qt (GUI, 32-bit) or bin/32/merged (headless, 32-bit)
+- bin/64/merge-qt (GUI, 64-bit) or bin/64/merged (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run MERGE-qt.exe.
+Unpack the files into a directory, and then run merge-qt.exe.
 
 ### OSX
 
-Drag MERGE-Qt to your applications folder, and then run MERGE-Qt.
+Drag Merge-Qt to your applications folder, and then run Merge-Qt.
 
 ### Need Help?
 
@@ -41,7 +41,7 @@ The following are developer notes on how to build MERGE on your native platform.
 
 Development
 ---------------------
-The MERGE repo's [root README](https://github.com/MERGE-Project/MERGE/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Merge repo's [root README](https://github.com/MERGE-Project/MERGE/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)

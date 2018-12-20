@@ -7,7 +7,7 @@
  * @license    This project is released under the MIT license.
  **/
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 
 #include "reverse_iterate.h"
 #include "util.h"

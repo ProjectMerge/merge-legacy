@@ -1,10 +1,10 @@
 Sample configuration files for:
 
-SystemD: MERGEd.service
-Upstart: MERGEd.conf
-OpenRC:  MERGEd.openrc
-         MERGEd.openrcconf
-CentOS:  MERGEd.init
+SystemD: merged.service
+Upstart: merged.conf
+OpenRC:  merged.openrc
+         merged.openrcconf
+CentOS:  merged.init
 
 have been made available to assist packagers in creating node packages here.
 

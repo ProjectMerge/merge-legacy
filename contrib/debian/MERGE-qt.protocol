@@ -1,5 +1,5 @@
 [Protocol]
-exec=MERGE-qt '%u'
+exec=merge-qt '%u'
 protocol=MERGE
 input=none
 output=none

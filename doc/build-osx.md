@@ -1,6 +1,6 @@
 Mac OS X Build Instructions and Notes
 ====================================
-This guide will show you how to build MERGEd (headless client) for OSX.
+This guide will show you how to build merged (headless client) for OSX.
 
 Notes
 -----
@@ -40,14 +40,14 @@ Instructions: Homebrew
 
         brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 libzmq
 
-### Building `MERGEd`
+### Building `merged`
 
 1. Clone the github tree to get the source code and go into the directory.
 
         git clone https://github.com/MERGE-Project/MERGE.git
         cd MERGE
 
-2.  Build MERGEd:
+2.  Build merged:
 
         ./autogen.sh
         ./configure --with-gui=qt5
@@ -57,7 +57,7 @@ Instructions: Homebrew
 
         make check
 
-4.  (Optional) You can also install MERGEd to your path:
+4.  (Optional) You can also install merged to your path:
 
         make install
 
@@ -69,7 +69,7 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 1. Make sure you installed everything through homebrew mentioned above
 2. Do a proper ./configure --with-gui=qt5 --enable-debug
 3. In Qt Creator do "New Project" -> Import Project -> Import Existing Project
-4. Enter "MERGE-qt" as project name, enter src/qt as location
+4. Enter "merge-qt" as project name, enter src/qt as location
 5. Leave the file selection as it is
 6. Confirm the "summary page"
 7. In the "Projects" tab select "Manage Kits..."
@@ -79,11 +79,11 @@ Download Qt Creator from http://www.qt.io/download/. Download the "community edi
 
 Creating a release build
 ------------------------
-You can ignore this section if you are building `MERGEd` for your own use.
+You can ignore this section if you are building `merged` for your own use.
 
-MERGEd/MERGE-cli binaries are not included in the MERGE-Qt.app bundle.
+merged/merge-cli binaries are not included in The Merge-Qt.app bundle.
 
-If you are building `MERGEd` or `MERGE-qt` for others, your build machine should be set up
+If you are building `merged` or `merge-qt` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -92,16 +92,16 @@ All dependencies should be compiled with these flags:
  -arch x86_64
  -isysroot $(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
 
-Once dependencies are compiled, see release-process.md for how the MERGE-Qt.app
+Once dependencies are compiled, see release-process.md for how The Merge-Qt.app
 bundle is packaged and signed to create the .dmg disk image that is distributed.
 
 Running
 -------
 
-It's now available at `./MERGEd`, provided that you are still in the `src`
+It's now available at `./merged`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./MERGEd` to get the filename where it should be put, or just try these
+Run `./merged` to get the filename where it should be put, or just try these
 commands:
 
     echo -e "rpcuser=MERGErpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/MERGE/MERGE.conf"
@@ -116,6 +116,6 @@ you can monitor its process by looking at the debug.log file, like this:
 Other commands:
 -------
 
-    ./MERGEd -daemon # to start the MERGE daemon.
-    ./MERGE-cli --help  # for a list of command-line options.
-    ./MERGE-cli help    # When the daemon is running, to get a list of RPC commands
+    ./merged -daemon # to start The Merge daemon.
+    ./merge-cli --help  # for a list of command-line options.
+    ./merge-cli help    # When the daemon is running, to get a list of RPC commands

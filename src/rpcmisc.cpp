@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -298,11 +298,11 @@ Value validateaddress(const Array& params, bool fHelp)
             "validateaddress \"MERGEaddress\"\n"
             "\nReturn information about the given MERGE address.\n"
             "\nArguments:\n"
-            "1. \"MERGEaddress\"     (string, required) The MERGE address to validate\n"
+            "1. \"MERGEaddress\"     (string, required) The Merge address to validate\n"
             "\nResult:\n"
             "{\n"
             "  \"isvalid\" : true|false,         (boolean) If the address is valid or not. If not, this is the only property returned.\n"
-            "  \"address\" : \"MERGEaddress\", (string) The MERGE address validated\n"
+            "  \"address\" : \"MERGEaddress\", (string) The Merge address validated\n"
             "  \"ismine\" : true|false,          (boolean) If the address is yours or not\n"
             "  \"isscript\" : true|false,        (boolean) If the key is a script\n"
             "  \"pubkey\" : \"publickeyhex\",    (string) The hex value of the raw public key\n"
@@ -443,7 +443,7 @@ Value verifymessage(const Array& params, bool fHelp)
             "verifymessage \"MERGEaddress\" \"signature\" \"message\"\n"
             "\nVerify a signed message\n"
             "\nArguments:\n"
-            "1. \"MERGEaddress\"  (string, required) The MERGE address to use for the signature.\n"
+            "1. \"MERGEaddress\"  (string, required) The Merge address to use for the signature.\n"
             "2. \"signature\"       (string, required) The signature provided by the signer in base 64 encoding (see signmessage).\n"
             "3. \"message\"         (string, required) The message that was signed.\n"
             "\nResult:\n"

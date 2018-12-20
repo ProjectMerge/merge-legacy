@@ -374,7 +374,7 @@ SOURCES += src/activemasternode.cpp \
            src/obfuscation-relay.cpp \
            src/obfuscation.cpp \
            src/MERGE-cli.cpp \
-           src/MERGE-tx.cpp \
+           src/merge-tx.cpp \
            src/MERGE.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \

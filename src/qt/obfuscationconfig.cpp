@@ -80,8 +80,8 @@ void ObfuscationConfig::configure(bool enabled, int coins, int rounds)
     QSettings settings;
 
     settings.setValue("nObfuscationRounds", rounds);
-    settings.setValue("nAnonymizeMERGEAmount", coins);
+    settings.setValue("nAnonymizeMergeAmount", coins);
 
     nZeromintPercentage = rounds;
-    nAnonymizeMERGEAmount = coins;
+    nAnonymizeMergeAmount = coins;
 }

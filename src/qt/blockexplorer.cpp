@@ -474,7 +474,7 @@ void BlockExplorer::showEvent(QShowEvent*)
 
         if (!GetBoolArg("-txindex", false)) {
             QString Warning = tr("Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (MERGE.conf).");
-            QMessageBox::warning(this, "MERGE Core Blockchain Explorer", Warning, QMessageBox::Ok);
+            QMessageBox::warning(this, "Merge Core Blockchain Explorer", Warning, QMessageBox::Ok);
         }
     }
 }

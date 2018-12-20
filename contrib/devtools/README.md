@@ -22,11 +22,11 @@ PIVX-Project/PIVX repository.
 
 What it does:
 * Fetch master and the pull request.
-* Locally construct a merge commit.
+* Locally construct a Merge commit.
 * Show the diff that merge results in.
 * Ask you to verify the resulting source tree (so you can do a make
 check or whatever).
-* Ask you whether to GPG sign the merge commit.
+* Ask you whether to GPG sign The Merge commit.
 * Ask you whether to push the result upstream.
 
 This means that there are no potential race conditions (where a

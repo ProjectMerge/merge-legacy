@@ -1,7 +1,7 @@
-Contributing to MERGE Core
+Contributing to Merge Core
 ==========================
 
-The MERGE Core project operates an open contributor model where anyone is
+The Merge Core project operates an open contributor model where anyone is
 welcome to contribute towards development in the form of peer review, testing
 and patches. This document explains the practical process and guidelines for
 contributing.
@@ -57,12 +57,12 @@ the pull request affects. Valid areas as:
 
   - *Consensus* for changes to consensus critical code
   - *Docs* for changes to the documentation
-  - *Qt* for changes to MERGE-qt
+  - *Qt* for changes to merge-qt
   - *Minting* for changes to the minting code
   - *Net* or *P2P* for changes to the peer-to-peer network code
   - *RPC/REST* for changes to the RPC or REST APIs
   - *Scripts and tools* for changes to the scripts and tools
-  - *Tests* for changes to the merge unit tests or QA tests
+  - *Tests* for changes to The Merge unit tests or QA tests
   - *Trivial* should **only** be used for PRs that do not change generated
     executable code. Notably, refactors (change of function arguments and code
     reorganization) and changes in behavior should **not** be marked as trivial.
@@ -157,10 +157,10 @@ where possible keep them short, un-complex and easy to verify.
 "Decision Making" Process
 -------------------------
 
-The following applies to code changes to the MERGE Core project, and is not to be
+The following applies to code changes to The Merge Core project, and is not to be
 confused with overall MERGE Network Protocol consensus changes.
 
-Whether a pull request is merged into MERGE Core rests with the project merge
+Whether a pull request is merged into Merge Core rests with the project merge
 maintainers and ultimately the project lead.
 
 Maintainers will take into consideration if a patch is in line with the general
@@ -214,7 +214,7 @@ higher in terms of discussion and peer review requirements, keeping in mind that
 mistakes could be very costly to the wider community. This includes refactoring
 of consensus critical code.
 
-Where a patch set proposes to change the MERGE consensus, it must have been
+Where a patch set proposes to change The Merge consensus, it must have been
 discussed extensively on the forums and Slack, be accompanied by a widely
 discussed Proposal and have a generally widely perceived technical consensus of being
 a worthwhile change based on the judgement of the maintainers.
@@ -254,7 +254,7 @@ about:
 Release Policy
 --------------
 
-The project leader is the release manager for each MERGE Core release.
+The project leader is the release manager for each Merge Core release.
 
 Copyright
 ---------

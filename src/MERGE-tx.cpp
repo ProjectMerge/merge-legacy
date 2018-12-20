@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -48,10 +48,10 @@ static bool AppInitRawTx(int argc, char* argv[])
 
     if (argc < 2 || mapArgs.count("-?") || mapArgs.count("-help")) {
         // First part of help message is specific to this utility
-        std::string strUsage = _("MERGE Core MERGE-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("Merge Core merge-tx utility version") + " " + FormatFullVersion() + "\n\n" +
                                _("Usage:") + "\n" +
-                               "  MERGE-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded MERGE transaction") + "\n" +
-                               "  MERGE-tx [options] -create [commands]   " + _("Create hex-encoded MERGE transaction") + "\n" +
+                               "  merge-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded MERGE transaction") + "\n" +
+                               "  merge-tx [options] -create [commands]   " + _("Create hex-encoded MERGE transaction") + "\n" +
                                "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());

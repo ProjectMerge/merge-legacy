@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between MERGE-cli and MERGEd)
- * of a given instance of the MERGE system.
+ * CBaseChainParams defines the base parameters (shared between merge-cli and merged)
+ * of a given instance of The Merge system.
  */
 class CBaseChainParams
 {

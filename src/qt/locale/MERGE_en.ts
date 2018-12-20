@@ -6194,7 +6194,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+4"/>
-        <source>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
+        <source>To use MERGEd, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc

@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -80,10 +80,10 @@ void OptionsModel::Init()
         settings.setValue("nZeromintPercentage", 10);
     nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
 
-    if (!settings.contains("nAnonymizeMERGEAmount"))
-        settings.setValue("nAnonymizeMERGEAmount", 1000);
+    if (!settings.contains("nAnonymizeMergeAmount"))
+        settings.setValue("nAnonymizeMergeAmount", 1000);
 
-    nAnonymizeMERGEAmount = settings.value("nAnonymizeMERGEAmount").toLongLong();
+    nAnonymizeMergeAmount = settings.value("nAnonymizeMergeAmount").toLongLong();
 
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
@@ -152,8 +152,8 @@ void OptionsModel::Init()
         SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
     if (settings.contains("nPreferredDenom"))
         SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
-    if (settings.contains("nAnonymizeMERGEAmount"))
-        SoftSetArg("-anonymizepivxamount", settings.value("nAnonymizeMERGEAmount").toString().toStdString());
+    if (settings.contains("nAnonymizeMergeAmount"))
+        SoftSetArg("-anonymizepivxamount", settings.value("nAnonymizeMergeAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -236,7 +236,7 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
         case ZeromintPrefDenom:
             return QVariant(nPreferredDenom);
         case AnonymizeMERGEAmount:
-            return QVariant(nAnonymizeMERGEAmount);
+            return QVariant(nAnonymizeMergeAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -352,9 +352,9 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             break;
 
         case AnonymizeMERGEAmount:
-            nAnonymizeMERGEAmount = value.toInt();
-            settings.setValue("nAnonymizeMERGEAmount", nAnonymizeMERGEAmount);
-            emit anonymizeMERGEAmountChanged(nAnonymizeMERGEAmount);
+            nAnonymizeMergeAmount = value.toInt();
+            settings.setValue("nAnonymizeMergeAmount", nAnonymizeMergeAmount);
+            emit anonymizeMERGEAmountChanged(nAnonymizeMergeAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

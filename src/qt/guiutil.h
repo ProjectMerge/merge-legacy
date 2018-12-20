@@ -30,7 +30,7 @@ class QUrl;
 class QWidget;
 QT_END_NAMESPACE
 
-/** Utility functions used by the MERGE Qt UI.
+/** Utility functions used by The Merge Qt UI.
  */
 namespace GUIUtil
 {

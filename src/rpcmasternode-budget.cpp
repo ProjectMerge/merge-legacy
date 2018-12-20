@@ -1,6 +1,6 @@
 // Copyright (c) 2014-2015 The Dash Developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -66,9 +66,9 @@ Value mnbudget(const Array& params, bool fHelp)
             "\nAvailable commands:\n"
             "  prepare            - Prepare proposal for network by signing and creating tx\n"
             "  submit             - Submit proposal for network\n"
-            "  vote-many          - Vote on a MERGE initiative\n"
-            "  vote-alias         - Vote on a MERGE initiative\n"
-            "  vote               - Vote on a MERGE initiative/budget\n"
+            "  vote-many          - Vote on a Merge initiative\n"
+            "  vote-alias         - Vote on a Merge initiative\n"
+            "  vote               - Vote on a Merge initiative/budget\n"
             "  getvotes           - Show current masternode budgets\n"
             "  getinfo            - Show current masternode budgets\n"
             "  show               - Show all budgets\n"

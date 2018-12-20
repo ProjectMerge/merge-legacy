@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The MERGE developers
+// Copyright (c) 2018 The Merge developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -313,7 +313,7 @@ Value dumpprivkey(const Array& params, bool fHelp)
             "\nReveals the private key corresponding to 'MERGEaddress'.\n"
             "Then the importprivkey can be used with this output\n"
             "\nArguments:\n"
-            "1. \"MERGEaddress\"   (string, required) The MERGE address for the private key\n"
+            "1. \"MERGEaddress\"   (string, required) The Merge address for the private key\n"
             "\nResult:\n"
             "\"key\"                (string) The private key\n"
             "\nExamples:\n" +
@@ -400,7 +400,7 @@ Value bip38encrypt(const Array& params, bool fHelp)
             "bip38encrypt \"MERGEaddress\"\n"
             "\nEncrypts a private key corresponding to 'MERGEaddress'.\n"
             "\nArguments:\n"
-            "1. \"MERGEaddress\"   (string, required) The MERGE address for the private key (you must hold the key already)\n"
+            "1. \"MERGEaddress\"   (string, required) The Merge address for the private key (you must hold the key already)\n"
             "2. \"passphrase\"   (string, required) The passphrase you want the private key to be encrypted with - Valid special chars: !#$%&'()*+,-./:;<=>?`{|}~ \n"
             "\nResult:\n"
             "\"key\"                (string) The encrypted private key\n"

@@ -4082,7 +4082,7 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
+        <source>To use MERGEd, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc
@@ -4093,7 +4093,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
 </source>
-        <translation>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
+        <translation>To use MERGEd, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc

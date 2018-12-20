@@ -4439,7 +4439,7 @@ Por favor tenga paciencia...</translation>
         <translation>Este producto incluye software desarrollado por el Proyecto OpenSSL para uso en OpenSSL Toolkit &lt;https://www.openssl.org/&gt; y software de cifrado escrito por Eric Young y software de UPnP escrito por Thomas Bernard.</translation>
     </message>
     <message>
-        <source>To use MERGEd, or the -server option to MERGE-qt, you must set an rpcpassword in the configuration file:
+        <source>To use MERGEd, or the -server option to merge-qt, you must set an rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
 rpcuser=mergerpc
@@ -4450,7 +4450,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
 </source>
-        <translation>Para usar MERGEd, o la opción -server de MERGE-qt, debes definir un rpcpassword en el archivo de configuración:
+        <translation>Para usar MERGEd, o la opción -server de merge-qt, debes definir un rpcpassword en el archivo de configuración:
 %s
 Es recomendado que uses la siguiente contraseña aleatoria:
 rpcuser=merge

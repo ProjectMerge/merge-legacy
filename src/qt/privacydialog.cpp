@@ -140,7 +140,7 @@ void PrivacyDialog::on_addressBookButton_clicked()
     }
 }
 
-void PrivacyDialog::on_pushButtonMintzMERGE_clicked()
+void PrivacyDialog::on_pushButtonMintzmerge_clicked()
 {
     return;
 }
@@ -155,7 +155,7 @@ void PrivacyDialog::on_pushButtonSpentReset_clicked()
     return;
 }
 
-void PrivacyDialog::on_pushButtonSpendzMERGE_clicked()
+void PrivacyDialog::on_pushButtonSpendzmerge_clicked()
 {
 
     if (!walletModel || !walletModel->getOptionsModel() || !pwalletMain)

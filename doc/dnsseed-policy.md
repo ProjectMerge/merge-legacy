@@ -1,10 +1,10 @@
 Expectations for DNS Seed operators
 ====================================
 
-MERGE Core attempts to minimize the level of trust in DNS seeds,
+Merge Core attempts to minimize the level of trust in DNS seeds,
 but DNS seeds still pose a small amount of risk for the network.
 As such, DNS seeds must be run by entities which have some minimum
-level of trust within the MERGE community.
+level of trust within The Merge community.
 
 Other implementations of MERGE software may also use the same
 seeds and may be more exposed. In light of this exposure this
@@ -28,7 +28,7 @@ urgent technical necessity and disclosed.
 3. The results may not be served with a DNS TTL of less than one minute.
 
 4. Any logging of DNS queries should be only that which is necessary
-for the operation of the service or urgent health of the MERGE
+for the operation of the service or urgent health of The Merge
 network and must not be retained longer than necessary or disclosed
 to any third party.
 
