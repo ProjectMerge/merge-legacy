@@ -253,7 +253,7 @@ private:
     void startThread();
 };
 
-#include "MERGE.moc"
+#include "merge.moc"
 
 BitcoinCore::BitcoinCore() : QObject()
 {
@@ -536,8 +536,7 @@ int main(int argc, char* argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(MERGE_locale);
-    Q_INIT_RESOURCE(MERGE);
+    Q_INIT_RESOURCE(merge);
 
     BitcoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100

@@ -1,34 +1,34 @@
 bin_PROGRAMS += qt/merge-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# MERGE qt core #
+# merge qt core #
 QT_TS = \
-  qt/locale/MERGE_bg.ts \
-  qt/locale/MERGE_ca.ts \
-  qt/locale/MERGE_cs.ts \
-  qt/locale/MERGE_da.ts \
-  qt/locale/MERGE_de.ts \
-  qt/locale/MERGE_en.ts \
-  qt/locale/MERGE_en_US.ts \
-  qt/locale/MERGE_es.ts \
-  qt/locale/MERGE_fi.ts \
-  qt/locale/MERGE_fr_FR.ts \
-  qt/locale/MERGE_hr.ts \
-  qt/locale/MERGE_it.ts \
-  qt/locale/MERGE_ja.ts \
-  qt/locale/MERGE_ko_KR.ts \
-  qt/locale/MERGE_nl.ts \
-  qt/locale/MERGE_pl.ts \
-  qt/locale/MERGE_pt.ts \
-  qt/locale/MERGE_pt_BR.ts \
-  qt/locale/MERGE_ro_RO.ts \
-  qt/locale/MERGE_ru.ts \
-  qt/locale/MERGE_sk.ts \
-  qt/locale/MERGE_sv.ts \
-  qt/locale/MERGE_tr.ts \
-  qt/locale/MERGE_uk.ts \
-  qt/locale/MERGE_zh_CN.ts \
-  qt/locale/MERGE_zh_TW.ts
+  qt/locale/merge_bg.ts \
+  qt/locale/merge_ca.ts \
+  qt/locale/merge_cs.ts \
+  qt/locale/merge_da.ts \
+  qt/locale/merge_de.ts \
+  qt/locale/merge_en.ts \
+  qt/locale/merge_en_US.ts \
+  qt/locale/merge_es.ts \
+  qt/locale/merge_fi.ts \
+  qt/locale/merge_fr_FR.ts \
+  qt/locale/merge_hr.ts \
+  qt/locale/merge_it.ts \
+  qt/locale/merge_ja.ts \
+  qt/locale/merge_ko_KR.ts \
+  qt/locale/merge_nl.ts \
+  qt/locale/merge_pl.ts \
+  qt/locale/merge_pt.ts \
+  qt/locale/merge_pt_BR.ts \
+  qt/locale/merge_ro_RO.ts \
+  qt/locale/merge_ru.ts \
+  qt/locale/merge_sk.ts \
+  qt/locale/merge_sv.ts \
+  qt/locale/merge_tr.ts \
+  qt/locale/merge_uk.ts \
+  qt/locale/merge_zh_CN.ts \
+  qt/locale/merge_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -114,16 +114,16 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/MERGE.moc \
+  qt/merge.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_MERGE.cpp
-QT_QRC = qt/MERGE.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_MERGE_locale.cpp
-QT_QRC_LOCALE = qt/MERGE_locale.qrc
+QT_QRC_CPP = qt/qrc_merge.cpp
+QT_QRC = qt/merge.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_merge_locale.cpp
+QT_QRC_LOCALE = qt/merge_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -241,12 +241,12 @@ RES_ICONS = \
   qt/res/icons/tx_input.png \
   qt/res/icons/tx_output.png \
   qt/res/icons/tx_mined.png \
-  qt/res/icons/unit_MERGE.png \
-  qt/res/icons/unit_mMERGE.png \
-  qt/res/icons/unit_uMERGE.png \
-  qt/res/icons/unit_tMERGE.png \
-  qt/res/icons/unit_tmMERGE.png \
-  qt/res/icons/unit_tuMERGE.png
+  qt/res/icons/unit_merge.png \
+  qt/res/icons/unit_mmerge.png \
+  qt/res/icons/unit_umerge.png \
+  qt/res/icons/unit_tmerge.png \
+  qt/res/icons/unit_tmmerge.png \
+  qt/res/icons/unit_tumerge.png
 
 BITCOIN_QT_CPP = \
   qt/bitcoinaddressvalidator.cpp \
@@ -316,7 +316,7 @@ RES_IMAGES = \
   qt/res/images/about.png \
   qt/res/images/splash.png \
   qt/res/images/splash_testnet.png \
-  qt/res/images/MERGE_logo_horizontal.png \
+  qt/res/images/merge_logo_horizontal.png \
   qt/res/images/downArrow.png \
   qt/res/images/downArrow_small.png \
   qt/res/images/upArrow_small.png \
@@ -363,7 +363,7 @@ $(QT_MOC_CPP): $(PROTOBUF_H)
 qt_merge_qt_CPPFLAGS = $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
 
-qt_merge_qt_SOURCES = qt/MERGE.cpp
+qt_merge_qt_SOURCES = qt/merge.cpp
 if TARGET_DARWIN
   qt_merge_qt_SOURCES += $(BITCOIN_MM)
 endif
@@ -388,33 +388,33 @@ QT_QM=$(QT_TS:.ts=.qm)
 
 .SECONDARY: $(QT_QM)
 
-qt/MERGEstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
+qt/mergestrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) $(PYTHON) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/MERGEstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/mergestrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/MERGE_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/merge_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name MERGE_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name merge_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name MERGE $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name merge $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-MERGE_qt_clean: FORCE
+merge_qt_clean: FORCE
 	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_merge_qt_OBJECTS) qt/merge-qt$(EXEEXT) $(LIBBITCOINQT)
 
-MERGE_qt : qt/merge-qt$(EXEEXT)
+merge_qt : qt/merge-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)
