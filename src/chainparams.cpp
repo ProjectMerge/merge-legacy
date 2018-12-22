@@ -209,10 +209,6 @@ public:
         // assert(hashGenesisBlock == uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
         assert(hashGenesisBlock == uint256("000008856503aafffd8e4e638efcc332409e57169b427e6cbcee7d47fd5b7f8b"));
 
-        // prevent testnet from existing for more than 7 days
-       /* if (GetTime() > genesis.nTime + (7 * 86400))
-            exit(0); */
-
         vFixedSeeds.clear();
         vSeeds.clear();
 
