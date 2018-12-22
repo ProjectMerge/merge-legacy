@@ -428,8 +428,8 @@ Value getblocktemplate(const Array& params, bool fHelp)
 
     static unsigned int nTransactionsUpdatedLast;
 
-    if (lpval.type() != null_type) {
-        // Wait to respond until either the best block changes, OR a minute has passed and there are more transactions
+    if (lpval.type() != null_type)
+    {
         uint256 hashWatchedChain;
         boost::system_time checktxtime;
         unsigned int nTransactionsUpdatedLastLP;
@@ -473,7 +473,6 @@ Value getblocktemplate(const Array& params, bool fHelp)
 
         if (!IsRPCRunning())
             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Shutting down");
-        // TODO: Maybe recheck connections/IBD and (if something wrong) send an expires-immediately template to stop miners?
     }
 
     // Update block
@@ -541,6 +540,33 @@ Value getblocktemplate(const Array& params, bool fHelp)
         transactions.push_back(entry);
     }
 
+    Array coinbasetxn;
+    map<uint256, int64_t> setTxIndex1;
+    int j = 0;
+    BOOST_FOREACH (CTransaction& tx, pblock->vtx) {
+		if(tx.IsCoinBase()){
+			uint256 txHash = tx.GetHash();
+			setTxIndex1[txHash] = j++;
+
+			Object entry;
+			entry.push_back(Pair("data", EncodeHexTx(tx)));
+			entry.push_back(Pair("hash", txHash.GetHex()));
+
+			Array deps;
+			BOOST_FOREACH (const CTxIn& in, tx.vin) {
+			    if (setTxIndex.count(in.prevout.hash))
+                                deps.push_back(setTxIndex[in.prevout.hash]);
+			}
+			entry.push_back(Pair("depends", deps));
+
+			int index_in_template = j - 1;
+			entry.push_back(Pair("fee", pblocktemplate->vTxFees[index_in_template]));
+			entry.push_back(Pair("sigops", pblocktemplate->vTxSigOps[index_in_template]));
+
+			coinbasetxn.push_back(entry);
+		}
+    }
+
     Object aux;
     aux.push_back(Pair("flags", HexStr(COINBASE_FLAGS.begin(), COINBASE_FLAGS.end())));
 
@@ -557,7 +583,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
 
     Object result;
     result.push_back(Pair("capabilities", aCaps));
-    result.push_back(Pair("version", pblock->nVersion));
+    result.push_back(Pair("version", 1));
     result.push_back(Pair("previousblockhash", pblock->hashPrevBlock.GetHex()));
     result.push_back(Pair("transactions", transactions));
     result.push_back(Pair("coinbaseaux", aux));
@@ -567,27 +593,9 @@ Value getblocktemplate(const Array& params, bool fHelp)
     result.push_back(Pair("mintime", (int64_t)pindexPrev->GetMedianTimePast() + 1));
     result.push_back(Pair("mutable", aMutable));
     result.push_back(Pair("noncerange", "00000000ffffffff"));
-//    result.push_back(Pair("sigoplimit", (int64_t)MAX_BLOCK_SIGOPS));
-//    result.push_back(Pair("sizelimit", (int64_t)MAX_BLOCK_SIZE));
     result.push_back(Pair("curtime", pblock->GetBlockTime()));
     result.push_back(Pair("bits", strprintf("%08x", pblock->nBits)));
     result.push_back(Pair("height", (int64_t)(pindexPrev->nHeight + 1)));
-    result.push_back(Pair("votes", aVotes));
-
-
-    if (pblock->payee != CScript()) {
-        CTxDestination address1;
-        ExtractDestination(pblock->payee, address1);
-        CBitcoinAddress address2(address1);
-        result.push_back(Pair("payee", address2.ToString().c_str()));
-        result.push_back(Pair("payee_amount", (int64_t)pblock->vtx[0].vout[1].nValue));
-    } else {
-        result.push_back(Pair("payee", ""));
-        result.push_back(Pair("payee_amount", ""));
-    }
-
-    result.push_back(Pair("masternode_payments", pblock->nTime > Params().StartMasternodePayments()));
-    result.push_back(Pair("enforce_masternode_payments", true));
 
     return result;
 }
