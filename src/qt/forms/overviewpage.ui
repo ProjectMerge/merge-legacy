@@ -932,9 +932,6 @@
                 <bold>true</bold>
                </font>
               </property>
-              <property name="text">
-               <string>Recent transactions</string>
-              </property>
              </widget>
             </item>
             <item>
@@ -974,7 +971,7 @@
           <item>
            <widget class="QListView" name="listTransactions">
             <property name="styleSheet">
-             <string notr="true">QListView { background: transparent; }</string>
+             <string notr="true">QListView { background: rgb(255, 255, 255); }</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
