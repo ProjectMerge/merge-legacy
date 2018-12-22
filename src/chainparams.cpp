@@ -81,7 +81,7 @@ public:
         pchMessageStart[1] = 0xfa;
         pchMessageStart[2] = 0xaf;
         pchMessageStart[3] = 0x43;
-        vAlertPubKey = ParseHex("");
+        vAlertPubKey = ParseHex("041904d259d4f4a0d985cb6f91a4357fec00db8b5957244aa4c3449f87520a3f356a0455b1637e352c6bfba5f1c8a50fd08441a5bfd8f18c546e0dc48822c34bef");
         nDefaultPort = 52000;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nMaxReorganizationDepth = 100;
@@ -146,7 +146,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "";
+        strSporkKey = "0421783d5f8b38c2f71f10a7e8a4c5df39bfe1d3ca10dd17e5fc76ff5b523ab21e89ae0276aae967d0d7f26c3f34136acdc0a2f41bab19cc262658703f38a3da55";
         strObfuscationPoolDummyAddress = "MERGEXXXXXXXXXXXXXXXXXXXXXXXYmkoB4";
         nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
@@ -174,7 +174,7 @@ public:
         pchMessageStart[1] = 0xfe;
         pchMessageStart[2] = 0xef;
         pchMessageStart[3] = 0x3f;
-        vAlertPubKey = ParseHex("");
+        vAlertPubKey = ParseHex("045f8e3e3efeb5de4621aa0c539497eee9b2b07a1f4419ef39e0cc49bf83da11089fc20096bd94366a992a7afb184ae84a6f517ba93eee583bedf7db3f10c17e4c");
         nDefaultPort = 62000;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nMaxReorganizationDepth = 100;
@@ -238,7 +238,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "";
+        strSporkKey = "04310cda8b6a460200b5c69ecaf74d20cb92a84815cbc82ebe8dd153afeff3de5a3ee487d83bcdf71600be49304ce2f808a73fb0d489bef124e364d69c4b87fc74";
         strObfuscationPoolDummyAddress = "ZERGEXXXXXXXXXXXXXXXXXXXXXXXcMy12n";
         nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
