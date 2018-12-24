@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#  MERGEd The PIVX core server.
+#  MERGEd The MERGE core server.
 #
 #
 # chkconfig: 345 80 20

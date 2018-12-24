@@ -16,8 +16,8 @@ BITCOIND_USER=${BITCOIND_USER:-MERGE}
 BITCOIND_GROUP=${BITCOIND_GROUP:-MERGE}
 BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/MERGEd}
 
-name="PIVX Core Daemon"
-description="PIVX crypto-currency p2p network daemon"
+name="MERGE Core Daemon"
+description="MERGE crypto-currency p2p network daemon"
 
 command="/usr/bin/MERGEd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \

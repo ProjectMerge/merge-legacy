@@ -153,7 +153,7 @@ void OptionsModel::Init()
     if (settings.contains("nPreferredDenom"))
         SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
     if (settings.contains("nAnonymizeMergeAmount"))
-        SoftSetArg("-anonymizepivxamount", settings.value("nAnonymizeMergeAmount").toString().toStdString());
+        SoftSetArg("-anonymizeMergeamount", settings.value("nAnonymizeMergeAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -428,4 +428,3 @@ bool OptionsModel::isRestartRequired()
     QSettings settings;
     return settings.value("fRestartRequired", false).toBool();
 }
-
