@@ -4801,14 +4801,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         AddTimeData(pfrom->addr, nTime);
     }
 
-
-    else if (pfrom->nVersion == 0) {
-        // Must have a version message before anything else
-        Misbehaving(pfrom->GetId(), 1);
-        return false;
-    }
-
-
     else if (strCommand == "verack") {
         pfrom->SetRecvVersion(min(pfrom->nVersion, PROTOCOL_VERSION));
 
@@ -4818,7 +4810,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             State(pfrom->GetId())->fCurrentlyConnected = true;
         }
     }
-
 
     else if (strCommand == "addr") {
         vector<CAddress> vAddr;

@@ -47,19 +47,22 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x00000227ce485a1725470282315ea42bf6ed496d7cd15b18ae752ffd6b3f62e9"));
+    (0,  uint256("0x00000e44bca505863831d65cf302884eaf6eed296dc59088e89324bccf5d9dca"))
+    (5,  uint256("0x000000c286816d11a56d750f7a060860cc915d7153bd86766fa77a3d7a2b01dc"))
+    (10, uint256("0x000007e0ba8c10fca3dd32a453f1c92c834f91e9e424e9ef4f70568c108e56fe"))
+    (15, uint256("0x00000430b1e322298082e63175fafa7bccd907e3c2c0a860011184e92181e8f1"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1544349000, 1, 1};
+    1545670000, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
+    (0, uint256("0x000009adaa70b13db675071f0c3cebb79775a6229f2774e2f5cfed05066613ff"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1544349001, 1, 1};
+    1545670001, 1, 1};
 
 static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of
@@ -77,10 +80,10 @@ public:
         networkID = CBaseChainParams::MAIN;
         strNetworkID = "main";
 
-        pchMessageStart[0] = 0x34;
-        pchMessageStart[1] = 0xfa;
-        pchMessageStart[2] = 0xaf;
-        pchMessageStart[3] = 0x43;
+        pchMessageStart[0] = 0xef;
+        pchMessageStart[1] = 0x11;
+        pchMessageStart[2] = 0xee;
+        pchMessageStart[3] = 0x3a;
         vAlertPubKey = ParseHex("041904d259d4f4a0d985cb6f91a4357fec00db8b5957244aa4c3449f87520a3f356a0455b1637e352c6bfba5f1c8a50fd08441a5bfd8f18c546e0dc48822c34bef");
         nDefaultPort = 52000;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
@@ -95,10 +98,10 @@ public:
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
-        nLastPOWBlock = 500;
+        nLastPOWBlock = 57601;
         nModifierUpdateBlock = 50;
 
-        const char* pszTimestamp = "MERGE: Bringing blockchain together.";
+        const char* pszTimestamp = "ABC News 24/DEC/2018 Trump's Treasury Secretary to convene 'Plunge Protection Team' to deal with Wall Street rout";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -109,22 +112,16 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1544349000;
+        genesis.nTime = 1545670000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 432516;
-
-	if (genesis.nNonce == 0) {
-	    while (genesis.GetHash() > bnProofOfWorkLimit) {
-		genesis.nNonce++;
-		if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
-	    }
-	    printf("nonce was %d \n", genesis.nNonce);
-            printf("genesis block %s\n", genesis.ToString().c_str());
-	}
+        genesis.nNonce = 1997235;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000227ce485a1725470282315ea42bf6ed496d7cd15b18ae752ffd6b3f62e9"));
-        assert(genesis.hashMerkleRoot == uint256("0xf54ada25473548138a2dc58cabaef3412e39ea8e86b95a71335f89d37f287029"));
+        assert(hashGenesisBlock == uint256("0x00000e44bca505863831d65cf302884eaf6eed296dc59088e89324bccf5d9dca"));
+        assert(genesis.hashMerkleRoot == uint256("0x2b77d68f79c8c45b77335607c928533950da763a4a16c34555bdf8446aa6cc1c"));
+
+        vSeeds.clear();
+        vSeeds.push_back(CDNSSeedData("projectmerge.org", "seed.projectmerge.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 50); // M
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 53); // N
@@ -192,22 +189,12 @@ public:
         nModifierUpdateBlock = 50;
 
         genesis.nVersion = 1;
-        genesis.nTime = 1544437794;
+        genesis.nTime = 1545670001;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1214277;
-
-        if (genesis.nNonce == 0) {
-            while (genesis.GetHash() > bnProofOfWorkLimit) {
-                genesis.nNonce++;
-                if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
-            }
-            printf("nonce was %d \n", genesis.nNonce);
-            printf("genesis block %s\n", genesis.ToString().c_str());
-        }
+        genesis.nNonce = 1940182;
 
         hashGenesisBlock = genesis.GetHash();
-        // assert(hashGenesisBlock == uint256("0x00000ee868e0bd2539f2c9d11282926a15b388f591d295c638049c2a1feaa1f0"));
-        assert(hashGenesisBlock == uint256("000008856503aafffd8e4e638efcc332409e57169b427e6cbcee7d47fd5b7f8b"));
+        assert(hashGenesisBlock == uint256("0x000009adaa70b13db675071f0c3cebb79775a6229f2774e2f5cfed05066613ff"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
