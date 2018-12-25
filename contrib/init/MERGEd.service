@@ -1,5 +1,5 @@
 [Unit]
-Description=PIVX's distributed currency daemon
+Description=MERGE's distributed currency daemon
 After=network.target
 
 [Service]
