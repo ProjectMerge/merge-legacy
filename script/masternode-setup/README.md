@@ -1,5 +1,7 @@
 # MERGE masternode setup script
 
+<i>The present script has been tested under Linux Ubuntu 16.04, and can't be assured to work on other systems.</i>
+
 # Pre-requisites:
 1. Read our [masternode guide introduction](https://kb.projectmerge.org/guides/wallet/masternodes#setup-a-merge-masternode).
 2. Follow the steps to configure the [Local Wallet](https://kb.projectmerge.org/guides/wallet/masternodes#local-wallet).
