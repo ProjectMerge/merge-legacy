@@ -31,8 +31,7 @@ See the status of the Merge Coin's network at the [Merge Coin Block Explorer](ht
 <tr><td>Premine</td><td>33,000,000 MERGE*</td></tr>
 </table>
 
-*23,000,000 of the premine is exclusively for the swaps.
- The remaining 10,000,000 will be used to cost community, development, business and marketing tasks.
+*Read all about our [Premine](https://kb.projectmerge.org/faq#merge-coins-premine).
 
 ### Reward Distribution
 
