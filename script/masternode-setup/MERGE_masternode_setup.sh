@@ -34,8 +34,6 @@ sudo apt-get install -y build-essential
 sudo apt-get install -y autoconf
 sudo apt-get install -y automake
 sudo apt-get install -y libssl1.0-dev
-sudo apt-get install -y libdb5.3-dev
-sudo apt-get install -y libdb5.3++-dev
 sudo apt-get install -y libboost-all-dev
 sudo apt-get install -y libdb4.8-dev 
 sudo apt-get install -y libdb4.8++-dev
