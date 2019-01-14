@@ -37,7 +37,9 @@ sudo apt-get install -y libssl1.0-dev
 sudo apt-get install -y libdb5.3-dev
 sudo apt-get install -y libdb5.3++-dev
 sudo apt-get install -y libboost-all-dev
-sudo apt-get install -y libboost-all-dev
+sudo apt-get install -y libdb4.8-dev 
+sudo apt-get install -y libdb4.8++-dev
+sudo apt-get install -y libevent-pthreads-2.0-5
 sudo apt-get install -y miniupnpc
 sudo apt-get install -y pkg-config
 sudo apt-get install -y libtool
@@ -96,9 +98,15 @@ fi
 # Ask for the masternode's private key
 echo "Enter the masternode's private key, followed by [ENTER]: "
 read PRIVKEY
-# Edit configuration file
-CONF_DIR=~/.merge\/
+
+# Remove old configuration file
+CONF_DIR=~/.merge
 CONF_FILE=merge.conf
+today=`date '+%Y_%m_%d_%H-%M-%S'`
+echo "mv ~/.Merge ~/.Merge.oldtestnet.$today"
+mv $CONF_DIR $CONF_DIR.oldnetwork.$today
+
+# Edit configuration file
 PORT=52000
 mkdir -p $CONF_DIR
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> $CONF_DIR/$CONF_FILE
