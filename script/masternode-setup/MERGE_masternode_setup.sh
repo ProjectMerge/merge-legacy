@@ -45,6 +45,7 @@ sudo apt-get install -y curl
 sudo apt-get install -y ufw
 sudo apt-get install -y curl
 sudo apt-get install -y ufw
+sudo apt-get install -y software-properties-common 
 sudo add-apt-repository -y ppa:bitcoin/bitcoin
 sudo apt-get update
 sudo ufw allow ssh/tcp
