@@ -24,7 +24,7 @@ rm -rf MERGE_masternode_setup.sh*
 ./merge-cli stop
 echo "Configuring your VPS with the recommended settings..."
 sudo apt-get update
-sudo apt-get install -y build-essential autoconf automake libssl1.0-dev libdb5.3-dev libdb5.3++-dev libboost-all-dev pkg-config libtool libevent-dev git screen autotools-dev bsdmainutils lsof dos2unix zlib1g-dev
+sudo apt-get install -y build-essential autoconf automake curl libssl1.0-dev libdb5.3-dev libdb5.3++-dev libboost-all-dev pkg-config libtool libevent-dev git screen autotools-dev bsdmainutils lsof dos2unix zlib1g-dev
 sudo apt-get install -y ufw
 sudo ufw allow ssh/tcp
 sudo ufw limit ssh/tcp
