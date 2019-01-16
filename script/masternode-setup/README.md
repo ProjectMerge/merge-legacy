@@ -9,7 +9,7 @@
 4. Have your private key ready.
 
 # How to run:
-sudo wget https://raw.githubusercontent.com/ProjectMerge/merge/script/masternode-setup/master/MERGE_masternode_setup.sh && chmod 755 MERGE_masternode_setup.sh && ./MERGE_masternode_setup.sh
+sudo wget https://raw.githubusercontent.com/ProjectMerge/merge/master/script/masternode-setup/MERGE_masternode_setup.sh && chmod 755 MERGE_masternode_setup.sh && ./MERGE_masternode_setup.sh
 
 # Post-requisites:
 1. Follow the steps to [start your masternode](https://kb.projectmerge.org/guides/wallet/masternodes#start-your-masternode).
