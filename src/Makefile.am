@@ -297,7 +297,8 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/argon2d/thread.h \
   crypto/blake2/blake2b.c \
   crypto/blake2/blake2.h \
-	crypto/blake2/blake2-impl.h
+	crypto/blake2/blake2-impl.h \
+	crypto/blake2/blamka-round-opt.h
 
 # univalue JSON library
 univalue_libbitcoin_univalue_a_SOURCES = \
