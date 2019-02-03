@@ -1,5 +1,5 @@
 ---
-name: "merge-linux-3.0"
+name: "merge-linux-1.0.0"
 enable_cache: true
 suites:
 - "trusty"
@@ -29,7 +29,7 @@ packages:
 - "python"
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
-- "url": "https://gitlab.projectmerge.org/core/merge.git"
+- "url": "https://gitlab.projectmerge.org/projectmerge/merge.git"
   "dir": "merge"
 files: []
 script: |
