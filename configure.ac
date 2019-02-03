@@ -2,10 +2,10 @@ dnl require autoconf 2.60 (AS_ECHO/AS_ECHO_N)
 AC_PREREQ([2.60])
 define(_CLIENT_VERSION_MAJOR, 1)
 define(_CLIENT_VERSION_MINOR, 0)
-define(_CLIENT_VERSION_REVISION, 0)
+define(_CLIENT_VERSION_REVISION, 1)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, true)
-define(_COPYRIGHT_YEAR, 2018)
+define(_COPYRIGHT_YEAR, 2019)
 AC_INIT([Merge Core],[_CLIENT_VERSION_MAJOR._CLIENT_VERSION_MINOR._CLIENT_VERSION_REVISION],[www.projectmerge.org],[MERGE])
 AC_CONFIG_SRCDIR([src/main.cpp])
 AC_CONFIG_HEADERS([src/config/merge-config.h])
@@ -19,9 +19,9 @@ BITCOIN_TX_NAME=merge-tx
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef PIV_CONFIG_H])
-AH_TOP([#define PIV_CONFIG_H])
-AH_BOTTOM([#endif //PIV_CONFIG_H])
+AH_TOP([#ifndef MERGE_CONFIG_H])
+AH_TOP([#define MERGE_CONFIG_H])
+AH_BOTTOM([#endif //MERGE_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME
