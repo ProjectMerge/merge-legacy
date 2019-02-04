@@ -1,5 +1,5 @@
 ---
-name: "merge-win-3.0"
+name: "merge-win-1.0.1"
 enable_cache: true
 suites:
 - "trusty"
