@@ -22,7 +22,7 @@ packages:
 - "ca-certificates"
 - "python"
 remotes:
-- "url": "https://gitlab.projectmerge.org/core/merge.git"
+- "url": "https://gitlab.projectmerge.org/project/merge/merge.git"
   "dir": "merge"
 files: []
 script: |
