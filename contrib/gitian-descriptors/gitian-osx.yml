@@ -1,5 +1,5 @@
 ---
-name: "merge-osx-3.0"
+name: "merge-osx-1.0.1"
 enable_cache: true
 suites:
 - "trusty"
