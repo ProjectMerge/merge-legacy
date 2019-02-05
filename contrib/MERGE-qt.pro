@@ -5,7 +5,7 @@
 DEFINES += ENABLE_WALLET
 
 TEMPLATE = app
-TARGET = 
+TARGET =
 DEPENDPATH += . \
               src \
               src/compat \
@@ -78,7 +78,7 @@ HEADERS += src/activemasternode.h \
            src/crypter.h \
            src/obfuscation-relay.h \
            src/obfuscation.h \
-           src/MERGE-config.h \
+           src/merge-config.h \
            src/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
@@ -131,7 +131,7 @@ HEADERS += src/activemasternode.h \
            src/wallet_ismine.h \
            src/walletdb.h \
            src/compat/sanity.h \
-           src/config/MERGE-config.h \
+           src/config/merge-config.h \
            src/crypto/common.h \
            src/crypto/hmac_sha256.h \
            src/crypto/hmac_sha512.h \
@@ -332,7 +332,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/MERGE.moc \
+           src/qt/merge.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
            src/qt/rpcconsole.moc \
@@ -373,9 +373,9 @@ SOURCES += src/activemasternode.cpp \
            src/crypter.cpp \
            src/obfuscation-relay.cpp \
            src/obfuscation.cpp \
-           src/MERGE-cli.cpp \
+           src/merge-cli.cpp \
            src/merge-tx.cpp \
-           src/MERGE.cpp \
+           src/merge.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -470,8 +470,8 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/obfuscationconfig.cpp \
-           src/qt/MERGE.cpp \
-           src/qt/MERGEstrings.cpp \
+           src/qt/merge.cpp \
+           src/qt/mergestrings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
            src/qt/intro.cpp \
@@ -549,7 +549,7 @@ SOURCES += src/activemasternode.cpp \
            src/test/sighash_tests.cpp \
            src/test/sigopcount_tests.cpp \
            src/test/skiplist_tests.cpp \
-           src/test/test_MERGE.cpp \
+           src/test/test_merge.cpp \
            src/test/timedata_tests.cpp \
            src/test/transaction_tests.cpp \
            src/test/uint256_tests.cpp \
@@ -640,21 +640,21 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
-RESOURCES += src/qt/MERGE.qrc src/qt/MERGE_locale.qrc
+RESOURCES += src/qt/merge.qrc src/qt/merge_locale.qrc
 
-TRANSLATIONS += src/qt/locale/MERGE_bg.ts \
-                src/qt/locale/MERGE_de.ts \
-                src/qt/locale/MERGE_en.ts \
-                src/qt/locale/MERGE_es.ts \
-                src/qt/locale/MERGE_fi.ts \
-                src/qt/locale/MERGE_fr.ts \
-                src/qt/locale/MERGE_it.ts \
-                src/qt/locale/MERGE_ja.ts \
-                src/qt/locale/MERGE_pl.ts \
-                src/qt/locale/MERGE_pt.ts \
-                src/qt/locale/MERGE_ru.ts \
-                src/qt/locale/MERGE_sk.ts \
-                src/qt/locale/MERGE_sv.ts \
-                src/qt/locale/MERGE_vi.ts \
-                src/qt/locale/MERGE_zh_CN.ts \
-                src/qt/locale/MERGE_zh_TW.ts
+TRANSLATIONS += src/qt/locale/merge_bg.ts \
+                src/qt/locale/merge_de.ts \
+                src/qt/locale/merge_en.ts \
+                src/qt/locale/merge_es.ts \
+                src/qt/locale/merge_fi.ts \
+                src/qt/locale/merge_fr.ts \
+                src/qt/locale/merge_it.ts \
+                src/qt/locale/merge_ja.ts \
+                src/qt/locale/merge_pl.ts \
+                src/qt/locale/merge_pt.ts \
+                src/qt/locale/merge_ru.ts \
+                src/qt/locale/merge_sk.ts \
+                src/qt/locale/merge_sv.ts \
+                src/qt/locale/merge_vi.ts \
+                src/qt/locale/merge_zh_CN.ts \
+                src/qt/locale/merge_zh_TW.ts
