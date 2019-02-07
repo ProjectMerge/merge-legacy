@@ -602,7 +602,7 @@ else:
 
 # ------------------------------------------------
 
-target = os.path.join("dist", "<Merge-Qt.app")
+target = os.path.join("dist", "Merge-Qt.app")
 
 if verbose >= 2:
     print("+ Copying source bundle +")
