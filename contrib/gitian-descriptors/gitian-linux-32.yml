@@ -8,8 +8,8 @@ architectures:
 packages:
 - "curl"
 - "g++-8"
-- "g++-8-multilib"
-- "gcc-8-multilib"
+- "g++-multilib"
+- "gcc-multilib"
 - "binutils-gold"
 - "git-core"
 - "pkg-config"
