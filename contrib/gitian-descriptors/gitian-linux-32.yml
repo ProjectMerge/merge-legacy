@@ -7,8 +7,9 @@ architectures:
 - "amd64"
 packages:
 - "curl"
-- "g++-multilib"
-- "gcc-multilib"
+- "g++-8"
+- "g++-8-multilib"
+- "gcc-8-multilib"
 - "binutils-gold"
 - "git-core"
 - "pkg-config"
@@ -19,7 +20,7 @@ packages:
 - "bsdmainutils"
 - "ca-certificates"
 - "python"
-reference_datetime: "2015-06-01 00:00:00"
+reference_datetime: "2019-11-02 00:00:00"
 remotes:
 - "url": "https://gitlab.projectmerge.org/projectmerge/merge.git"
   "dir": "merge"
