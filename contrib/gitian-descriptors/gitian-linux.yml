@@ -182,7 +182,7 @@ script: |
        aarch64-*) : ;;
        arm-*) : ;;
        riscv64-*) : ;;
-       *) make ${MAKEOPTS} -C src check-symbols ;;
+       *) make ${MAKEOPTS} -C src ;;
     esac
 
     make install DESTDIR=${INSTALLPATH}
