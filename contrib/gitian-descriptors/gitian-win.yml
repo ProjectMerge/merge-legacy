@@ -2,12 +2,12 @@
 name: "merge-win-1.0.1"
 enable_cache: true
 suites:
-- "trusty"
+- "bionic"
 architectures:
 - "amd64"
 packages:
 - "curl"
-- "g++"
+- "g++-8"
 - "git-core"
 - "pkg-config"
 - "autoconf"
@@ -21,6 +21,7 @@ packages:
 - "zip"
 - "ca-certificates"
 - "python"
+- "rename"
 remotes:
 - "url": "https://gitlab.projectmerge.org/projectmerge/merge.git"
   "dir": "merge"
@@ -49,7 +50,7 @@ script: |
 
   function create_global_faketime_wrappers {
   for prog in ${FAKETIME_PROGS}; do
-    echo '#!/bin/bash' > ${WRAP_DIR}/${prog}
+    echo '#!/usr/bin/env' > ${WRAP_DIR}/${prog}
     echo "REAL=\`which -a ${prog} | grep -v ${WRAP_DIR}/${prog} | head -1\`" >> ${WRAP_DIR}/${prog}
     echo 'export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1' >> ${WRAP_DIR}/${prog}
     echo "export FAKETIME=\"$1\"" >> ${WRAP_DIR}/${prog}
@@ -61,7 +62,7 @@ script: |
   function create_per-host_faketime_wrappers {
   for i in $HOSTS; do
     for prog in ${FAKETIME_HOST_PROGS}; do
-        echo '#!/bin/bash' > ${WRAP_DIR}/${i}-${prog}
+        echo '#!/usr/bin/env' > ${WRAP_DIR}/${i}-${prog}
         echo "REAL=\`which -a ${i}-${prog} | grep -v ${WRAP_DIR}/${i}-${prog} | head -1\`" >> ${WRAP_DIR}/${i}-${prog}
         echo 'export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1' >> ${WRAP_DIR}/${i}-${prog}
         echo "export FAKETIME=\"$1\"" >> ${WRAP_DIR}/${i}-${prog}
@@ -77,15 +78,15 @@ script: |
   for i in $HOSTS; do
     mkdir -p ${WRAP_DIR}/${i}
     for prog in collect2; do
-        echo '#!/bin/bash' > ${WRAP_DIR}/${i}/${prog}
+        echo '#!/usr/bin/env' > ${WRAP_DIR}/${i}/${prog}
         REAL=$(${i}-gcc -print-prog-name=${prog})
         echo "export MALLOC_PERTURB_=255" >> ${WRAP_DIR}/${i}/${prog}
         echo "${REAL} \$@" >> $WRAP_DIR/${i}/${prog}
         chmod +x ${WRAP_DIR}/${i}/${prog}
     done
     for prog in gcc g++; do
-        echo '#!/bin/bash' > ${WRAP_DIR}/${i}-${prog}
-        echo "REAL=\`which -a ${i}-${prog} | grep -v ${WRAP_DIR}/${i}-${prog} | head -1\`" >> ${WRAP_DIR}/${i}-${prog}
+        echo '#!/usr/bin/env bash' > ${WRAP_DIR}/${i}-${prog}
+        echo "REAL=\`which -a ${i}-${prog}-posix | grep -v ${WRAP_DIR}/${i}-${prog} | head -1\`" >> ${WRAP_DIR}/${i}-${prog}
         echo 'export LD_PRELOAD=/usr/lib/x86_64-linux-gnu/faketime/libfaketime.so.1' >> ${WRAP_DIR}/${i}-${prog}
         echo "export FAKETIME=\"$1\"" >> ${WRAP_DIR}/${i}-${prog}
         echo "export COMPILER_PATH=${WRAP_DIR}/${i}" >> ${WRAP_DIR}/${i}-${prog}
