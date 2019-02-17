@@ -2514,7 +2514,7 @@ bool static ConnectTip(CValidationState& state, CBlockIndex* pindexNew, CBlock* 
     LogPrint("bench", "  - Flush: %.2fms [%.2fs]\n", (nTime4 - nTime3) * 0.001, nTimeFlush * 0.000001);
 
     // Write the chain state to disk, if necessary. Always write to disk if this is the first of a new file.
-    FlushStateMode flushMode = FLUSH_STATE_ALWAYS;
+    FlushStateMode flushMode = FLUSH_STATE_IF_NEEDED;
     if (pindexNew->pprev && (pindexNew->GetBlockPos().nFile != pindexNew->pprev->GetBlockPos().nFile))
         flushMode = FLUSH_STATE_ALWAYS;
     if (!FlushStateToDisk(state, flushMode))
