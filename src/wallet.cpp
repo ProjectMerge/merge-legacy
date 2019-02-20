@@ -3775,3 +3775,11 @@ bool CMerkleTx::IsTransactionLockTimedOut() const
     return false;
 }
 
+string CWallet::GetUniqueWalletBackupName() const
+{
+    stringstream ssDateTime;
+    std::string strWalletBackupName = strprintf("%s", DateTimeStrFormat(".%Y-%m-%d-%H-%M", GetTime()));
+    ssDateTime << strWalletBackupName;
+
+    return strprintf("wallet%s.dat%s","", DateTimeStrFormat(".%Y-%m-%d-%H-%M", GetTime()));
+}
