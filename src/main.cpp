@@ -8,7 +8,6 @@
 
 #include "main.h"
 
-#include "accumulators.h"
 #include "addrman.h"
 #include "alert.h"
 #include "chainparams.h"
@@ -1586,7 +1585,7 @@ double ConvertBitsToDouble(unsigned int nBits)
 int64_t GetBlockValue(int nHeight)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-      if (nHeight == 0) { return 33000000 * COIN;	
+      if (nHeight == 0) { return 33000000 * COIN;
         } else if (nHeight > 0 && nHeight <= 43201)     { return 15 * COIN;
         } else if (nHeight > 43201 && nHeight <= 57601) { return 10 * COIN;
         } else if (nHeight > 57601 && nHeight <= 72001) { return 20 * COIN;
@@ -2546,7 +2545,7 @@ bool static ConnectTip(CValidationState& state, CBlockIndex* pindexNew, CBlock* 
     LogPrint("bench", "  - Flush: %.2fms [%.2fs]\n", (nTime4 - nTime3) * 0.001, nTimeFlush * 0.000001);
 
     // Write the chain state to disk, if necessary. Always write to disk if this is the first of a new file.
-    FlushStateMode flushMode = FLUSH_STATE_ALWAYS;
+    FlushStateMode flushMode = FLUSH_STATE_IF_NEEDED;
     if (pindexNew->pprev && (pindexNew->GetBlockPos().nFile != pindexNew->pprev->GetBlockPos().nFile))
         flushMode = FLUSH_STATE_ALWAYS;
     if (!FlushStateToDisk(state, flushMode))
@@ -6016,4 +6015,3 @@ public:
         mapOrphanTransactionsByPrev.clear();
     }
 } instance_of_cmaincleanup;
-

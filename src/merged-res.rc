@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "MERGE"
-            VALUE "FileDescription",    "MERGEd (OSS daemon/client for MERGE)"
+            VALUE "CompanyName",        "Merge"
+            VALUE "FileDescription",    "merged (OSS daemon/client for Merge)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "MERGEd"
+            VALUE "InternalName",       "merged"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "MERGEd.exe"
-            VALUE "ProductName",        "MERGEd"
+            VALUE "OriginalFilename",   "merged.exe"
+            VALUE "ProductName",        "merged"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

@@ -4,10 +4,11 @@
 
 
 WalletFrame {
-border-image: url(':/images/walletFrame_bg') 0 0 0 0 stretch stretch;
-border-top:0px solid #000;
-margin:0;
-padding:0;
+  background-image: url(':/images/walletFrame_bg');
+  background-size: 100% 100%;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 QStatusBar {
@@ -1679,7 +1680,7 @@ QLabel#transactionSumLabel { /* Example of setObjectName for widgets without nam
 color:#333333;
 font-weight:bold;
 }
- 
+
 QLabel#transactionSum { /* Example of setObjectName for widgets without name */
 color:#333333;
 }

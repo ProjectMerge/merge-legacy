@@ -267,6 +267,7 @@ libbitcoin_wallet_a_SOURCES = \
 crypto_libbitcoin_crypto_a_CFLAGS = -fPIC
 crypto_libbitcoin_crypto_a_CPPFLAGS = $(BITCOIN_CONFIG_INCLUDES)
 crypto_libbitcoin_crypto_a_SOURCES = \
+  crypto/sph_types.h \
   crypto/sha1.cpp \
   crypto/sha256.cpp \
   crypto/sha512.cpp \
@@ -295,7 +296,9 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/argon2d/thread.c \
   crypto/argon2d/thread.h \
   crypto/blake2/blake2b.c \
-  crypto/blake2/blake2.h
+  crypto/blake2/blake2.h \
+	crypto/blake2/blake2-impl.h \
+	crypto/blake2/blamka-round-opt.h
 
 # univalue JSON library
 univalue_libbitcoin_univalue_a_SOURCES = \
@@ -509,6 +512,13 @@ DISTCLEANFILES = obj/build.h
 
 EXTRA_DIST = leveldb
 
+config/merge-config.h: config/stamp-h1
+	@$(MAKE) -C $(top_builddir) $(subdir)/$(@)
+config/stamp-h1: $(top_srcdir)/$(subdir)/config/merge-config.h.in $(top_builddir)/config.status
+	$(AM_V_at)$(MAKE) -C $(top_builddir) $(subdir)/$(@)
+$(top_srcdir)/$(subdir)/config/merge-config.h.in:  $(am__configure_deps)
+	$(AM_V_at)$(MAKE) -C $(top_srcdir) $(subdir)/config/merge-config.h.in
+
 clean-local:
 	-$(MAKE) -C leveldb clean
 	-$(MAKE) -C secp256k1 clean
@@ -526,4 +536,3 @@ clean-local:
 if ENABLE_QT
 include Makefile.qt.include
 endif
-
