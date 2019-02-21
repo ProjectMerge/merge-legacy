@@ -115,7 +115,15 @@ BitcoinGUI::BitcoinGUI(const NetworkStyle* networkStyle, QWidget* parent) : QMai
     /* Open CSS when configured */
     this->setStyleSheet(GUIUtil::loadStyleSheet());
 
-    GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
+    /* allow window to be as big as 80% of desktop */
+    QRect rec = QApplication::desktop()->screenGeometry();
+    int height = rec.height() * 0.8;
+    int width = rec.width() * 0.8;
+
+    /* set static size */
+    QSizePolicy sizePolicy(QSizePolicy::Maximum,QSizePolicy::Maximum);
+    setSizePolicy(sizePolicy);
+    setMaximumSize(QSize(width,height));
 
     QString windowTitle = tr("Merge Core") + " - ";
 #ifdef ENABLE_WALLET
