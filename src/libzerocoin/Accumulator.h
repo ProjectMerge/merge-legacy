@@ -10,7 +10,7 @@
  * @license    This project is released under the MIT license.
  **/
 // Copyright (c) 2017 The PIVX developers
-// Copyright (c) 2018 The Merge developers
+// Copyright (c) 2018 -2019 MERGE Developers
 #ifndef ACCUMULATOR_H_
 #define ACCUMULATOR_H_
 

@@ -216,7 +216,7 @@ QString formatServicesStr(quint64 mask);
 /* Format a CNodeCombinedStats.dPingTime into a user-readable string or display N/A, if 0*/
 QString formatPingTime(double dPingTime);
 
-#if defined(Q_OS_MAC) && QT_VERSION >= 0x050000
+#if defined(Q_OS_MAC)
 // workaround for Qt OSX Bug:
 // https://bugreports.qt-project.org/browse/QTBUG-15631
 // QProgressBar uses around 10% CPU even when app is in background
