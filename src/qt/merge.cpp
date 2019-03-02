@@ -627,7 +627,6 @@ int main(int argc, char* argv[])
 #endif
     // Install qDebug() message handler to route to debug.log
     qInstallMessageHandler(DebugMessageHandler);
-#endif
     // Load GUI settings from QSettings
     app.createOptionsModel();
 
