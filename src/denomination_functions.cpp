@@ -6,8 +6,8 @@
  * @copyright  Copyright 2017 PIVX Developers
  * @license    This project is released under the MIT license.
  **/
-// Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2018 The Merge developers
+// Copyright (c) 2015-2018 PIVX Developers
+// Copyright (c) 2018 -2019 MERGE Developers
 
 #include "denomination_functions.h"
 
