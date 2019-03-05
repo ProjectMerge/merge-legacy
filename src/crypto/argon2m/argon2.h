@@ -1,18 +1,13 @@
 /*
- * Argon2 reference source code package - reference C implementations
+ * Argon2 source code package
  *
- * Copyright 2015
- * Daniel Dinu, Dmitry Khovratovich, Jean-Philippe Aumasson, and Samuel Neves
+ * Written by Daniel Dinu and Dmitry Khovratovich, 2015
  *
- * You may use this work under the terms of a Creative Commons CC0 1.0
- * License/Waiver or the Apache Public License 2.0, at your option. The terms of
- * these licenses can be found at:
+ * This work is licensed under a Creative Commons CC0 1.0 License/Waiver.
  *
- * - CC0 1.0 Universal : http://creativecommons.org/publicdomain/zero/1.0
- * - Apache 2.0        : http://www.apache.org/licenses/LICENSE-2.0
- *
- * You should have received a copy of both of these licenses along with this
- * software. If not, they may be obtained at the above URLs.
+ * You should have received a copy of the CC0 Public Domain Dedication
+ * along with this software. If not, see
+ * <http://creativecommons.org/publicdomain/zero/1.0/>.
  */
 
 #ifndef ARGON2_H
@@ -20,22 +15,24 @@
 
 #include <stdint.h>
 #include <stddef.h>
+#include <stdio.h>
 #include <limits.h>
-
-#if defined(__cplusplus)
-extern "C" {
-#endif
 
 /* Symbols visibility control */
 #ifdef A2_VISCTL
 #define ARGON2_PUBLIC __attribute__((visibility("default")))
-#define ARGON2_LOCAL __attribute__ ((visibility ("hidden")))
 #elif _MSC_VER
+#ifdef argon2_EXPORTS
 #define ARGON2_PUBLIC __declspec(dllexport)
-#define ARGON2_LOCAL
+#else
+#define ARGON2_PUBLIC __declspec(dllimport)
+#endif
 #else
 #define ARGON2_PUBLIC
-#define ARGON2_LOCAL
+#endif // A2_VISCTL
+
+#if defined(__cplusplus)
+extern "C" {
 #endif
 
 /*
@@ -59,8 +56,6 @@ extern "C" {
 
 /* Minimum and maximum number of memory blocks (each of BLOCK_SIZE bytes) */
 #define ARGON2_MIN_MEMORY UINT32_C(1)
-/* #define ARGON2_MIN_MEMORY (2 * ARGON2_SYNC_POINTS) */ /* 2 blocks per slice */
-
 
 #define ARGON2_MIN(a, b) ((a) < (b) ? (a) : (b))
 /* Max memory size is addressing-space/2, topping at 2^32 blocks (4 TB) */
@@ -93,6 +88,7 @@ extern "C" {
 #define ARGON2_DEFAULT_FLAGS UINT32_C(0)
 #define ARGON2_FLAG_CLEAR_PASSWORD (UINT32_C(1) << 0)
 #define ARGON2_FLAG_CLEAR_SECRET (UINT32_C(1) << 1)
+#define ARGON2_FLAG_GENKAT (UINT32_C(1) << 3)
 
 /* Global flag to determine if we are wiping internal memory buffers. This flag
  * is defined in core.c and deafults to 1 (wipe internal memory). */
@@ -221,14 +217,17 @@ typedef struct Argon2_Context {
 
 /* Argon2 primitive type */
 typedef enum Argon2_type {
-  Argon2_d = 0,
-  Argon2_i = 1,
-  Argon2_id = 2
+    Argon2_d = 0,
+    Argon2_i = 1,
+    Argon2_id = 2
 } argon2_type;
 
 /* Version of the algorithm */
-#define ARGON2_VERSION_10 0x10
-#define ARGON2_VERSION_13 0x13
+typedef enum Argon2_version {
+    ARGON2_VERSION_10 = 0x10,
+    ARGON2_VERSION_13 = 0x13,
+    ARGON2_VERSION_NUMBER = ARGON2_VERSION_13
+} argon2_version;
 
 /*
  * Function that gives the string representation of an argon2_type.
@@ -266,11 +265,11 @@ ARGON2_PUBLIC int argon2i_hash_encoded(const uint32_t t_cost,
                                        const void *pwd, const size_t pwdlen,
                                        const void *salt, const size_t saltlen,
                                        const size_t hashlen, char *encoded,
-                                       const size_t encodedlen,
-                                       const uint32_t version );
+                                       const size_t encodedlen);
 
 /**
- * Hashes a password with Argon2i, producing a raw hash at @hash
+ * Hashes a password with Argon2i, producing a raw hash by allocating memory at
+ * @hash
  * @param t_cost Number of iterations
  * @param m_cost Sets memory usage to m_cost kibibytes
  * @param parallelism Number of threads and compute lanes
@@ -287,8 +286,7 @@ ARGON2_PUBLIC int argon2i_hash_raw(const uint32_t t_cost, const uint32_t m_cost,
                                    const uint32_t parallelism, const void *pwd,
                                    const size_t pwdlen, const void *salt,
                                    const size_t saltlen, void *hash,
-                                   const size_t hashlen,
-                                   const uint32_t version );
+                                   const size_t hashlen);
 
 ARGON2_PUBLIC int argon2d_hash_encoded(const uint32_t t_cost,
                                        const uint32_t m_cost,
@@ -296,15 +294,14 @@ ARGON2_PUBLIC int argon2d_hash_encoded(const uint32_t t_cost,
                                        const void *pwd, const size_t pwdlen,
                                        const void *salt, const size_t saltlen,
                                        const size_t hashlen, char *encoded,
-                                       const size_t encodedlen,
-                                       const uint32_t version );
+                                       const size_t encodedlen);
 
-ARGON2_PUBLIC int argon2d_hash_raw(const uint32_t t_cost, const uint32_t m_cost,
+ARGON2_PUBLIC int argon2d_hash_raw(const uint32_t t_cost,
+                                   const uint32_t m_cost,
                                    const uint32_t parallelism, const void *pwd,
                                    const size_t pwdlen, const void *salt,
                                    const size_t saltlen, void *hash,
-                                   const size_t hashlen,
-                                   const uint32_t version );
+                                   const size_t hashlen);
 
 ARGON2_PUBLIC int argon2id_hash_encoded(const uint32_t t_cost,
                                         const uint32_t m_cost,
@@ -312,16 +309,14 @@ ARGON2_PUBLIC int argon2id_hash_encoded(const uint32_t t_cost,
                                         const void *pwd, const size_t pwdlen,
                                         const void *salt, const size_t saltlen,
                                         const size_t hashlen, char *encoded,
-                                        const size_t encodedlen,
-                                        const uint32_t version );
+                                        const size_t encodedlen);
 
 ARGON2_PUBLIC int argon2id_hash_raw(const uint32_t t_cost,
                                     const uint32_t m_cost,
                                     const uint32_t parallelism, const void *pwd,
                                     const size_t pwdlen, const void *salt,
                                     const size_t saltlen, void *hash,
-                                    const size_t hashlen,
-                                    const uint32_t version );
+                                    const size_t hashlen);
 
 /* generic function underlying the above ones */
 ARGON2_PUBLIC int argon2_hash(const uint32_t t_cost, const uint32_t m_cost,
@@ -330,7 +325,7 @@ ARGON2_PUBLIC int argon2_hash(const uint32_t t_cost, const uint32_t m_cost,
                               const size_t saltlen, void *hash,
                               const size_t hashlen, char *encoded,
                               const size_t encodedlen, argon2_type type,
-                              const uint32_t version );
+                              const uint32_t version);
 
 /**
  * Verifies a password against an encoded string
@@ -434,6 +429,34 @@ ARGON2_PUBLIC const char *argon2_error_message(int error_code);
 ARGON2_PUBLIC size_t argon2_encodedlen(uint32_t t_cost, uint32_t m_cost,
                                        uint32_t parallelism, uint32_t saltlen,
                                        uint32_t hashlen, argon2_type type);
+
+/* signals availability of argon2_select_impl: */
+#define ARGON2_SELECTABLE_IMPL
+
+/**
+ * Selects the fastest available optimized implementation.
+ * @param out The file for debug output (e. g. stderr; pass NULL for no
+ * debug output)
+ * @param prefix What to print before each line; NULL is equivalent to empty
+ * string
+ */
+ARGON2_PUBLIC void argon2_select_impl(FILE *out, const char *prefix);
+
+/* signals support for passing preallocated memory: */
+#define ARGON2_PREALLOCATED_MEMORY
+
+ARGON2_PUBLIC size_t argon2_memory_size(uint32_t m_cost, uint32_t parallelism);
+
+/**
+ * Function that performs memory-hard hashing with certain degree of parallelism
+ * @param context       Pointer to the Argon2 internal structure
+ * @param type          The Argon2 type
+ * @param memory        Preallocated memory for blocks (or NULL)
+ * @param memory_size   The size of preallocated memory
+ * @return Error code if smth is wrong, ARGON2_OK otherwise
+ */
+ARGON2_PUBLIC int argon2_ctx_mem(argon2_context *context, argon2_type type,
+                                 void *memory, size_t memory_size);
 
 #if defined(__cplusplus)
 }

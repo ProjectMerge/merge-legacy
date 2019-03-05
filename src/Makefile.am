@@ -286,19 +286,23 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/scrypt.h \
   crypto/sha1.h \
   crypto/ripemd160.h \
-  crypto/argon2d/argon2.c \
-  crypto/argon2d/argon2.h \
-  crypto/argon2d/core.c \
-  crypto/argon2d/core.h \
-  crypto/argon2d/encoding.c \
-  crypto/argon2d/encoding.h \
-  crypto/argon2d/opt.c \
-  crypto/argon2d/thread.c \
-  crypto/argon2d/thread.h \
-  crypto/blake2/blake2b.c \
-  crypto/blake2/blake2.h \
-	crypto/blake2/blake2-impl.h \
-	crypto/blake2/blamka-round-opt.h
+  crypto/argon2m/blake2/blake2.c \
+  crypto/argon2m/blake2/blake2.h \
+  crypto/argon2m/blake2/blake2-impl.h \
+  crypto/argon2m/argon2-arch.c \
+  crypto/argon2m/argon2.c \
+  crypto/argon2m/core.c \
+  crypto/argon2m/encoding.c \
+  crypto/argon2m/genkat.c \
+  crypto/argon2m/impl-select.c \
+  crypto/argon2m/thread.c \
+  crypto/argon2m/argon2.h \
+  crypto/argon2m/argon2-template-64.h \
+  crypto/argon2m/core.h \
+  crypto/argon2m/encoding.h \
+  crypto/argon2m/genkat.h \
+  crypto/argon2m/impl-select.h \
+  crypto/argon2m/thread.h
 
 # univalue JSON library
 univalue_libbitcoin_univalue_a_SOURCES = \

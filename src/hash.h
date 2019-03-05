@@ -15,7 +15,7 @@
 #include "uint256.h"
 #include "version.h"
 
-#include "crypto/argon2d/argon2.h"
+#include "crypto/argon2m/argon2.h"
 
 #include <iomanip>
 #include <openssl/sha.h>

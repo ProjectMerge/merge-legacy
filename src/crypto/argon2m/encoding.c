@@ -1,20 +1,3 @@
-/*
- * Argon2 reference source code package - reference C implementations
- *
- * Copyright 2015
- * Daniel Dinu, Dmitry Khovratovich, Jean-Philippe Aumasson, and Samuel Neves
- *
- * You may use this work under the terms of a Creative Commons CC0 1.0
- * License/Waiver or the Apache Public License 2.0, at your option. The terms of
- * these licenses can be found at:
- *
- * - CC0 1.0 Universal : http://creativecommons.org/publicdomain/zero/1.0
- * - Apache 2.0        : http://www.apache.org/licenses/LICENSE-2.0
- *
- * You should have received a copy of both of these licenses along with this
- * software. If not, they may be obtained at the above URLs.
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -277,18 +260,6 @@ int decode_string(argon2_context *ctx, const char *str, argon2_type type) {
         }                                                                      \
     } while ((void)0, 0)
 
-/* Decoding prefix into decimal */
-#define DECIMAL(x)                                                             \
-    do {                                                                       \
-        unsigned long dec_x;                                                   \
-        str = decode_decimal(str, &dec_x);                                     \
-        if (str == NULL) {                                                     \
-            return ARGON2_DECODING_FAIL;                                       \
-        }                                                                      \
-        (x) = dec_x;                                                           \
-    } while ((void)0, 0)
-
-
 /* Decoding prefix into uint32_t decimal */
 #define DECIMAL_U32(x)                                                         \
     do {                                                                       \
@@ -297,9 +268,8 @@ int decode_string(argon2_context *ctx, const char *str, argon2_type type) {
         if (str == NULL || dec_x > UINT32_MAX) {                               \
             return ARGON2_DECODING_FAIL;                                       \
         }                                                                      \
-        (x) = (uint32_t)dec_x;                                                 \
+        (x) = (uint32_t)dec_x;                                                           \
     } while ((void)0, 0)
-
 
 /* Decoding base64 into a binary buffer */
 #define BIN(buf, max_len, len)                                                 \
@@ -366,7 +336,7 @@ int decode_string(argon2_context *ctx, const char *str, argon2_type type) {
     }
 #undef CC
 #undef CC_opt
-#undef DECIMAL
+#undef DECIMAL_U32
 #undef BIN
 }
 
@@ -404,13 +374,12 @@ int encode_string(char *dst, size_t dst_len, argon2_context *ctx,
     int validation_result = validate_inputs(ctx);
 
     if (!type_string) {
-      return ARGON2_ENCODING_FAIL;
+        return ARGON2_ENCODING_FAIL;
     }
 
     if (validation_result != ARGON2_OK) {
-      return validation_result;
+        return validation_result;
     }
-
 
     SS("$");
     SS(type_string);
