@@ -58,7 +58,7 @@ static const Checkpoints::CCheckpointData data = {
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of
-    (0, uint256("0x000009adaa70b13db675071f0c3cebb79775a6229f2774e2f5cfed05066613ff"));
+    (0, uint256("0x00000c525f441a49600a90513841553fd0e09a2d5eacd3f67649bd7609ee338a"));
 
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
@@ -171,7 +171,7 @@ public:
         pchMessageStart[1] = 0xfe;
         pchMessageStart[2] = 0xef;
         pchMessageStart[3] = 0x3f;
-        vAlertPubKey = ParseHex("045f8e3e3efeb5de4621aa0c539497eee9b2b07a1f4419ef39e0cc49bf83da11089fc20096bd94366a992a7afb184ae84a6f517ba93eee583bedf7db3f10c17e4c");
+        vAlertPubKey = ParseHex("04e4947934c23ec1c2dc01daf414a107916d2f1db14cd198f87541b98512f7e62f696ddc2d4ff2674663ddbd1de6f64deea885b45c4280df8db18f459389174839");
         nDefaultPort = 62000;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nMaxReorganizationDepth = 100;
@@ -188,13 +188,35 @@ public:
         nLastPOWBlock = 1000;
         nModifierUpdateBlock = 50;
 
+        genesis.SetNull();
+
+        const char* pszTimestamp = "Zero Hedge Wed, 03/06/2019 - 23:45 Civil War Would Erupt If Green New Deal Socialists Actually Get What They";
+        CMutableTransaction txNew;
+        txNew.vin.resize(1);
+        txNew.vout.resize(1);
+        txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+        txNew.vout[0].nValue = 0 * COIN;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("045c9205a032bd6ba8cfcbd8c6b163528b4b801d2cbdb90e9510b67c520b6db26d69f89ddef680d9b3e12e97026877b854395b2c74532b6e1ccb3d0416e87f98ec") << OP_CHECKSIG;
+        genesis.vtx.push_back(txNew);
+        genesis.hashPrevBlock = 0;
+        genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = 1545670001;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1940182;
+        genesis.nNonce = 86643;
+
+        if (genesis.nNonce == 0) {
+	          while (genesis.GetHash() > bnProofOfWorkLimit) {
+                 genesis.nNonce++;
+		             if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
+	          }
+	          printf("nonce was %d \n", genesis.nNonce);
+            printf("genesis block %s\n", genesis.ToString().c_str());
+	      }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000009adaa70b13db675071f0c3cebb79775a6229f2774e2f5cfed05066613ff"));
+        assert(hashGenesisBlock == uint256("0x00000c525f441a49600a90513841553fd0e09a2d5eacd3f67649bd7609ee338a"));
+        assert(genesis.hashMerkleRoot == uint256("0x4c218b8dd3d653815dce0ea7d14827c1708247ba39f7137886ab19567ecac159"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -221,7 +243,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04310cda8b6a460200b5c69ecaf74d20cb92a84815cbc82ebe8dd153afeff3de5a3ee487d83bcdf71600be49304ce2f808a73fb0d489bef124e364d69c4b87fc74";
+        strSporkKey = "04aba3f6d2e8066a19ef79724d7340d3259dea3fc00b7a8ad7e60e91c0984609ab33559f80dd366894ecfcf26025bd2db59a8b8de444fdcff349e07ae36399ad67";
         strObfuscationPoolDummyAddress = "ZERGEXXXXXXXXXXXXXXXXXXXXXXXcMy12n";
         nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
@@ -229,7 +251,7 @@ public:
 
     const Checkpoints::CCheckpointData& Checkpoints() const
     {
-        return data;
+        return dataTestnet;
     }
 };
 static CTestNetParams testNetParams;
@@ -367,4 +389,3 @@ bool SelectParamsFromCommandLine()
     SelectParams(network);
     return true;
 }
-
