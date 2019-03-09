@@ -221,7 +221,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
 
-        vSeeds.push_back(CDNSSeedData("myexplorer.org", "mergetestnet.myexplorer.org"));
+        vSeeds.push_back(CDNSSeedData("mergetest-seed.mergeseeders.com", "mergetest-seed.mergeseeders.com"));
+        vSeeds.push_back(CDNSSeedData("mergetest-seed.mergeseeders.org", "mergetest-seed.mergeseeders.org"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80); // Z
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 83); // a
