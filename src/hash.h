@@ -247,14 +247,12 @@ template <typename T1>
 inline uint256 argon2m_hash(const T1 pbegin, const T1 pend)
 {
         uint256 hash[1];
-        static unsigned char pblank[1];
-
         argon2_context context;
         context.out = (uint8_t*)static_cast<void*>(&hash[0]);
         context.outlen = (uint32_t)OUTPUT_BYTES;
-        context.pwd = (uint8_t*)(pbegin == pend ? pblank : static_cast<const void*>(&pbegin[0]));
+        context.pwd = (uint8_t*)static_cast<const void*>(&pbegin[0]);
         context.pwdlen = (uint32_t)INPUT_BYTES;
-        context.salt = (uint8_t *)(pbegin == pend ? pblank : static_cast<const void*>(&pbegin[0]));
+        context.salt = (uint8_t *)static_cast<const void*>(&pbegin[0]);
         context.saltlen = (uint32_t)INPUT_BYTES;
         context.secret = NULL;
         context.secretlen = 0;

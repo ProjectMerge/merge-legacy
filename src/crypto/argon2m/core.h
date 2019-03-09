@@ -134,7 +134,7 @@ void secure_wipe_memory(void *v, size_t n);
  * @param mem Pointer to the memory
  * @param s Memory size in bytes
  */
-ARGON2_PUBLIC void clear_internal_memory(void *v, size_t n);
+void clear_internal_memory(void *v, size_t n);
 
 /*
  * Computes absolute position of reference block in the lane following a skewed
@@ -204,16 +204,6 @@ int initialize(argon2_instance_t *instance, argon2_context *context);
  * deallocates memory
  */
 void finalize(const argon2_context *context, argon2_instance_t *instance);
-
-/*
- * Function that fills the segment using previous segments also from other
- * threads
- * @param instance Pointer to the current instance
- * @param position Current position
- * @pre all block pointers must be valid
- */
-void fill_segment(const argon2_instance_t *instance,
-                  argon2_position_t position);
 
 /*
  * Function that fills the entire memory t_cost times based on the first two

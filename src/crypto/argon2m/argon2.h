@@ -18,19 +18,6 @@
 #include <stdio.h>
 #include <limits.h>
 
-/* Symbols visibility control */
-#ifdef A2_VISCTL
-#define ARGON2_PUBLIC __attribute__((visibility("default")))
-#elif _MSC_VER
-#ifdef argon2_EXPORTS
-#define ARGON2_PUBLIC __declspec(dllexport)
-#else
-#define ARGON2_PUBLIC __declspec(dllimport)
-#endif
-#else
-#define ARGON2_PUBLIC
-#endif // A2_VISCTL
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
@@ -235,14 +222,14 @@ typedef enum Argon2_version {
  * @param uppercase Whether the string should have the first letter uppercase
  * @return NULL if invalid type, otherwise the string representation.
  */
-ARGON2_PUBLIC const char *argon2_type2string(argon2_type type, int uppercase);
+const char *argon2_type2string(argon2_type type, int uppercase);
 
 /*
  * Function that performs memory-hard hashing with certain degree of parallelism
  * @param  context  Pointer to the Argon2 internal structure
  * @return Error code if smth is wrong, ARGON2_OK otherwise
  */
-ARGON2_PUBLIC int argon2_ctx(argon2_context *context, argon2_type type);
+int argon2_ctx(argon2_context *context, argon2_type type);
 
 /**
  * Hashes a password with Argon2i, producing an encoded hash
@@ -259,7 +246,7 @@ ARGON2_PUBLIC int argon2_ctx(argon2_context *context, argon2_type type);
  * @pre   Different parallelism levels will give different results
  * @pre   Returns ARGON2_OK if successful
  */
-ARGON2_PUBLIC int argon2i_hash_encoded(const uint32_t t_cost,
+int argon2i_hash_encoded(const uint32_t t_cost,
                                        const uint32_t m_cost,
                                        const uint32_t parallelism,
                                        const void *pwd, const size_t pwdlen,
@@ -282,13 +269,13 @@ ARGON2_PUBLIC int argon2i_hash_encoded(const uint32_t t_cost,
  * @pre   Different parallelism levels will give different results
  * @pre   Returns ARGON2_OK if successful
  */
-ARGON2_PUBLIC int argon2i_hash_raw(const uint32_t t_cost, const uint32_t m_cost,
+int argon2i_hash_raw(const uint32_t t_cost, const uint32_t m_cost,
                                    const uint32_t parallelism, const void *pwd,
                                    const size_t pwdlen, const void *salt,
                                    const size_t saltlen, void *hash,
                                    const size_t hashlen);
 
-ARGON2_PUBLIC int argon2d_hash_encoded(const uint32_t t_cost,
+int argon2d_hash_encoded(const uint32_t t_cost,
                                        const uint32_t m_cost,
                                        const uint32_t parallelism,
                                        const void *pwd, const size_t pwdlen,
@@ -296,14 +283,14 @@ ARGON2_PUBLIC int argon2d_hash_encoded(const uint32_t t_cost,
                                        const size_t hashlen, char *encoded,
                                        const size_t encodedlen);
 
-ARGON2_PUBLIC int argon2d_hash_raw(const uint32_t t_cost,
+int argon2d_hash_raw(const uint32_t t_cost,
                                    const uint32_t m_cost,
                                    const uint32_t parallelism, const void *pwd,
                                    const size_t pwdlen, const void *salt,
                                    const size_t saltlen, void *hash,
                                    const size_t hashlen);
 
-ARGON2_PUBLIC int argon2id_hash_encoded(const uint32_t t_cost,
+int argon2id_hash_encoded(const uint32_t t_cost,
                                         const uint32_t m_cost,
                                         const uint32_t parallelism,
                                         const void *pwd, const size_t pwdlen,
@@ -311,7 +298,7 @@ ARGON2_PUBLIC int argon2id_hash_encoded(const uint32_t t_cost,
                                         const size_t hashlen, char *encoded,
                                         const size_t encodedlen);
 
-ARGON2_PUBLIC int argon2id_hash_raw(const uint32_t t_cost,
+int argon2id_hash_raw(const uint32_t t_cost,
                                     const uint32_t m_cost,
                                     const uint32_t parallelism, const void *pwd,
                                     const size_t pwdlen, const void *salt,
@@ -319,7 +306,7 @@ ARGON2_PUBLIC int argon2id_hash_raw(const uint32_t t_cost,
                                     const size_t hashlen);
 
 /* generic function underlying the above ones */
-ARGON2_PUBLIC int argon2_hash(const uint32_t t_cost, const uint32_t m_cost,
+int argon2_hash(const uint32_t t_cost, const uint32_t m_cost,
                               const uint32_t parallelism, const void *pwd,
                               const size_t pwdlen, const void *salt,
                               const size_t saltlen, void *hash,
@@ -334,17 +321,17 @@ ARGON2_PUBLIC int argon2_hash(const uint32_t t_cost, const uint32_t m_cost,
  * @param pwd Pointer to password
  * @pre   Returns ARGON2_OK if successful
  */
-ARGON2_PUBLIC int argon2i_verify(const char *encoded, const void *pwd,
+int argon2i_verify(const char *encoded, const void *pwd,
                                  const size_t pwdlen);
 
-ARGON2_PUBLIC int argon2d_verify(const char *encoded, const void *pwd,
+int argon2d_verify(const char *encoded, const void *pwd,
                                  const size_t pwdlen);
 
-ARGON2_PUBLIC int argon2id_verify(const char *encoded, const void *pwd,
+int argon2id_verify(const char *encoded, const void *pwd,
                                   const size_t pwdlen);
 
 /* generic function underlying the above ones */
-ARGON2_PUBLIC int argon2_verify(const char *encoded, const void *pwd,
+int argon2_verify(const char *encoded, const void *pwd,
                                 const size_t pwdlen, argon2_type type);
 
 /**
@@ -355,7 +342,7 @@ ARGON2_PUBLIC int argon2_verify(const char *encoded, const void *pwd,
  * @param  context  Pointer to current Argon2 context
  * @return  Zero if successful, a non zero error code otherwise
  */
-ARGON2_PUBLIC int argon2d_ctx(argon2_context *context);
+int argon2d_ctx(argon2_context *context);
 
 /**
  * Argon2i: Version of Argon2 that picks memory blocks
@@ -365,7 +352,7 @@ ARGON2_PUBLIC int argon2d_ctx(argon2_context *context);
  * @param  context  Pointer to current Argon2 context
  * @return  Zero if successful, a non zero error code otherwise
  */
-ARGON2_PUBLIC int argon2i_ctx(argon2_context *context);
+int argon2i_ctx(argon2_context *context);
 
 /**
  * Argon2id: Version of Argon2 where the first half-pass over memory is
@@ -376,7 +363,7 @@ ARGON2_PUBLIC int argon2i_ctx(argon2_context *context);
  * @param  context  Pointer to current Argon2 context
  * @return  Zero if successful, a non zero error code otherwise
  */
-ARGON2_PUBLIC int argon2id_ctx(argon2_context *context);
+int argon2id_ctx(argon2_context *context);
 
 /**
  * Verify if a given password is correct for Argon2d hashing
@@ -385,7 +372,7 @@ ARGON2_PUBLIC int argon2id_ctx(argon2_context *context);
  * specified by the context outlen member
  * @return  Zero if successful, a non zero error code otherwise
  */
-ARGON2_PUBLIC int argon2d_verify_ctx(argon2_context *context, const char *hash);
+int argon2d_verify_ctx(argon2_context *context, const char *hash);
 
 /**
  * Verify if a given password is correct for Argon2i hashing
@@ -394,7 +381,7 @@ ARGON2_PUBLIC int argon2d_verify_ctx(argon2_context *context, const char *hash);
  * specified by the context outlen member
  * @return  Zero if successful, a non zero error code otherwise
  */
-ARGON2_PUBLIC int argon2i_verify_ctx(argon2_context *context, const char *hash);
+int argon2i_verify_ctx(argon2_context *context, const char *hash);
 
 /**
  * Verify if a given password is correct for Argon2id hashing
@@ -403,18 +390,18 @@ ARGON2_PUBLIC int argon2i_verify_ctx(argon2_context *context, const char *hash);
  * specified by the context outlen member
  * @return  Zero if successful, a non zero error code otherwise
  */
-ARGON2_PUBLIC int argon2id_verify_ctx(argon2_context *context,
+int argon2id_verify_ctx(argon2_context *context,
                                       const char *hash);
 
 /* generic function underlying the above ones */
-ARGON2_PUBLIC int argon2_verify_ctx(argon2_context *context, const char *hash,
+int argon2_verify_ctx(argon2_context *context, const char *hash,
                                     argon2_type type);
 
 /**
  * Get the associated error message for given error code
  * @return  The error message associated with the given error code
  */
-ARGON2_PUBLIC const char *argon2_error_message(int error_code);
+const char *argon2_error_message(int error_code);
 
 /**
  * Returns the encoded hash length for the given input parameters
@@ -426,7 +413,7 @@ ARGON2_PUBLIC const char *argon2_error_message(int error_code);
  * @param type The argon2_type that we want the encoded length for
  * @return  The encoded hash length in bytes
  */
-ARGON2_PUBLIC size_t argon2_encodedlen(uint32_t t_cost, uint32_t m_cost,
+size_t argon2_encodedlen(uint32_t t_cost, uint32_t m_cost,
                                        uint32_t parallelism, uint32_t saltlen,
                                        uint32_t hashlen, argon2_type type);
 
@@ -440,12 +427,12 @@ ARGON2_PUBLIC size_t argon2_encodedlen(uint32_t t_cost, uint32_t m_cost,
  * @param prefix What to print before each line; NULL is equivalent to empty
  * string
  */
-ARGON2_PUBLIC void argon2_select_impl(FILE *out, const char *prefix);
+void argon2_select_impl(FILE *out, const char *prefix);
 
 /* signals support for passing preallocated memory: */
 #define ARGON2_PREALLOCATED_MEMORY
 
-ARGON2_PUBLIC size_t argon2_memory_size(uint32_t m_cost, uint32_t parallelism);
+size_t argon2_memory_size(uint32_t m_cost, uint32_t parallelism);
 
 /**
  * Function that performs memory-hard hashing with certain degree of parallelism
@@ -455,7 +442,7 @@ ARGON2_PUBLIC size_t argon2_memory_size(uint32_t m_cost, uint32_t parallelism);
  * @param memory_size   The size of preallocated memory
  * @return Error code if smth is wrong, ARGON2_OK otherwise
  */
-ARGON2_PUBLIC int argon2_ctx_mem(argon2_context *context, argon2_type type,
+int argon2_ctx_mem(argon2_context *context, argon2_type type,
                                  void *memory, size_t memory_size);
 
 #if defined(__cplusplus)

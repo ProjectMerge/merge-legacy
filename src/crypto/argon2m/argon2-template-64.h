@@ -3,7 +3,7 @@
 #include "core.h"
 
 #define MASK_32 UINT64_C(0xFFFFFFFF)
-
+#define rotr64(x, n) (((x) >> (n)) | ((x) << (64 - (n))))
 #define F(x, y) ((x) + (y) + 2 * ((x) & MASK_32) * ((y) & MASK_32))
 
 #define G(a, b, c, d) \
@@ -45,7 +45,7 @@
         (v)[ 64], (v)[ 65], (v)[ 80], (v)[ 81], \
         (v)[ 96], (v)[ 97], (v)[112], (v)[113])
 
-static void fill_block(const block *prev_block, const block *ref_block,
+void fill_block(const block *prev_block, const block *ref_block,
                        block *next_block, int with_xor)
 {
     block blockR, block_tmp;
@@ -83,7 +83,7 @@ static void fill_block(const block *prev_block, const block *ref_block,
     xor_block(next_block, &blockR);
 }
 
-static void next_addresses(block *address_block, block *input_block,
+void next_addresses(block *address_block, block *input_block,
                            const block *zero_block)
 {
     input_block->v[6]++;
@@ -91,7 +91,7 @@ static void next_addresses(block *address_block, block *input_block,
     fill_block(zero_block, address_block, address_block, 0);
 }
 
-static void fill_segment_64(const argon2_instance_t *instance,
+void fill_segment(const argon2_instance_t *instance,
                             argon2_position_t position)
 {
     block *ref_block, *curr_block, *prev_block;
@@ -183,11 +183,10 @@ static void fill_segment_64(const argon2_instance_t *instance,
         curr_block = instance->memory + curr_offset;
         prev_block = instance->memory + prev_offset;
 
-        /* version 1.2.1 and earlier: overwrite, not XOR */
-        if (0 == position.pass || ARGON2_VERSION_10 == instance->version) {
-            fill_block(prev_block, ref_block, curr_block, 0);
+        if(0 == position.pass) {
+             fill_block(prev_block, ref_block, curr_block, 0);
         } else {
-            fill_block(prev_block, ref_block, curr_block, 1);
+             fill_block(prev_block, ref_block, curr_block, 1);
         }
     }
 }
