@@ -232,6 +232,7 @@ std::string BlockToString(CBlockIndex* pBlock)
         {
             _("Height"), itostr(pBlock->nHeight),
             _("Size"), itostr(GetSerializeSize(block, SER_NETWORK, PROTOCOL_VERSION)),
+            _("Algorithm"),(pBlock->IsProofOfWork()) ? "POW" : "POS",
             _("Number of Transactions"), itostr(block.vtx.size()),
             _("Value Out"), ValueToString(OutVolume),
             _("Fees"), ValueToString(Fees),
