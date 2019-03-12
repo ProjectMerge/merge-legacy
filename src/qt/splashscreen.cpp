@@ -27,15 +27,15 @@ SplashScreen::SplashScreen(Qt::WindowFlags f, const NetworkStyle* networkStyle) 
 {
     // set reference point, paddings
     int paddingLeft = 14;
-    int paddingTop = 470;
+    int paddingTop = 450;
     int titleCopyrightVSpace = 32;
     float fontFactor = 1.0;
 
     // define text to place
-    QString copyrightTextBtc = QChar(0xA9) + QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
-    QString copyrightTextDash = QChar(0xA9) + QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core developers"));
-    QString copyrightTextPIVX = QChar(0xA9) + QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The PIVX Core developers"));
-    QString copyrightTextMERGE = QChar(0xA9) + QString(" 2018-%1  ").arg(COPYRIGHT_YEAR) + QString(tr("The Merge Core developers"));
+    QString copyrightTextBtc   = QChar(0xA9) + QString(" 2009-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Bitcoin Core developers"));
+    QString copyrightTextDash  = QChar(0xA9) + QString(" 2014-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Dash Core developers"));
+    QString copyrightTextPIVX  = QChar(0xA9) + QString(" 2015-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The PIVX Core developers"));
+    QString copyrightTextMERGE = QChar(0xA9) + QString(" 2018-%1 ").arg(COPYRIGHT_YEAR) + QString(tr("The Merge Core developers"));
     QString titleAddText = networkStyle->getTitleAddText();
 
     QString font = QApplication::font().toString();
