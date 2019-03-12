@@ -200,9 +200,17 @@ std::string BlockToString(CBlockIndex* pBlock)
     CAmount Fees = 0;
     CAmount OutVolume = 0;
     CAmount Reward = 0;
+    CAmount Generated;
+
+    // Get the Current Block Reward
+    if (pBlock->nHeight == 0)
+        Generated = OutVolume;
+    else
+        Generated = GetBlockValue(pBlock->nHeight - 1);
 
     std::string TxLabels[] = {_("Hash"), _("From"), _("Amount"), _("To"), _("Amount")};
 
+    //Loop trough every incomming Tx
     std::string TxContent = table + makeHTMLTableRow(TxLabels, sizeof(TxLabels) / sizeof(std::string));
     for (unsigned int i = 0; i < block.vtx.size(); i++) {
         const CTransaction& tx = block.vtx[i];
@@ -210,22 +218,15 @@ std::string BlockToString(CBlockIndex* pBlock)
 
         CAmount In = getTxIn(tx);
         CAmount Out = tx.GetValueOut();
-        if (tx.IsCoinBase())
-            Reward += Out;
-        else if (In < 0)
-            Fees = -Params().MaxMoneyOut();
+
+        if (In < 0)
+            Fees = -Params().MaxMoneyOut(); 
         else {
-            Fees += In - Out;
+            Fees += Out - In - ((block.vtx.size() == i + 1) ? Generated : 0);
             OutVolume += Out;
         }
     }
     TxContent += "</table>";
-
-    CAmount Generated;
-    if (pBlock->nHeight == 0)
-        Generated = OutVolume;
-    else
-        Generated = GetBlockValue(pBlock->nHeight - 1);
 
     std::string BlockContentCells[] =
         {
