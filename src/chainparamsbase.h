@@ -5,6 +5,12 @@
 #ifndef BITCOIN_CHAINPARAMSBASE_H
 #define BITCOIN_CHAINPARAMSBASE_H
 
+#if defined(HAVE_CONFIG_H)
+#include "config/merge-config.h"
+#else
+#define CLIENT_VERSION_IS_RELEASE false
+#endif
+
 #include <string>
 #include <vector>
 
@@ -12,6 +18,8 @@
  * CBaseChainParams defines the base parameters (shared between merge-cli and merged)
  * of a given instance of The Merge system.
  */
+static const bool bClientVersionIsRelease = CLIENT_VERSION_IS_RELEASE;
+
 class CBaseChainParams
 {
 public:

@@ -4899,6 +4899,10 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "MERGE Alert" admin@foo.com
         <translation>Dit is een pre-release test build - gebruik op eigen risico - niet gebruiken voor staking of handel applicaties!</translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>This version will only run on TESTNET</translation>
+    </message>
+    <message>
         <source> mints deleted
 </source>
         <translation>mints verwijderd

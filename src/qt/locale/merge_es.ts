@@ -4915,6 +4915,10 @@ por ejemplo: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
         <translation>Esto es una versión pre-release de prueba - use bajo su propia responsabilidad - ¡No lo utilice para recompensa de participación ni aplicaciones de comercio!</translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>This version will only run on TESTNET</translation>
+    </message>
+    <message>
         <source> mints deleted
 </source>
         <translation>creaciones de moneda borradas

@@ -4416,8 +4416,11 @@ string GetWarnings(string strFor)
     string strRPC;
 
     if (!CLIENT_VERSION_IS_RELEASE)
-        strStatusBar = _("This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!");
-
+    {  
+        strStatusBar =  _("This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!");
+        strStatusBar += "\n\n";
+        strStatusBar += _("This version will only run on TESTNET");
+    }
     if (GetBoolArg("-testsafemode", false))
         strStatusBar = strRPC = "testsafemode enabled";
 

@@ -1612,6 +1612,10 @@ Address: %4
         <translation>这是一个预发行测试版本 - 您自己承担风险 - 不要用于商业应用！</translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>This version will only run on TESTNET</translation>
+    </message>
+    <message>
         <source>Specify your own public address</source>
         <translation>指定您自己的公共地址</translation>
     </message>
