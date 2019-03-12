@@ -6808,6 +6808,10 @@ for example: alertnotify=echo %%s | mail -s &quot;MERGE Alert&quot; admin@foo.co
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>This version will only run on TESTNET</translation>
+    </message>
+    <message>
         <location line="-152"/>
         <source> mints deleted
 </source>

@@ -4534,6 +4534,10 @@ for example: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
         <translation>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>This version will only run on TESTNET</translation>
+    </message>
+    <message>
         <source>&lt;category&gt; can be:</source>
         <translation>&lt;category&gt; can be:</translation>
     </message>

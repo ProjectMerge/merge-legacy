@@ -104,6 +104,10 @@ CBaseChainParams::Network NetworkIdFromCommandLine()
     bool fRegTest = GetBoolArg("-regtest", false);
     bool fTestNet = GetBoolArg("-testnet", false);
 
+    //If this Version is not intended to be released run on Testnet
+    if(!bClientVersionIsRelease)
+        return CBaseChainParams::TESTNET;
+
     if (fTestNet && fRegTest)
         return CBaseChainParams::MAX_NETWORK_TYPES;
     if (fRegTest)

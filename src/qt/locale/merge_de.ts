@@ -4850,6 +4850,10 @@ Beispiel: alertnotify=echo %%s | mail -s "MERGE Alert" admin@foo.com
         <translation>Dies ist ein Pre-Release-Testbuild - Nutzung auf eigene Gefahr - Nutzen Sie diese Version nicht für Staking oder Handelsanwendungen.</translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>Diese Version wird nur das TESTNET benutzen</translation>
+    </message>    
+    <message>
         <source> mints deleted
 </source>
         <translation>Prägungen gelöscht 

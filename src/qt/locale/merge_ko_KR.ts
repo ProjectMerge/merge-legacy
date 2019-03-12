@@ -5091,6 +5091,10 @@ rpcpassword=%s
         <translation>이것은 사전 릴리스 테스트 빌드입니다 - 사용상 책임은 귀하에게 있습니다. - staking이나 상업적인 용도로는 절대 사용하지 마십시오!</translation>
     </message>
     <message>
+        <source>This version will only run on TESTNET</source>
+        <translation>This version will only run on TESTNET</translation>
+    </message>
+    <message>
         <source> mints deleted
 </source>
         <translation>생성 삭제

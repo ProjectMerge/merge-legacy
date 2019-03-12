@@ -165,6 +165,8 @@ QT_TRANSLATE_NOOP("MERGE-core", ""
 "This is a pre-release test build - use at your own risk - do not use for "
 "staking or merchant applications!"),
 QT_TRANSLATE_NOOP("MERGE-core", ""
+"This version will only run on TESTNET"),
+QT_TRANSLATE_NOOP("MERGE-core", ""
 "This product includes software developed by the OpenSSL Project for use in "
 "the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software "
 "written by Eric Young and UPnP software written by Thomas Bernard."),
