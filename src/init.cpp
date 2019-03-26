@@ -1669,19 +1669,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         nPreferredDenom = 0;
     }
 
-// XX42 Remove/refactor code below. Until then provide safe defaults
     nAnonymizeMergeAmount = 2;
-
-//    nLiquidityProvider = GetArg("-liquidityprovider", 0); //0-100
-//    if (nLiquidityProvider != 0) {
-//        obfuScationPool.SetMinBlockSpacing(std::min(nLiquidityProvider, 100) * 15);
-//        fEnableZeromint = true;
-//        nZeromintPercentage = 99999;
-//    }
-//
-//    nAnonymizeMergeAmount = GetArg("-anonymizemergeamount", 0);
-//    if (nAnonymizeMergeAmount > 999999) nAnonymizeMergeAmount = 999999;
-//    if (nAnonymizeMergeAmount < 2) nAnonymizeMergeAmount = 2;
 
     fEnableSwiftTX = GetBoolArg("-enableswifttx", fEnableSwiftTX);
     nSwiftTXDepth = GetArg("-swifttxdepth", nSwiftTXDepth);

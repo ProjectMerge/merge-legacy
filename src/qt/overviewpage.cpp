@@ -213,7 +213,6 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelWatchImmature->setVisible(showWatchOnlyImmature); // show watch-only immature balance
 
     static int cachedTxLocks = 0;
-
     if (cachedTxLocks != nCompleteTXLocks) {
         cachedTxLocks = nCompleteTXLocks;
         ui->listTransactions->update();
