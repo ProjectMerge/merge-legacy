@@ -18,7 +18,6 @@
 #include "main.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
-#include "primitives/zerocoin.h"
 #include "ui_interface.h"
 #include "util.h"
 #include "validationinterface.h"
@@ -200,23 +199,8 @@ public:
     int CountInputsWithAmount(CAmount nInputAmount);
 
     bool SelectCoinsCollateral(std::vector<CTxIn>& setCoinsRet, CAmount& nValueRet) const;
+    string GetUniqueWalletBackupName() const;
 
-    // Zerocoin additions
-    bool CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransaction& txNew, vector<CZerocoinMint>& vMints, CReserveKey* reservekey, int64_t& nFeeRet, std::string& strFailReason, const CCoinControl* coinControl = NULL, const bool isZCSpendChange = false);
-    bool CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CReserveKey& reserveKey, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vSelectedMints, vector<CZerocoinMint>& vNewMints, bool fMintChange,  bool fMinimizeChange, CBitcoinAddress* address = NULL);
-    bool MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt);
-    std::string MintZerocoin(CAmount nValue, CWalletTx& wtxNew, vector<CZerocoinMint>& vMints, const CCoinControl* coinControl = NULL);
-    bool SpendZerocoin(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vMintsSelected, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* addressTo = NULL);
-    std::string ResetMintZerocoin(bool fExtendedSearch);
-    std::string ResetSpentZerocoin();
-    void ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored);
-    void ZPivBackupWallet();
-	string GetUniqueWalletBackupName() const;
-
-    /** Zerocin entry changed.
-    * @note called with lock cs_wallet held.
-    */
-    boost::signals2::signal<void(CWallet* wallet, const std::string& pubCoin, const std::string& isUsed, ChangeType status)> NotifyZerocoinChanged;
     /*
      * Main wallet lock.
      * This lock protects all the fields added by CWallet
@@ -455,13 +439,8 @@ public:
     CAmount GetImmatureZerocoinBalance() const;
     CAmount GetLockedCoins() const;
     CAmount GetUnlockedCoins() const;
-    std::map<libzerocoin::CoinDenomination, CAmount> GetMyZerocoinDistribution() const;
     CAmount GetUnconfirmedBalance() const;
     CAmount GetImmatureBalance() const;
-    CAmount GetAnonymizableBalance() const;
-    CAmount GetAnonymizedBalance() const;
-    double GetAverageAnonymizedRounds() const;
-    CAmount GetNormalizedAnonymizedBalance() const;
     CAmount GetDenominatedBalance(bool unconfirmed = false) const;
     CAmount GetWatchOnlyBalance() const;
     CAmount GetUnconfirmedWatchOnlyBalance() const;
@@ -523,7 +502,6 @@ public:
     {
         return ::IsMine(*this, txout.scriptPubKey);
     }
-    bool IsMyZerocoinSpend(const CBigNum& bnSerial) const;
     CAmount GetCredit(const CTxOut& txout, const isminefilter& filter) const
     {
         if (!MoneyRange(txout.nValue))
@@ -1036,73 +1014,6 @@ public:
 
         nAvailableCreditCached = nCredit;
         fAvailableCreditCached = true;
-        return nCredit;
-    }
-
-    CAmount GetAnonymizableCredit(bool fUseCache = true) const
-    {
-        if (pwallet == 0)
-            return 0;
-
-        // Must wait until coinbase is safely deep enough in the chain before valuing it
-        if (IsCoinBase() && GetBlocksToMaturity() > 0)
-            return 0;
-
-        if (fUseCache && fAnonymizableCreditCached)
-            return nAnonymizableCreditCached;
-
-        CAmount nCredit = 0;
-        uint256 hashTx = GetHash();
-        for (unsigned int i = 0; i < vout.size(); i++) {
-            const CTxOut& txout = vout[i];
-            const CTxIn vin = CTxIn(hashTx, i);
-
-            if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-            if (fMasterNode && vout[i].nValue == 10000 * COIN) continue; // do not count MN-like outputs
-
-            const int rounds = pwallet->GetInputObfuscationRounds(vin);
-            if (rounds >= -2 && rounds < nZeromintPercentage) {
-                nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
-                if (!MoneyRange(nCredit))
-                    throw std::runtime_error("CWalletTx::GetAnonamizableCredit() : value out of range");
-            }
-        }
-
-        nAnonymizableCreditCached = nCredit;
-        fAnonymizableCreditCached = true;
-        return nCredit;
-    }
-
-    CAmount GetAnonymizedCredit(bool fUseCache = true) const
-    {
-        if (pwallet == 0)
-            return 0;
-
-        // Must wait until coinbase is safely deep enough in the chain before valuing it
-        if (IsCoinBase() && GetBlocksToMaturity() > 0)
-            return 0;
-
-        if (fUseCache && fAnonymizedCreditCached)
-            return nAnonymizedCreditCached;
-
-        CAmount nCredit = 0;
-        uint256 hashTx = GetHash();
-        for (unsigned int i = 0; i < vout.size(); i++) {
-            const CTxOut& txout = vout[i];
-            const CTxIn vin = CTxIn(hashTx, i);
-
-            if (pwallet->IsSpent(hashTx, i) || !pwallet->IsDenominated(vin)) continue;
-
-            const int rounds = pwallet->GetInputObfuscationRounds(vin);
-            if (rounds >= nZeromintPercentage) {
-                nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
-                if (!MoneyRange(nCredit))
-                    throw std::runtime_error("CWalletTx::GetAnonymizedCredit() : value out of range");
-            }
-        }
-
-        nAnonymizedCreditCached = nCredit;
-        fAnonymizedCreditCached = true;
         return nCredit;
     }
 

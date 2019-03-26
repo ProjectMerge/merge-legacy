@@ -21,7 +21,6 @@
 #include "pow.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
-#include "primitives/zerocoin.h"
 #include "script/script.h"
 #include "script/sigcache.h"
 #include "script/standard.h"
@@ -39,8 +38,6 @@
 #include <string>
 #include <utility>
 #include <vector>
-
-#include "libzerocoin/CoinSpend.h"
 
 #include <boost/unordered_map.hpp>
 
@@ -156,7 +153,6 @@ extern int64_t nReserveBalance;
 extern std::map<uint256, int64_t> mapRejectedBlocks;
 extern std::map<unsigned int, unsigned int> mapHashedBlocks;
 extern std::map<COutPoint, COutPoint> mapInvalidOutPoints;
-extern std::map<CBigNum, CAmount> mapInvalidSerials;
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
 
 /** Best header we've seen so far (used for getheaders queries' starting points). */
@@ -352,28 +348,10 @@ void UpdateCoins(const CTransaction& tx, CValidationState& state, CCoinsViewCach
 
 /** Context-independent validity checks */
 bool CheckTransaction(const CTransaction& tx, CValidationState& state);
-bool CheckZerocoinMint(const uint256& txHash, const CTxOut& txout, CValidationState& state, bool fCheckOnly = false);
-bool CheckZerocoinSpend(const CTransaction tx, bool fVerifySignature, CValidationState& state);
-libzerocoin::CoinSpend TxInToZerocoinSpend(const CTxIn& txin);
-bool TxOutToPublicCoin(const CTxOut txout, libzerocoin::PublicCoin& pubCoin, CValidationState& state);
-bool BlockToPubcoinList(const CBlock& block, list<libzerocoin::PublicCoin>& listPubcoins, bool fFilterInvalid);
-bool BlockToZerocoinMintList(const CBlock& block, std::list<CZerocoinMint>& vMints, bool fFilterInvalid);
-bool BlockToMintValueVector(const CBlock& block, const libzerocoin::CoinDenomination denom, std::vector<CBigNum>& vValues);
-std::list<libzerocoin::CoinDenomination> ZerocoinSpendListFromBlock(const CBlock& block, bool fFilterInvalid);
-void FindMints(vector<CZerocoinMint> vMintsToFind, vector<CZerocoinMint>& vMintsToUpdate, vector<CZerocoinMint>& vMissingMints, bool fExtendedSearch);
-bool GetZerocoinMint(const CBigNum& bnPubcoin, uint256& txHash);
-bool IsSerialKnown(const CBigNum& bnSerial);
-bool IsSerialInBlockchain(const CBigNum& bnSerial, int& nHeightTx);
-bool RemoveSerialFromDB(const CBigNum& bnSerial);
-int GetZerocoinStartHeight();
 bool IsTransactionInChain(uint256 txId, int& nHeightTx);
 bool IsBlockHashInChain(const uint256& hashBlock);
 void PopulateInvalidOutPointMap();
 bool ValidOutPoint(const COutPoint out, int nHeight);
-void RecalculateZPIVSpent();
-void RecalculateZPIVMinted();
-bool RecalculatePIVSupply(int nHeightStart);
-bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError);
 
 
 /**
@@ -650,21 +628,5 @@ struct CBlockTemplate {
     std::vector<int64_t> vTxSigOps;
 };
 
-/*
-class CValidationInterface
-{
-protected:
-    virtual void SyncTransaction(const CTransaction& tx, const CBlock* pblock){};
-    virtual void EraseFromWallet(const uint256& hash){};
-    virtual void SetBestChain(const CBlockLocator& locator){};
-    virtual bool UpdatedTransaction(const uint256& hash) { return false; };
-    virtual void Inventory(const uint256& hash){};
-    virtual void ResendWalletTransactions(){};
-    virtual void BlockChecked(const CBlock&, const CValidationState&){};
-    friend void ::RegisterValidationInterface(CValidationInterface*);
-    friend void ::UnregisterValidationInterface(CValidationInterface*);
-    friend void ::UnregisterAllValidationInterfaces();
-};
-*/
 #endif // BITCOIN_MAIN_H
 

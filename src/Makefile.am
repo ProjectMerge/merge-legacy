@@ -29,7 +29,6 @@ LIBBITCOIN_CLI=libbitcoin_cli.a
 LIBBITCOIN_UTIL=libbitcoin_util.a
 LIBBITCOIN_CRYPTO=crypto/libbitcoin_crypto.a
 LIBBITCOIN_UNIVALUE=univalue/libbitcoin_univalue.a
-LIBBITCOIN_ZEROCOIN=libzerocoin/libbitcoin_zerocoin.a
 LIBBITCOINQT=qt/libbitcoinqt.a
 LIBSECP256K1=secp256k1/libsecp256k1.la
 
@@ -43,7 +42,6 @@ EXTRA_LIBRARIES = \
   libbitcoin_util.a \
   libbitcoin_common.a \
   univalue/libbitcoin_univalue.a \
-  libzerocoin/libbitcoin_zerocoin.a \
   libbitcoin_server.a \
   libbitcoin_cli.a
 if ENABLE_WALLET
@@ -98,10 +96,8 @@ BITCOIN_CORE_H = \
   compressor.h \
   primitives/block.h \
   primitives/transaction.h \
-  primitives/zerocoin.h \
   core_io.h \
   crypter.h \
-  denomination_functions.h \
   obfuscation.h \
   obfuscation-relay.h \
   db.h \
@@ -242,7 +238,6 @@ libbitcoin_wallet_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_SOURCES = \
   activemasternode.cpp \
   bip38.cpp \
-  denomination_functions.cpp \
   obfuscation.cpp \
   obfuscation-relay.cpp \
   db.cpp \
@@ -255,7 +250,6 @@ libbitcoin_wallet_a_SOURCES = \
   masternodeconfig.cpp \
   masternodeman.cpp \
   rpcdump.cpp \
-  primitives/zerocoin.cpp \
   rpcwallet.cpp \
   kernel.cpp \
   wallet.cpp \
@@ -297,8 +291,8 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/argon2d/thread.h \
   crypto/blake2/blake2b.c \
   crypto/blake2/blake2.h \
-	crypto/blake2/blake2-impl.h \
-	crypto/blake2/blamka-round-opt.h
+  crypto/blake2/blake2-impl.h \
+  crypto/blake2/blamka-round-opt.h
 
 # univalue JSON library
 univalue_libbitcoin_univalue_a_SOURCES = \
@@ -307,29 +301,6 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_write.cpp \
   univalue/univalue_escapes.h \
   univalue/univalue.h
-
-# libzerocoin library
-libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
-  libzerocoin/Accumulator.h \
-  libzerocoin/AccumulatorProofOfKnowledge.h \
-  libzerocoin/bignum.h \
-  libzerocoin/Coin.h \
-  libzerocoin/CoinSpend.h \
-  libzerocoin/Commitment.h \
-  libzerocoin/Denominations.h \
-  libzerocoin/ParamGeneration.h \
-  libzerocoin/Params.h \
-  libzerocoin/SerialNumberSignatureOfKnowledge.h \
-  libzerocoin/ZerocoinDefines.h \
-  libzerocoin/Accumulator.cpp \
-  libzerocoin/AccumulatorProofOfKnowledge.cpp \
-  libzerocoin/Coin.cpp \
-  libzerocoin/Denominations.cpp \
-  libzerocoin/CoinSpend.cpp \
-  libzerocoin/Commitment.cpp \
-  libzerocoin/ParamGeneration.cpp \
-  libzerocoin/Params.cpp \
-  libzerocoin/SerialNumberSignatureOfKnowledge.cpp
 
 # common: shared between merged, and merge-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
@@ -343,7 +314,6 @@ libbitcoin_common_a_SOURCES = \
   compressor.cpp \
   primitives/block.cpp \
   primitives/transaction.cpp \
-  primitives/zerocoin.cpp \
   core_read.cpp \
   core_write.cpp \
   eccryptoverify.cpp \

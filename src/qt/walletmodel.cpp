@@ -75,7 +75,7 @@ CAmount WalletModel::getBalance(const CCoinControl* coinControl) const
 
 CAmount WalletModel::getAnonymizedBalance() const
 {
-    return wallet->GetAnonymizedBalance();
+    return(0);
 }
 
 CAmount WalletModel::getUnconfirmedBalance() const
@@ -163,7 +163,6 @@ void WalletModel::checkBalanceChanged()
         cachedBalance = newBalance;
         cachedUnconfirmedBalance = newUnconfirmedBalance;
         cachedImmatureBalance = newImmatureBalance;
-        cachedTxLocks = nCompleteTXLocks;
         cachedWatchOnlyBalance = newWatchOnlyBalance;
         cachedWatchUnconfBalance = newWatchUnconfBalance;
         cachedWatchImmatureBalance = newWatchImmatureBalance;

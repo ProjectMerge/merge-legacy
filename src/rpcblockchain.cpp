@@ -735,22 +735,6 @@ Value getinvalid (const Array& params, bool fHelp)
         strCommand = params[0].get_str();
     }
 
-    if (strCommand == "serials") {
-        Array ret;
-        CAmount nSerialTotal = 0;
-        for (auto it : mapInvalidSerials) {
-            Object objSerial;
-            objSerial.emplace_back(Pair(it.first.GetHex(), FormatMoney(it.second)));
-            nSerialTotal += it.second;
-            ret.emplace_back(objSerial);
-        }
-
-        Object objTotal;
-        objTotal.emplace_back(Pair("total_value", FormatMoney(nSerialTotal)));
-        ret.emplace_back(objTotal);
-        return ret;
-    }
-
     bool fShowAll = false;
     if (strCommand == "all")
         fShowAll = true;

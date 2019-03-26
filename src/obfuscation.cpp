@@ -803,84 +803,8 @@ void CObfuscationPool::ChargeRandomFees()
 //
 void CObfuscationPool::CheckTimeout()
 {
-    if (!fEnableZeromint && !fMasterNode) return;
-
-    // catching hanging sessions
-    if (!fMasterNode) {
-        switch (state) {
-        case POOL_STATUS_TRANSMISSION:
-            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Session complete -- Running Check()\n");
-            Check();
-            break;
-        case POOL_STATUS_ERROR:
-            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Pool error -- Running Check()\n");
-            Check();
-            break;
-        case POOL_STATUS_SUCCESS:
-            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Pool success -- Running Check()\n");
-            Check();
-            break;
-        }
-    }
-
-    // check Obfuscation queue objects for timeouts
-    int c = 0;
-    vector<CObfuscationQueue>::iterator it = vecObfuscationQueue.begin();
-    while (it != vecObfuscationQueue.end()) {
-        if ((*it).IsExpired()) {
-            LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() : Removing expired queue entry - %d\n", c);
-            it = vecObfuscationQueue.erase(it);
-        } else
-            ++it;
-        c++;
-    }
-
-    int addLagTime = 0;
-    if (!fMasterNode) addLagTime = 10000; //if we're the client, give the server a few extra seconds before resetting.
-
-    if (state == POOL_STATUS_ACCEPTING_ENTRIES || state == POOL_STATUS_QUEUE) {
-        c = 0;
-
-        // check for a timeout and reset if needed
-        vector<CObfuScationEntry>::iterator it2 = entries.begin();
-        while (it2 != entries.end()) {
-            if ((*it2).IsExpired()) {
-                LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() : Removing expired entry - %d\n", c);
-                it2 = entries.erase(it2);
-                if (entries.size() == 0) {
-                    UnlockCoins();
-                    SetNull();
-                }
-                if (fMasterNode) {
-                    RelayStatus(sessionID, GetState(), GetEntriesCount(), MASTERNODE_RESET);
-                }
-            } else
-                ++it2;
-            c++;
-        }
-
-        if (GetTimeMillis() - lastTimeChanged >= (OBFUSCATION_QUEUE_TIMEOUT * 1000) + addLagTime) {
-            UnlockCoins();
-            SetNull();
-        }
-    } else if (GetTimeMillis() - lastTimeChanged >= (OBFUSCATION_QUEUE_TIMEOUT * 1000) + addLagTime) {
-        LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Session timed out (%ds) -- resetting\n", OBFUSCATION_QUEUE_TIMEOUT);
-        UnlockCoins();
-        SetNull();
-
-        UpdateState(POOL_STATUS_ERROR);
-        lastMessage = _("Session timed out.");
-    }
-
-    if (state == POOL_STATUS_SIGNING && GetTimeMillis() - lastTimeChanged >= (OBFUSCATION_SIGNING_TIMEOUT * 1000) + addLagTime) {
-        LogPrint("obfuscation", "CObfuscationPool::CheckTimeout() -- Session timed out (%ds) -- restting\n", OBFUSCATION_SIGNING_TIMEOUT);
-        ChargeFees();
-        UnlockCoins();
-        SetNull();
-
-        UpdateState(POOL_STATUS_ERROR);
-        lastMessage = _("Signing timed out.");
-    }
+    // zerocoin has been removed
+    return;
 }
 
 //
@@ -888,24 +812,8 @@ void CObfuscationPool::CheckTimeout()
 //
 void CObfuscationPool::CheckForCompleteQueue()
 {
-    if (!fEnableZeromint && !fMasterNode) return;
-
-    /* Check to see if we're ready for submissions from clients */
-    //
-    // After receiving multiple dsa messages, the queue will switch to "accepting entries"
-    // which is the active state right before merging the transaction
-    //
-    if (state == POOL_STATUS_QUEUE && sessionUsers == GetMaxPoolTransactions()) {
-        UpdateState(POOL_STATUS_ACCEPTING_ENTRIES);
-
-        CObfuscationQueue dsq;
-        dsq.nDenom = sessionDenom;
-        dsq.vin = activeMasternode.vin;
-        dsq.time = GetTime();
-        dsq.ready = true;
-        dsq.Sign();
-        dsq.Relay();
-    }
+    // zerocoin has been removed
+    return;
 }
 
 // check to see if the signature is valid
@@ -1435,13 +1343,13 @@ bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
         // should have some additional amount for them
         nLowestDenom += OBFUSCATION_COLLATERAL * 4;
 
-    CAmount nBalanceNeedsAnonymized = nAnonymizeMergeAmount * COIN - pwalletMain->GetAnonymizedBalance();
+    CAmount nBalanceNeedsAnonymized = nAnonymizeMergeAmount * COIN;
 
     // if balanceNeedsAnonymized is more than pool max, take the pool max
     if (nBalanceNeedsAnonymized > OBFUSCATION_POOL_MAX) nBalanceNeedsAnonymized = OBFUSCATION_POOL_MAX;
 
     // if balanceNeedsAnonymized is more than non-anonymized, take non-anonymized
-    CAmount nAnonymizableBalance = pwalletMain->GetAnonymizableBalance();
+    CAmount nAnonymizableBalance = 0;
     if (nBalanceNeedsAnonymized > nAnonymizableBalance) nBalanceNeedsAnonymized = nAnonymizableBalance;
 
     if (nBalanceNeedsAnonymized < nLowestDenom) {
@@ -1458,7 +1366,7 @@ bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
         vCoins.clear();
 
         if (pwalletMain->SelectCoinsDark(nValueMin, 9999999 * COIN, vCoins, nValueIn, -2, 0)) {
-            nOnlyDenominatedBalance = pwalletMain->GetDenominatedBalance(true) + pwalletMain->GetDenominatedBalance() - pwalletMain->GetAnonymizedBalance();
+            nOnlyDenominatedBalance = pwalletMain->GetDenominatedBalance(true) + pwalletMain->GetDenominatedBalance();
             nBalanceNeedsDenominated = nBalanceNeedsAnonymized - nOnlyDenominatedBalance;
 
             if (nBalanceNeedsDenominated > nValueIn) nBalanceNeedsDenominated = nValueIn;
@@ -1476,7 +1384,7 @@ bool CObfuscationPool::DoAutomaticDenominating(bool fDryRun)
 
     if (fDryRun) return true;
 
-    nOnlyDenominatedBalance = pwalletMain->GetDenominatedBalance(true) + pwalletMain->GetDenominatedBalance() - pwalletMain->GetAnonymizedBalance();
+    nOnlyDenominatedBalance = pwalletMain->GetDenominatedBalance(true) + pwalletMain->GetDenominatedBalance();
     nBalanceNeedsDenominated = nBalanceNeedsAnonymized - nOnlyDenominatedBalance;
 
     //check if we have should create more denominated inputs

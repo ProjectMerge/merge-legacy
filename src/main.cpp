@@ -31,9 +31,6 @@
 #include "util.h"
 #include "utilmoneystr.h"
 
-#include "primitives/zerocoin.h"
-#include "libzerocoin/Denominations.h"
-
 #include <sstream>
 
 #include <boost/algorithm/string/replace.hpp>
@@ -44,7 +41,6 @@
 
 using namespace boost;
 using namespace std;
-using namespace libzerocoin;
 
 #if defined(NDEBUG)
 #error "MERGE cannot be compiled without assertions."
@@ -720,15 +716,13 @@ bool IsStandardTx(const CTransaction& tx, string& reason)
     // computing signature hashes is O(ninputs*txsize). Limiting transactions
     // to MAX_STANDARD_TX_SIZE mitigates CPU exhaustion attacks.
     unsigned int sz = tx.GetSerializeSize(SER_NETWORK, CTransaction::CURRENT_VERSION);
-    unsigned int nMaxSize = tx.ContainsZerocoins() ? MAX_ZEROCOIN_TX_SIZE : MAX_STANDARD_TX_SIZE;
+    unsigned int nMaxSize = MAX_STANDARD_TX_SIZE;
     if (sz >= nMaxSize) {
         reason = "tx-size";
         return false;
     }
 
     for (const CTxIn& txin : tx.vin) {
-        if (txin.scriptSig.IsZerocoinSpend())
-            continue;
         // Biggest 'standard' txin is a 15-of-15 P2SH multisig with compressed
         // keys. (remember the 520 byte limit on redeemScript size) That works
         // out to a (15*(33+1))+3=513 byte redeemScript, 513+1+15*(73+1)+3=1627
@@ -803,7 +797,7 @@ bool IsFinalTx(const CTransaction& tx, int nBlockHeight, int64_t nBlockTime)
  */
 bool AreInputsStandard(const CTransaction& tx, const CCoinsViewCache& mapInputs)
 {
-    if (tx.IsCoinBase() || tx.IsZerocoinSpend())
+    if (tx.IsCoinBase())
         return true; // coinbase has no inputs and zerocoinspend has a special input
     //todo should there be a check for a 'standard' zerocoinspend here?
 
@@ -870,7 +864,7 @@ unsigned int GetLegacySigOpCount(const CTransaction& tx)
 
 unsigned int GetP2SHSigOpCount(const CTransaction& tx, const CCoinsViewCache& inputs)
 {
-    if (tx.IsCoinBase() || tx.IsZerocoinSpend())
+    if (tx.IsCoinBase())
         return 0;
 
     unsigned int nSigOps = 0;
@@ -1242,9 +1236,6 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
     if (pfMissingInputs)
         *pfMissingInputs = false;
 
-    //if (!CheckTransaction(tx, chainActive.Height() >= Params().Zerocoin_StartHeight(), true, state))
-    //    return error("AcceptableInputs: : CheckTransaction failed");
-
     // Coinbase is only valid in a block, not as a loose transaction
     if (tx.IsCoinBase())
         return state.DoS(100, error("AcceptableInputs: : coinbase as individual tx"),
@@ -1276,17 +1267,14 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
     }
 
     // Check for conflicts with in-memory transactions
-    if (!tx.IsZerocoinSpend()) {
-        LOCK(pool.cs); // protect pool.mapNextTx
-        for (unsigned int i = 0; i < tx.vin.size(); i++) {
-            COutPoint outpoint = tx.vin[i].prevout;
-            if (pool.mapNextTx.count(outpoint)) {
-                // Disable replacement feature for now
-                return false;
-            }
+    LOCK(pool.cs); // protect pool.mapNextTx
+    for (unsigned int i = 0; i < tx.vin.size(); i++) {
+        COutPoint outpoint = tx.vin[i].prevout;
+        if (pool.mapNextTx.count(outpoint)) {
+            // Disable replacement feature for now
+            return false;
         }
     }
-
 
     {
         CCoinsView dummy;
@@ -1365,7 +1353,7 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
             mempool.PrioritiseTransaction(hash, hash.ToString(), 1000, 0.1 * COIN);
         } else { // same as !ignoreFees for AcceptToMemoryPool
             CAmount txMinFee = GetMinRelayFee(tx, nSize, true);
-            if (fLimitFree && nFees < txMinFee && !tx.IsZerocoinSpend())
+            if (fLimitFree && nFees < txMinFee)
                 return state.DoS(0, error("AcceptableInputs : not enough fees %s, %d < %d",
                                         hash.ToString(), nFees, txMinFee),
                     REJECT_INSUFFICIENTFEE, "insufficient fee");
@@ -1378,7 +1366,7 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
             // Continuously rate-limit free (really, very-low-fee) transactions
             // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
             // be annoying or make others' transactions take longer to confirm.
-            if (fLimitFree && nFees < ::minRelayTxFee.GetFee(nSize) && !tx.IsZerocoinSpend()) {
+            if (fLimitFree && nFees < ::minRelayTxFee.GetFee(nSize)) {
                 static CCriticalSection csFreeLimiter;
                 static double dFreeCount;
                 static int64_t nLastTime;
@@ -1829,7 +1817,7 @@ void static InvalidBlockFound(CBlockIndex* pindex, const CValidationState& state
 void UpdateCoins(const CTransaction& tx, CValidationState& state, CCoinsViewCache& inputs, CTxUndo& txundo, int nHeight)
 {
     // mark inputs spent
-    if (!tx.IsCoinBase() && !tx.IsZerocoinSpend()) {
+    if (!tx.IsCoinBase()) {
         txundo.vprevout.reserve(tx.vin.size());
         BOOST_FOREACH (const CTxIn& txin, tx.vin) {
             txundo.vprevout.push_back(CTxInUndo());
@@ -1855,7 +1843,6 @@ CBitcoinAddress addressExp1("DQZzqnSR6PXxagep1byLiRg9ZurCZ5KieQ");
 CBitcoinAddress addressExp2("DTQYdnNqKuEHXyNeeYhPQGGGdqHbXYwjpj");
 
 map<COutPoint, COutPoint> mapInvalidOutPoints;
-map<CBigNum, CAmount> mapInvalidSerials;
 
 bool ValidOutPoint(const COutPoint out, int nHeight)
 {
@@ -1883,9 +1870,9 @@ CAmount GetInvalidUTXOValue()
 
 bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, bool fScriptChecks, unsigned int flags, bool cacheStore, std::vector<CScriptCheck>* pvChecks)
 {
-    if (!tx.IsCoinBase() && !tx.IsZerocoinSpend()) {
-        if (pvChecks)
-            pvChecks->reserve(tx.vin.size());
+        if (!tx.IsCoinBase())
+            if (pvChecks)
+               pvChecks->reserve(tx.vin.size());
 
         // This doesn't trigger the DoS code on purpose; if it did, it would make it easier
         // for an attacker to attempt to split the network.
@@ -1976,9 +1963,7 @@ bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsVi
                 }
             }
         }
-    }
-
-    return true;
+        return true;
 }
 
 bool DisconnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex, CCoinsViewCache& view, bool* pfClean)
@@ -2031,7 +2016,7 @@ bool DisconnectBlock(CBlock& block, CValidationState& state, CBlockIndex* pindex
         }
 
         // restore inputs
-        if (!tx.IsCoinBase() && !tx.IsZerocoinSpend()) { // not coinbases or zerocoinspend because they dont have traditional inputs
+        if (!tx.IsCoinBase()) { // not coinbases because they dont have traditional inputs
             const CTxUndo& txundo = blockUndo.vtxundo[i - 1];
             if (txundo.vprevout.size() != tx.vin.size())
                 return error("DisconnectBlock() : transaction and undo data inconsistent - txundo.vprevout.siz=%d tx.vin.siz=%d", txundo.vprevout.size(), tx.vin.size());
@@ -2198,10 +2183,6 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         if (nSigOps > nMaxBlockSigOps)
             return state.DoS(100, error("ConnectBlock() : too many sigops"),
                 REJECT_INVALID, "bad-blk-sigops");
-
-        //Temporarily disable zerocoin transactions for maintenance
-        if (block.nTime > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE) && !IsInitialBlockDownload() && tx.ContainsZerocoins())
-            return state.DoS(100, error("ConnectBlock() : zerocoin transactions are currently in maintenance mode"));
 
         if (!tx.IsCoinBase()) {
             if (!view.HaveInputs(tx))
@@ -3649,23 +3630,6 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
     // Preliminary checks
     int64_t nStartTime = GetTimeMillis();
     bool checked = CheckBlock(*pblock, state);
-
-    int nMints = 0;
-    int nSpends = 0;
-    for (const CTransaction tx : pblock->vtx) {
-        if (tx.ContainsZerocoins()) {
-            for (const CTxIn in : tx.vin) {
-                if (in.scriptSig.IsZerocoinSpend())
-                    nSpends++;
-            }
-            for (const CTxOut out : tx.vout) {
-                if (out.IsZerocoinMint())
-                    nMints++;
-            }
-        }
-    }
-    if (nMints || nSpends)
-        LogPrintf("%s : block contains %d zPiv mints and %d zPiv spends\n", __func__, nMints, nSpends);
 
     // ppcoin: check proof-of-stake
     // Limited duplicity on stake: prevents block flood attack
@@ -5154,12 +5118,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         LOCK(cs_main);
 
         bool fMissingInputs = false;
-        bool fMissingZerocoinInputs = false;
         CValidationState state;
 
         mapAlreadyAskedFor.erase(inv);
 
-        if (!tx.IsZerocoinSpend() && AcceptToMemoryPool(mempool, state, tx, true, &fMissingInputs, false, ignoreFees)) {
+        if (AcceptToMemoryPool(mempool, state, tx, true, &fMissingInputs, false, ignoreFees)) {
             mempool.check(pcoinsTip);
             RelayTransaction(tx);
             vWorkQueue.push_back(inv.hash);
@@ -5213,14 +5176,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             }
 
             BOOST_FOREACH (uint256 hash, vEraseQueue)EraseOrphanTx(hash);
-        } else if (tx.IsZerocoinSpend() && AcceptToMemoryPool(mempool, state, tx, true, &fMissingZerocoinInputs, false, ignoreFees)) {
-            //Presstab: ZCoin has a bunch of code commented out here. Is this something that should have more going on?
-            //Also there is nothing that handles fMissingZerocoinInputs. Does there need to be?
-            RelayTransaction(tx);
-            LogPrint("mempool", "AcceptToMemoryPool: Zerocoinspend peer=%d %s : accepted %s (poolsz %u)\n",
-                     pfrom->id, pfrom->cleanSubVer,
-                     tx.GetHash().ToString(),
-                     mempool.mapTx.size());
         } else if (fMissingInputs) {
             AddOrphanTx(tx, pfrom->GetId());
 
