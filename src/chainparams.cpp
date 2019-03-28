@@ -99,6 +99,8 @@ public:
         nMaxMoneyOut = 100000000 * COIN;
         nLastPOWBlock = 57601;
         nModifierUpdateBlock = 50;
+        nEnforceNewSporkKey = 1554685200;
+        nRejectOldSporkKey = 1557277200;
 
         const char* pszTimestamp = "ABC News 24/DEC/2018 Trump's Treasury Secretary to convene 'Plunge Protection Team' to deal with Wall Street rout";
         CMutableTransaction txNew;
@@ -142,7 +144,8 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "0421783d5f8b38c2f71f10a7e8a4c5df39bfe1d3ca10dd17e5fc76ff5b523ab21e89ae0276aae967d0d7f26c3f34136acdc0a2f41bab19cc262658703f38a3da55";
+        strSporkKey = "04b86d4321e8aa926be7d366057ba41dbad32fdc7e5efa78d284ffc9d45ea63c796d58dc2f9050d9c83006bc7bce31d79f7bc84a59a4472718e245dccfe763b435";
+        strSporkKeyOld = "0421783d5f8b38c2f71f10a7e8a4c5df39bfe1d3ca10dd17e5fc76ff5b523ab21e89ae0276aae967d0d7f26c3f34136acdc0a2f41bab19cc262658703f38a3da55";
         strObfuscationPoolDummyAddress = "MERGEXXXXXXXXXXXXXXXXXXXXXXXYmkoB4";
         nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
