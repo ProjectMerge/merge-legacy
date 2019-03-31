@@ -459,7 +459,7 @@
     <name>PeerTableModel</name>
     </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>Amount:</source>
         <translation>Quantidade:</translation>

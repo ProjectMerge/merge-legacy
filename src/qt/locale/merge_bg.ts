@@ -2061,15 +2061,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <source>MERGE which were anonymized via Zerocin Protocol</source>
-        <translation>MERGE скрити посредством Зерокойн протокола</translation>
-    </message>
-    <message>
-        <source>Zerocoin MERGE (zMERGE)</source>
-        <translation>Zerocoin MERGE (zMERGE)</translation>
-    </message>
     <message>
         <source>Zerocoin Actions:</source>
         <translation>Zerocoin Действия:</translation>
@@ -2077,10 +2068,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>Информацията на вашия екран може би е стара. Вашия портфейла синхронизира автоматично с MERGE мрежата след като има успешна свръзка, но процеса отнема време и не е завършил все още.</translation>
-    </message>
-    <message>
-        <source>Enter an amount of Piv to convert to zPiv</source>
-        <translation>Въведете колко MERGE  да се конвертират в zMERGE</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2103,10 +2090,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>0.000 000 00 MERGE</translation>
     </message>
     <message>
-        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
-        <translation>Ресетна базата данни на Zerocoin Портфейла. Изтрива преводите, които не са успели да се качат на блокчена.</translation>
-    </message>
-    <message>
         <source>Reset</source>
         <translation>Ресет</translation>
     </message>
@@ -2123,56 +2106,12 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Сума:</translation>
     </message>
     <message>
-        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
-        <translation>Сканирай повторно блокчена за Zerocoin монети и техните мета-данни.</translation>
-    </message>
-    <message>
         <source>ReScan</source>
         <translation>Сканирай</translation>
     </message>
     <message>
-        <source>Status and/or Mesages from the last Mint Action.</source>
-        <translation>Състояния и/или Съобщения от последните действия по сечене на монети.</translation>
-    </message>
-    <message>
-        <source>zPiv Control</source>
-        <translation>zMERGE Контрол</translation>
-    </message>
-    <message>
-        <source>zPiv Selected:</source>
-        <translation>Избрани zMERGE:</translation>
-    </message>
-    <message>
         <source>Quantity Selected:</source>
         <translation>Избратно Количество:</translation>
-    </message>
-    <message>
-        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
-        <translation>Похарчи Zerocoin. Без "Плати до: адрес - плащането е към себе си.</translation>
-    </message>
-    <message>
-        <source>Spend Zerocoin</source>
-        <translation>Похарчи Zerocoin</translation>
-    </message>
-    <message>
-        <source>Available Balance:</source>
-        <translation>Налични:</translation>
-    </message>
-    <message>
-        <source>0 zMERGE</source>
-        <translation>0 zMERGE</translation>
-    </message>
-    <message>
-        <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
-        <translation>Сигурност на Zerocoin Преводите. Повече - означава по-добра сигурност, но изисква повече време и ресурси.</translation>
-    </message>
-    <message>
-        <source>Security Level:</source>
-        <translation>Сигурност:</translation>
-    </message>
-    <message>
-        <source>Security Level 1 - 100 (default: 42)</source>
-        <translation>Ниво на Сигурност 1 - 100 (42 по подразбиране)</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2209,98 +2148,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>A&amp;mount:</source>
         <translation>Сума:</translation>
-    </message>
-    <message>
-        <source>Convert Change to Zerocoin (might cost additional fees)</source>
-        <translation>Изсечи zMERGE от рестото (ще струва допълнително заради таксите)</translation>
-    </message>
-    <message>
-        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
-        <translation>Ако е избрана опцията, портфейла се опитва да намали върнатото ресто вместо да намали броя на похарчените деноминации.</translation>
-    </message>
-    <message>
-        <source>Minimize Change</source>
-        <translation>Намали Рестото</translation>
-    </message>
-    <message>
-        <source>Information about the available Zerocoin funds.</source>
-        <translation>Информация за наличните Zerocoin средства.</translation>
-    </message>
-    <message>
-        <source>Zerocoin Stats:</source>
-        <translation>Zerocoin статистика:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1:</source>
-        <translation>Деноминации от 1:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1:</source>
-        <translation>Деном. със стойност 1:</translation>
-    </message>
-    <message>
-        <source>0 x</source>
-        <translation>0 х</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5:</source>
-        <translation>Деноминации от 5:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5:</source>
-        <translation>Деном. със стойност 5:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 10:</source>
-        <translation>Деноминации от 10:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 10:</source>
-        <translation>Деном. със стойност от 10:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 50:</source>
-        <translation>Деноминации от 50:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 50:</source>
-        <translation>Деном. със стойност от 50:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 100:</source>
-        <translation>Деноминации от 100:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 100:</source>
-        <translation>Деном. със стойност от 100:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 500:</source>
-        <translation>Деноминации от 500:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 500:</source>
-        <translation>Деном. със стойност от 500:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1000:</source>
-        <translation>Деноминации от 1000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1000:</source>
-        <translation>Деном. със стойност от 1000:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5000:</source>
-        <translation>Деноминации от 5000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5000:</source>
-        <translation>Деном. със стойност от 5000:</translation>
-    </message>
-    <message>
-        <source>Note: This hidden objects are used for communication between the 'Coin Control' dialog and its parent objects. We don't want to change/reimplement the existing Coin Control, so this objects must be here, even when we don't use them. No, we don't like this approach, either.</source>
-        <translation>Внимание: Тези скрити обекти служат за общуване между "Монетен Контрол" прозореца и неговите предходни елементи. Не е удачно да проемняме Монетен Контрол, така че тези елементи са тук, въпреки, че не се използват. Не ни харесва и на нас, но няма как.</translation>
     </message>
     <message>
         <source>Priority:</source>

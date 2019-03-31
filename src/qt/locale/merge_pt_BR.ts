@@ -1965,15 +1965,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <source>MERGE which were anonymized via Zerocin Protocol</source>
-        <translation>MERGE que foram anonimizadas via protocolo Zerocoin</translation>
-    </message>
-    <message>
-        <source>Zerocoin MERGE (zMERGE)</source>
-        <translation>Zerocoin MERGE (zMERGE)</translation>
-    </message>
     <message>
         <source>Zerocoin Actions:</source>
         <translation>Ações Zerocoin:</translation>
@@ -1981,10 +1972,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>A informação mostrada pode estar desatualizada. A sua carteira se sincroniza automaticamente com a rede MERGE após estabelecer uma conexão, mas esse processo ainda não foi concluído.</translation>
-    </message>
-    <message>
-        <source>Enter an amount of Piv to convert to zPiv</source>
-        <translation>Insira uma quantia de Piv para converter para zPiv</translation>
     </message>
     <message>
         <source>0</source>
@@ -2009,10 +1996,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Amount:</source>
         <translation>Quantia:</translation>
-    </message>
-    <message>
-        <source>Security Level 1 - 100 (default: 42)</source>
-        <translation>Nível de segurança 1 - 100 (padrão: 42)</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2049,50 +2032,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>A&amp;mount:</source>
         <translation>Quantia:</translation>
-    </message>
-    <message>
-        <source>Information about the available Zerocoin funds.</source>
-        <translation>Informação sobre os fundos disponíveis em Zerocoin.</translation>
-    </message>
-    <message>
-        <source>Zerocoin Stats:</source>
-        <translation>Estatísticas zerocoin:</translation>
-    </message>
-    <message>
-        <source>Total Balance including unconfirmed and immature zMERGE</source>
-        <translation>Balanço Total incluindo não confirmadas e imaturas zMERGE</translation>
-    </message>
-    <message>
-        <source>Total Zerocoin  Balance:</source>
-        <translation>Balanço Total Zerocoin:</translation>
-    </message>
-    <message>
-        <source>0 x</source>
-        <translation>0 x</translation>
-    </message>
-    <message>
-        <source>Denominations with value 10:</source>
-        <translation>Denominações com valor 10:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 50:</source>
-        <translation>Denominações com valor 50:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 100:</source>
-        <translation>Denominações com valor 100:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 500:</source>
-        <translation>Denominações com valor 500:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1000:</source>
-        <translation>Denominações com valor 1000:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5000:</source>
-        <translation>Denominações com valor 5000:</translation>
     </message>
     <message>
         <source>Priority:</source>

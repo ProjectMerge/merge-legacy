@@ -1407,7 +1407,7 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations </translation
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>0</source>
         <translation>0</translation>

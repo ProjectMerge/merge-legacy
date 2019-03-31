@@ -747,7 +747,7 @@
     <name>PeerTableModel</name>
     </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>Choose previously used address</source>
         <translation>選擇之前用過的位址</translation>

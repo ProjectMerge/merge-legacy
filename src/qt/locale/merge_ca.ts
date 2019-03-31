@@ -1325,11 +1325,6 @@
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <source>Zerocoin MERGE (zMERGE)</source>
-        <translation>Zerocoin MERGE (zMERGE)</translation>
-    </message>
     <message>
         <source>0</source>
         <translation>0</translation>
@@ -1353,10 +1348,6 @@
     <message>
         <source>Amount:</source>
         <translation>Import:</translation>
-    </message>
-    <message>
-        <source>0 zMERGE</source>
-        <translation>0 zMERGE</translation>
     </message>
     <message>
         <source>Alt+A</source>

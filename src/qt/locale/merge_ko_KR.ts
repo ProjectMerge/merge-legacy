@@ -2181,15 +2181,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <source>MERGE which were anonymized via Zerocin Protocol</source>
-        <translation>제로코인 프로토콜을 통해 익명화된 MERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin MERGE (zMERGE)</source>
-        <translation>제로코인 MERGE (zMERGE)</translation>
-    </message>
     <message>
         <source>Zerocoin Actions:</source>
         <translation>제로코인 관리:</translation>
@@ -2197,10 +2188,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 MERGE 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
-    </message>
-    <message>
-        <source>Enter an amount of Piv to convert to zPiv</source>
-        <translation>zMERGE로 변환할 MERGE 수량을 입력하세요.</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2223,10 +2210,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>0.000 000 00 MERGE</translation>
     </message>
     <message>
-        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
-        <translation>제로코인 지갑 DB 재설정. 블록 체인에 포함시키지 않은 트랜잭션을 삭제합니다.</translation>
-    </message>
-    <message>
         <source>Reset</source>
         <translation>초기화</translation>
     </message>
@@ -2243,60 +2226,12 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>금액:</translation>
     </message>
     <message>
-        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
-        <translation>제로코인 생성과 메타데이타를 위해 블록체인을 다시 스캔합니다.</translation>
-    </message>
-    <message>
         <source>ReScan</source>
         <translation>다시 스캔</translation>
     </message>
     <message>
-        <source>Status and/or Mesages from the last Mint Action.</source>
-        <translation>마지막 발행 이후 상태나 메세지</translation>
-    </message>
-    <message>
-        <source>zPiv Control</source>
-        <translation>zMERGE 설정</translation>
-    </message>
-    <message>
-        <source>zPiv Selected:</source>
-        <translation>선택한 zMERGE : </translation>
-    </message>
-    <message>
         <source>Quantity Selected:</source>
         <translation>선택된 수량 :</translation>
-    </message>
-    <message>
-        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
-        <translation>제로코인 전송 'Pay To :' 주소가 없으면 자신에게 지불합니다.</translation>
-    </message>
-    <message>
-        <source>Spend Zerocoin</source>
-        <translation>제로코인 보내기</translation>
-    </message>
-    <message>
-        <source>Available (mature and spendable) zMERGE for spending</source>
-        <translation>전송 가능한 zMERGE</translation>
-    </message>
-    <message>
-        <source>Available Balance:</source>
-        <translation>가능한 잔액:</translation>
-    </message>
-    <message>
-        <source>0 zMERGE</source>
-        <translation>0 zMERGE</translation>
-    </message>
-    <message>
-        <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
-        <translation>제로코인 전송 시큐리티 레벨.  높을수록 좋지만, 시간과 많은 자원이 필요합니다.</translation>
-    </message>
-    <message>
-        <source>Security Level:</source>
-        <translation>시큐리티 레벨:</translation>
-    </message>
-    <message>
-        <source>Security Level 1 - 100 (default: 42)</source>
-        <translation>시큐리티 레벨 1 - 100 (기본값: 42)</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2333,106 +2268,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>A&amp;mount:</source>
         <translation>금&amp;액:</translation>
-    </message>
-    <message>
-        <source>Convert Change to Zerocoin (might cost additional fees)</source>
-        <translation>잔돈을 제로코인으로 변환 (추가 요금이 부과될 수 있음)</translation>
-    </message>
-    <message>
-        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
-        <translation>이 옵션을 선택하면, 사용한 디노미네이션의 수를 최소화하는 대신 남는 잔돈을 최소화합니다.</translation>
-    </message>
-    <message>
-        <source>Minimize Change</source>
-        <translation>잔돈 최소화하기</translation>
-    </message>
-    <message>
-        <source>Information about the available Zerocoin funds.</source>
-        <translation>사용가능한 제로코인 정보</translation>
-    </message>
-    <message>
-        <source>Zerocoin Stats:</source>
-        <translation>제로코인 상태 :</translation>
-    </message>
-    <message>
-        <source>Total Balance including unconfirmed and immature zMERGE</source>
-        <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
-    </message>
-    <message>
-        <source>Total Zerocoin  Balance:</source>
-        <translation>제로코인 잔액 :</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1:</source>
-        <translation>디노미네이션 값 1:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1:</source>
-        <translation>Denom. 값 1:</translation>
-    </message>
-    <message>
-        <source>0 x</source>
-        <translation>0 x</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5:</source>
-        <translation>디노미네이션 값 5:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5:</source>
-        <translation>Denom. 값 5:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 10:</source>
-        <translation>디노미네이션  값 10:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 10:</source>
-        <translation>Denom. 값 10:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 50:</source>
-        <translation>디노미네이션 값 50:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 50:</source>
-        <translation>Denom. 값 50:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 100:</source>
-        <translation>디노미네이션 값 100:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 100:</source>
-        <translation>Denom. 값 100:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 500:</source>
-        <translation>디노미네이션 값 500:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 500:</source>
-        <translation>Denom. 값 500:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1000:</source>
-        <translation>디노미네이션 값 1000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1000:</source>
-        <translation>Denom. 값 1000:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5000:</source>
-        <translation>디노미네이션 값 5000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5000:</source>
-        <translation>Denom. 값 5000:</translation>
-    </message>
-    <message>
-        <source>Note: This hidden objects are used for communication between the 'Coin Control' dialog and its parent objects. We don't want to change/reimplement the existing Coin Control, so this objects must be here, even when we don't use them. No, we don't like this approach, either.</source>
-        <translation>Note: This hidden objects are used for communication between the 'Coin Control' dialog and its parent objects. We don't want to change/reimplement the existing Coin Control, so this objects must be here, even when we don't use them. No, we don't like this approach, either.</translation>
     </message>
     <message>
         <source>Priority:</source>

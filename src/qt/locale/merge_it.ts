@@ -975,7 +975,7 @@ MultiSend: %1</translation>
     <name>PeerTableModel</name>
     </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>Quantity:</source>
         <translation>Quantità:</translation>
