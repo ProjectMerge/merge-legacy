@@ -2428,17 +2428,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+30"/>
-        <location line="+16"/>
-        <source>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-13"/>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+114"/>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>

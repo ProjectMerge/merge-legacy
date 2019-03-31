@@ -1827,14 +1827,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>자동 변환되는 zMERGE 퍼센트</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</source>
-        <translation>이 디노미네이션의 MERGE가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
-    </message>
-    <message>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation>선호하는 자동생성 zMERGE 디노미네이션 </translation>
-    </message>
-    <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation>SOCKS5 프록시를 통해 MERGE 네트워크에 연결해주세요.</translation>
     </message>

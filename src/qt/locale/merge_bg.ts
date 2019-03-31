@@ -1731,14 +1731,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Процент автоматично сечени zMERGE</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</source>
-        <translation>Не бързай с автоматичното конвертиране в zMERGE докато не се съберат достатъчно MERGE за тази деноминация</translation>
-    </message>
-    <message>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation>Предпочитани деноминации, в които да се сече автоматичен zMERGE</translation>
-    </message>
-    <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation>Свържи се с MERGE мрежата със SOCKS5 прокси.</translation>
     </message>

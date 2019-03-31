@@ -1703,10 +1703,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Процент  авточеканненых zMERGE</translation>
     </message>
     <message>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation>Предпочитаемый номинал авточеканной  монеты  zMERGE</translation>
-    </message>
-    <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation>Подключиться к сети MERGE через SOCKS5 прокси.</translation>
     </message>

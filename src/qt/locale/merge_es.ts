@@ -1739,14 +1739,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Porcentaje de zMERGE autogenerados</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</source>
-        <translation>Retrasar la conversión automática a Zerocoin hasta que hayan suficientes MERGE disponibles para este tamaño de billete</translation>
-    </message>
-    <message>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation>Tamaño de billete zMERGE preferido en la creación automática de dinero</translation>
-    </message>
-    <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation>Conectar a la red MERGE mediante un proxy SOCKS5.</translation>
     </message>
