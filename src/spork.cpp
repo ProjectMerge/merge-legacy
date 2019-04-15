@@ -190,7 +190,6 @@ bool CSporkManager::CheckSignature(CSporkMessage& spork, bool fCheckSigner)
     std::string strMessage = std::to_string(spork.nSporkID) + std::to_string(spork.nValue) + std::to_string(spork.nTimeSigned);
     CPubKey pubkeynew(ParseHex(Params().SporkKey()));
     std::string errorMessage = "";
-
     bool fValidWithNewKey = obfuScationSigner.VerifyMessage(pubkeynew, spork.vchSig,strMessage, errorMessage);
 
     if (fCheckSigner && !fValidWithNewKey)
@@ -217,15 +216,24 @@ bool CSporkManager::Sign(CSporkMessage& spork)
         LogPrintf("CMasternodePayments::Sign - ERROR: Invalid masternodeprivkey: '%s'\n", errorMessage);
         return false;
     }
+    else{
+        LogPrintf("CMasternodePayments::Sign - obfuScationSigner.SetKey: '%s'\n", strMasterPrivKey);
+    }
 
     if (!obfuScationSigner.SignMessage(strMessage, errorMessage, spork.vchSig, key2)) {
         LogPrintf("CMasternodePayments::Sign - Sign message failed");
         return false;
     }
+    else{
+        LogPrintf("CMasternodePayments::Sign - obfuScationSigner.SignMessage: '%s'\n", strMessage);
+    }
 
     if (!obfuScationSigner.VerifyMessage(pubkey2, spork.vchSig, strMessage, errorMessage)) {
         LogPrintf("CMasternodePayments::Sign - Verify message failed");
         return false;
+    }
+    else{
+        LogPrintf("CMasternodePayments::VerifyMessage - obfuScationSigner.SignMessage: '%s'\n", strMessage);
     }
 
     return true;
