@@ -320,7 +320,8 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
         /* Explorer */
-        {"explorer", "crawlexplorerdata", &crawlexplorerdata, true, false, false},
+        {"explorer", "getexplorerblock", &getexplorerblock, true, false, false},
+        {"explorer", "getexplorerstats", &getexplorerstats, true, false, false},
 
         /* MERGE features */
         {"MERGE", "masternode", &masternode, true, true, false},

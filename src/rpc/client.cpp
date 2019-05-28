@@ -116,8 +116,8 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"setstakesplitthreshold", 0},
         {"autocombinerewards", 0},
         {"autocombinerewards", 1},
-        {"crawlexplorerdata", 0},
-        {"crawlexplorerdata", 1}
+        {"getexplorerblock", 0},
+        {"getexplorerblock", 1},
     };
 
 class CRPCConvertTable

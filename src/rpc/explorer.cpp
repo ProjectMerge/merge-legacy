@@ -4,23 +4,27 @@
 
 #include "checkpoints.h"
 #include "main.h"
+#include "masternodeman.h"
 #include "rpc/server.h"
 #include "sync.h"
 #include "util.h"
 
 #include <stdint.h>
 
-#include "json/json_spirit_value.h"
-#include "utilmoneystr.h"
 #include "base58.h"
+#include "utilmoneystr.h"
+#include "json/json_spirit_value.h"
 
 using namespace json_spirit;
 using namespace std;
 
 extern void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry);
+extern Value GetNetworkHashPS(int lookup, int height);
 
-// Data For Explorer to minimize RPC requests 
-Object explorerDataToJSON(const CBlock& block, const CBlockIndex* blockindex, bool txDetails = true)
+//************************************************//
+//      Get the Block Data for The Explorer       //
+//************************************************//
+Object explorerBlockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool txDetails = true)
 {
     Object result;
     result.push_back(Pair("hash", block.GetHash().GetHex()));
@@ -55,16 +59,16 @@ Object explorerDataToJSON(const CBlock& block, const CBlockIndex* blockindex, bo
     if (pnext)
         result.push_back(Pair("nextblockhash", pnext->GetBlockHash().GetHex()));
 
-    result.push_back(Pair("moneysupply",ValueFromAmount(blockindex->nMoneySupply)));
+    result.push_back(Pair("moneysupply", ValueFromAmount(blockindex->nMoneySupply)));
 
     return result;
 }
 
-Value crawlexplorerdata(const Array& params, bool fHelp)
+Value getexplorerblock(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "crawlexplorerdata \"height\" ( verbose )\n"
+            "getexplorerblock \"height\" ( verbose )\n"
             "\nIf verbose is false, returns a string that is serialized, hex-encoded data for block 'hash'.\n"
             "If verbose is true, returns an Object with information about block <hash>.\n"
             "\nArguments:\n"
@@ -126,7 +130,7 @@ Value crawlexplorerdata(const Array& params, bool fHelp)
             "\nResult (for verbose=false):\n"
             "\"data\"             (string) A string that is serialized, hex-encoded data for block 'hash'.\n"
             "\nExamples:\n" +
-            HelpExampleCli("crawlexplorerdata", "\"50\"") + HelpExampleRpc("crawlexplorerdata", "\"50\" \"true\" "));
+            HelpExampleCli("getexplorerblock", "\"50\"") + HelpExampleRpc("getexplorerblock", "\"50\" \"true\" "));
 
     int nHeight = params[0].get_int();
     if (nHeight < 0 || nHeight > chainActive.Height())
@@ -149,5 +153,70 @@ Value crawlexplorerdata(const Array& params, bool fHelp)
         return strHex;
     }
 
-    return explorerDataToJSON(block, pblockindex);
+    return explorerBlockToJSON(block, pblockindex);
+}
+//************************************************//
+//  Get the combined stats for the Blockexplorer  //
+//************************************************//
+Object explorerStatsToJSON()
+{
+    Object result;
+    Object obj;
+    int ipv4 = 0, ipv6 = 0, onion = 0, nCount = 0;
+
+    if (chainActive.Tip()) {
+            mnodeman.GetNextMasternodeInQueueForPayment(chainActive.Tip()->nHeight, true, nCount);
+    }
+
+    mnodeman.CountNetworks(ActiveProtocol(), ipv4, ipv6, onion);
+    obj.push_back(Pair("total", mnodeman.size()));
+    obj.push_back(Pair("stable", mnodeman.stable_size()));
+    obj.push_back(Pair("obfcompat", mnodeman.CountEnabled(ActiveProtocol())));
+    obj.push_back(Pair("enabled", mnodeman.CountEnabled()));
+    obj.push_back(Pair("inqueue", nCount));
+    obj.push_back(Pair("ipv4", ipv4));
+    obj.push_back(Pair("ipv6", ipv6));
+    obj.push_back(Pair("onion", onion));
+
+    result.push_back(Pair("masternode", obj));
+    result.push_back(Pair("difficulty", (double)GetDifficulty()));
+    result.push_back(Pair("networkhashps", GetNetworkHashPS(120, -1)));
+    result.push_back(Pair("moneysupply",ValueFromAmount(chainActive.Tip()->nMoneySupply)));
+    result.push_back(Pair("blockheight", (int)chainActive.Height()));
+    result.push_back(Pair("relayfee", ValueFromAmount(::minRelayTxFee.GetFeePerK())));
+
+    LOCK(cs_vNodes);
+    result.push_back(Pair("connections", (int)vNodes.size()));
+    
+    return result;
+}
+
+Value getexplorerstats(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw runtime_error(
+            "getexplorerstats\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"masternode:\"             (Object) Holds Masternode information\n"             
+            "       {\n"
+            "         \"total\": n,        (numeric) Total masternodes\n"
+            "         \"stable\": n,       (numeric) Stable count\n"
+            "         \"obfcompat\": n,    (numeric) Obfuscation Compatible\n"
+            "         \"enabled\": n,      (numeric) Enabled masternodes\n"
+            "         \"inqueue\": n       (numeric) Masternodes in queue\n"
+            "         \"ipv4\": n          (numeric) Masternodes using IPV4 addresses\n"  
+            "         \"ipv6\": n          (numeric) Masternodes using IPV6 addresses\n"   
+            "         \"onion\": n         (numeric) Masternodes using Onion addresses\n"        
+            "       }\n"
+            "  \"difficulty\" : n.nnn,     (numeric)(double) The current difficulty\n"
+            "  \"networkhashps\" : n,      (numeric) Hashes per second estimated\n"
+            "  \"moneysupply\" : n.nnn,    (numeric)(double) The money supply when this block was added to the blockchain\n"
+            "  \"blockheight\" : n,        (numeric) the current number of blocks processed in the server\n"
+            "  \"relayfee\": n.nnn,        (numeric)(double) minimum relay fee for non-free transactions in MERGE/kb\n"
+            "}\n"
+            "\nExamples:\n" +
+            HelpExampleCli("getexplorerblock", "") + HelpExampleRpc("getexplorerblock", ""));
+
+    return explorerStatsToJSON();
 }

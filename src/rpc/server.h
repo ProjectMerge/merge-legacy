@@ -293,7 +293,8 @@ extern json_spirit::Value verifymessage(const json_spirit::Array& params, bool f
 extern json_spirit::Value setmocktime(const json_spirit::Array& params, bool fHelp);
 extern json_spirit::Value getstakingstatus(const json_spirit::Array& params, bool fHelp);
 
-extern json_spirit::Value crawlexplorerdata(const json_spirit::Array& params, bool fHelp); //in rpc/explorer.cpp
+extern json_spirit::Value getexplorerblock(const json_spirit::Array& params, bool fHelp); //in rpc/explorer.cpp
+extern json_spirit::Value getexplorerstats(const json_spirit::Array& params, bool fHelp); 
 // in rest.cpp
 extern bool HTTPReq_REST(AcceptedConnection* conn,
     std::string& strURI,
