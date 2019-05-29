@@ -3881,22 +3881,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>난독화를 통해 수신 됨</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>난독화 표시</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>난독화 보증 결제 </translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>난독화로 보증 입력</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>난독화 표시 만들기</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>대상 전송</translation>
     </message>
@@ -3917,20 +3901,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>채굴</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>난독화</translation>
-    </message>
-    <message>
         <source>Converted Piv to zPiv</source>
         <translation>zMERGE로 변환된 MERGE</translation>
     </message>
     <message>
         <source>Spent zPiv</source>
         <translation>전송된 zMERGE</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>zMERGE로 전송받은 MERGE</translation>
     </message>
     <message>
         <source>Minted Change as zPiv from zPiv Spend</source>
@@ -4020,26 +3996,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>대상 전송</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>난독화</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>난독화로 보증 입력</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>난독화 표시 만들기</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>난독화 표시</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>난독화 보증 결제 </translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>자신에게</translation>
     </message>
@@ -4054,26 +4010,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <source>Masternode Reward</source>
         <translation>마스터노드 보상 </translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>zMERGE로 전송받은 MERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Mint</source>
-        <translation>제로코인 생성</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend</source>
-        <translation>제로코인 전송</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation>제로코인 전송, 잔돈은 zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend to Self</source>
-        <translation>자신에게 제로코인 전송</translation>
     </message>
     <message>
         <source>Other</source>

@@ -3717,22 +3717,6 @@ Por favor tenga paciencia...</translation>
         <translation>Recibido por medio de Ofuscación</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Ofuscación Denominada</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Pago Colateral de Ofuscación</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>La Ofuscación Crea Entradas Colaterales</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Ofuscación Crea Billetes</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Enviado a</translation>
     </message>
@@ -3753,20 +3737,12 @@ Por favor tenga paciencia...</translation>
         <translation>Minado</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscado</translation>
-    </message>
-    <message>
         <source>Converted Piv to zPiv</source>
         <translation>Piv convertidos a zPiv</translation>
     </message>
     <message>
         <source>Spent zPiv</source>
         <translation>zPiv Gastados</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Piv recibidos desde zPiv</translation>
     </message>
     <message>
         <source>Minted Change as zPiv from zPiv Spend</source>
@@ -3856,26 +3832,6 @@ Por favor tenga paciencia...</translation>
         <translation>Enviado a</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscado</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>La Ofuscación Crea Entradas Colaterales</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Ofuscación Crea Billetes</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Ofuscación Denominada</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Pago Colateral de Ofuscación</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>A usted mismo</translation>
     </message>
@@ -3890,26 +3846,6 @@ Por favor tenga paciencia...</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>Recompensa de Nodo Maestro</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Piv recibidos desde zPiv</translation>
-    </message>
-    <message>
-        <source>Zerocoin Mint</source>
-        <translation>Creación de moneda Zerocoin</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend</source>
-        <translation>Gasto de Zerocoin</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation>Gasto de Zerocoin, Cambio en zPiv</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend to Self</source>
-        <translation>Pago Zerocoin a tí mismo</translation>
     </message>
     <message>
         <source>Other</source>

@@ -3708,22 +3708,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>über/durch Verschleierung empfangen</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Stückelung der Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Sicherheitspfandzahlung für Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verschleierung Erzeugung des Sicherheitspfand</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verschleierung Erzeugung der Stückelung</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Überwiesen an</translation>
     </message>
@@ -3744,20 +3728,12 @@ Bitte haben Sie Geduld...</translation>
         <translation>Erarbeitet</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verschleiert</translation>
-    </message>
-    <message>
         <source>Converted Piv to zPiv</source>
         <translation>Umgewandeltes MERGE zu zMERGE</translation>
     </message>
     <message>
         <source>Spent zPiv</source>
         <translation>Ausgeben zMERGE</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Empfangene MERGE von zMERGE</translation>
     </message>
     <message>
         <source>Minted Change as zPiv from zPiv Spend</source>
@@ -3847,26 +3823,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>Überwiesen an</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verschleiert</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verschleierung Erzeugung des Sicherheitspfand</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verschleierung Erzeugung der Stückelung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Stückelung der Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Sicherheitspfandzahlung für Verschleierung</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>Eigenüberweisung</translation>
     </message>
@@ -3881,26 +3837,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>Masternode Vergütung</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Empfangene MERGE von zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Mint</source>
-        <translation>Zerocoin Prägung</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend</source>
-        <translation>Zerocoin Ausgabe</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation>Zerocoin Ausgabe, Wechselgeld in zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend to Self</source>
-        <translation>Zerocoin Ausgabe an sich Selbst</translation>
     </message>
     <message>
         <source>Other</source>

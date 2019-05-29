@@ -3379,16 +3379,8 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Minerado</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscado</translation>
-    </message>
-    <message>
         <source>Spent zPiv</source>
         <translation>zPiv gasto</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Recebido Piv de zPiv</translation>
     </message>
     <message>
         <source>Converted zPiv to Piv</source>
@@ -3474,10 +3466,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Enviado para</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscado</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>Para si mesmo</translation>
     </message>
@@ -3492,10 +3480,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>Recompensa de Masternode</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Recebido Piv de zPiv</translation>
     </message>
     <message>
         <source>Other</source>

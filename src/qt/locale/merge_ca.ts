@@ -1871,10 +1871,6 @@
         <translation>Adreça</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscat</translation>
-    </message>
-    <message>
         <source>(n/a)</source>
         <translation>(n/a)</translation>
     </message>
@@ -1904,10 +1900,6 @@
     <message>
         <source>This year</source>
         <translation>Aquest any</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>Ofuscat</translation>
     </message>
     <message>
         <source>Copy address</source>

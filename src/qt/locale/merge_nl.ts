@@ -3701,22 +3701,6 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Verkregen via verduistering</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Verduistering denominatie</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Verduistering zijdelingse betaling</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verduistering maakt zijdelingse inputs</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verduistering creëert denominaties</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Verzenden naar</translation>
     </message>
@@ -3737,20 +3721,12 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Mined</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verduisterd</translation>
-    </message>
-    <message>
         <source>Converted Piv to zPiv</source>
         <translation>Geconverteerde Piv naar zPiv</translation>
     </message>
     <message>
         <source>Spent zPiv</source>
         <translation>Uitgegeven zPiv</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Verkregen Piv van zPiv</translation>
     </message>
     <message>
         <source>Minted Change as zPiv from zPiv Spend</source>
@@ -3840,26 +3816,6 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Verzenden naar</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verduisterd</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verduistering maakt zijdelingse inputs</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verduistering creëert denominaties</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Verduistering denominatie</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Verduistering zijdelingse betaling</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>Naar jezelf</translation>
     </message>
@@ -3874,26 +3830,6 @@ Wees alsjeblieft geduldig...</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>Masternode beloning</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Verkregen Piv van zPiv</translation>
-    </message>
-    <message>
-        <source>Zerocoin Mint</source>
-        <translation>Zerocoin Mint</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend</source>
-        <translation>Zerocoin uitgegeven</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation>Zerocoin uitgegeven, wisselgeld in zPiv</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend to Self</source>
-        <translation>Zerocoin uitgegeven aan jezelf</translation>
     </message>
     <message>
         <source>Other</source>

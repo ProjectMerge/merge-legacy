@@ -3709,22 +3709,6 @@ Please be patient...</source>
         <translation>Получен посредством обфускация</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Деноминация на обфускация</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Обфускация на на Платежен Залог</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Обфускация на Направени входящи Залози</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Обфускация и направа на Деноминации</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Изпратени до</translation>
     </message>
@@ -3745,20 +3729,12 @@ Please be patient...</source>
         <translation>Изсечени</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Обфускирани</translation>
-    </message>
-    <message>
         <source>Converted Piv to zPiv</source>
         <translation>Конвертиран MERGE във zMERGE</translation>
     </message>
     <message>
         <source>Spent zPiv</source>
         <translation>Похарчени zMERGE</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Получен MERGE от zMERGE</translation>
     </message>
     <message>
         <source>Minted Change as zPiv from zPiv Spend</source>
@@ -3844,26 +3820,6 @@ Please be patient...</source>
         <translation>Изпратени до</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Обфускирани</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Обфускация на Направени входящи Залози</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Обфускация и направа на Деноминации</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Деноминация на обфускация</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Обфускация на на Платежен Залог</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>Към себе си</translation>
     </message>
@@ -3878,26 +3834,6 @@ Please be patient...</source>
     <message>
         <source>Masternode Reward</source>
         <translation>Мастърноуд възнаграждение</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Получен MERGE от zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Mint</source>
-        <translation>Сечене на Zerocoin</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend</source>
-        <translation>Харчене на Zerocoin</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation>Харчене на Zerocoin, Ресто в zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend to Self</source>
-        <translation>Харчене на Zerocoin за себе си</translation>
     </message>
     <message>
         <source>Other</source>
