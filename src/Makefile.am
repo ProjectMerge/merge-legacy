@@ -202,6 +202,7 @@ libbitcoin_server_a_SOURCES = \
   pow.cpp \
   rest.cpp \
   rpc/blockchain.cpp \
+  rpc/explorer.cpp \
   rpc/masternode.cpp \
   rpc/masternode-budget.cpp \
   rpc/mining.cpp \
