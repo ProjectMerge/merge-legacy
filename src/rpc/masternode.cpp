@@ -12,7 +12,7 @@
 #include "masternode-payments.h"
 #include "masternodeconfig.h"
 #include "masternodeman.h"
-#include "rpcserver.h"
+#include "rpc/server.h"
 #include "utilmoneystr.h"
 
 #include <boost/tokenizer.hpp>
@@ -355,6 +355,9 @@ Value getmasternodecount (const Array& params, bool fHelp)
             "  \"obfcompat\": n,    (numeric) Obfuscation Compatible\n"
             "  \"enabled\": n,      (numeric) Enabled masternodes\n"
             "  \"inqueue\": n       (numeric) Masternodes in queue\n"
+            "  \"ipv4\": n          (numeric) Masternodes using IPV4 addresses\n"  
+            "  \"ipv6\": n          (numeric) Masternodes using IPV6 addresses\n"   
+            "  \"onion\": n         (numeric) Masternodes using Onion addresses\n" 
             "}\n"
             "\nExamples:\n" +
             HelpExampleCli("getmasternodecount", "") + HelpExampleRpc("getmasternodecount", ""));

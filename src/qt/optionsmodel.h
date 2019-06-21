@@ -43,9 +43,6 @@ public:
         ThreadsScriptVerif,  // int
         DatabaseCache,       // int
         SpendZeroConfChange, // bool
-        ZeromintPercentage,  // int
-        ZeromintPrefDenom,   // int
-        AnonymizeMERGEAmount, //int
         ShowMasternodesTab,  // bool
         Listen,              // bool
         OptionIDRowCount,
@@ -90,9 +87,6 @@ private:
 
 signals:
     void displayUnitChanged(int unit);
-    void zeromintPercentageChanged(int);
-    void preferredDenomChanged(int);
-    void anonymizeMERGEAmountChanged(int);
     void coinControlFeaturesChanged(bool);
 };
 

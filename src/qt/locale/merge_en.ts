@@ -2428,17 +2428,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+30"/>
-        <location line="+16"/>
-        <source>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-13"/>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+114"/>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
@@ -2781,15 +2770,6 @@ These zMERGE are spendable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+56"/>
-        <location line="+17"/>
-        <location line="+27"/>
-        <location line="+17"/>
-        <source>Unconfirmed: less than 20 confirmations
-Immature: confirmed, but less than 3 mints of the same denomination after it was minted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="-57"/>
         <source>Unconfirmed:</source>
         <translation type="unfinished"></translation>
@@ -2970,17 +2950,6 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <location filename="../forms/privacydialog.ui" line="+55"/>
-        <source>MERGE which were anonymized via Zerocin Protocol</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Zerocoin MERGE (zMERGE)</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <location line="+25"/>
         <source>Zerocoin Actions:</source>
@@ -2989,12 +2958,6 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     <message>
         <location line="+10"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+52"/>
-        <location line="+46"/>
-        <source>Enter an amount of Piv to convert to zPiv</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3018,11 +2981,6 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-622"/>
-        <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+3"/>
         <source>Available for Minting:</source>
         <translation type="unfinished"></translation>
@@ -3030,11 +2988,6 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     <message>
         <location line="+13"/>
         <source>0.000 000 00 MERGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3058,86 +3011,13 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation type="unfinished">Amount:</translation>
     </message>
     <message>
-        <location line="+91"/>
-        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+3"/>
         <source>ReScan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+27"/>
-        <source>Status and/or Mesages from the last Mint Action.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+45"/>
-        <source>zPiv Control</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>zPiv Selected:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="+30"/>
         <source>Quantity Selected:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+37"/>
-        <source>Spend Zerocoin. Without &apos;Pay To:&apos; address creates payments to yourself.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <location filename="../privacydialog.cpp" line="+46"/>
-        <location line="+4"/>
-        <location line="+12"/>
-        <location line="+100"/>
-        <location line="+4"/>
-        <source>Spend Zerocoin</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Available (mature and spendable) zMERGE for spending</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Available Balance:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+16"/>
-        <source>Available (mature and spendable) zMERGE for spending
-
-zMERGE are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
-        <location line="+417"/>
-        <source>0 zMERGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-394"/>
-        <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+6"/>
-        <source>Security Level:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+18"/>
-        <source>Security Level 1 - 100 (default: 42)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3184,152 +3064,6 @@ zMERGE are mature when they have more than 20 confirmations AND more than 2 mint
         <location line="+17"/>
         <source>A&amp;mount:</source>
         <translation type="unfinished">A&amp;mount:</translation>
-    </message>
-    <message>
-        <location line="+55"/>
-        <source>Convert Change to Zerocoin (might cost additional fees)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Minimize Change</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+52"/>
-        <source>Information about the available Zerocoin funds.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Zerocoin Stats:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+62"/>
-        <location line="+38"/>
-        <source>Total Balance including unconfirmed and immature zMERGE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-35"/>
-        <source>Total Zerocoin  Balance:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+52"/>
-        <source>Denominations with value 1:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 1:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <source>Unconfirmed: less than 20 confirmations
-Immature: confirmed, but less than 2 mints of the same denomination after it was minted</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-367"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <location line="+53"/>
-        <source>0 x</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-354"/>
-        <source>Denominations with value 5:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 5:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Denominations with value 10:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 10:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Denominations with value 50:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 50:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Denominations with value 100:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 100:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Denominations with value 500:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 500:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Denominations with value 1000:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 1000:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+50"/>
-        <source>Denominations with value 5000:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <source>Denom. with value 5000:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+106"/>
-        <source>Note: This hidden objects are used for communication between the &apos;Coin Control&apos; dialog and its parent objects. We don&apos;t want to change/reimplement the existing Coin Control, so this objects must be here, even when we don&apos;t use them. No, we don&apos;t like this approach, either.</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+100"/>
@@ -5482,26 +5216,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Obfuscation Denominate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Obfuscation Collateral Payment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Obfuscation Create Denominations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location line="-14"/>
         <source>Sent to</source>
         <translation>Sent to</translation>
@@ -5527,11 +5241,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Mined</translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Obfuscated</source>
-        <translation>Obfuscated</translation>
-    </message>
-    <message>
         <location line="+2"/>
         <source>Converted Piv to zPiv</source>
         <translation type="unfinished"></translation>
@@ -5539,11 +5248,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <location line="+2"/>
         <source>Spent zPiv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Received Piv from zPiv</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5657,31 +5361,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Obfuscated</source>
-        <translation>Obfuscated</translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation Create Denominations</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation Denominate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Obfuscation Collateral Payment</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
         <source>To yourself</source>
         <translation>To yourself</translation>
     </message>
@@ -5698,31 +5377,6 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <location line="+1"/>
         <source>Masternode Reward</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Received Piv from zPiv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Zerocoin Mint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Zerocoin Spend</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
-        <source>Zerocoin Spend to Self</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

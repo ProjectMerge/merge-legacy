@@ -1703,10 +1703,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Процент  авточеканненых zMERGE</translation>
     </message>
     <message>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation>Предпочитаемый номинал авточеканной  монеты  zMERGE</translation>
-    </message>
-    <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation>Подключиться к сети MERGE через SOCKS5 прокси.</translation>
     </message>
@@ -2029,11 +2025,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <source>MERGE which were anonymized via Zerocin Protocol</source>
-        <translation>MERGE, который был анонимно использован через Zerocoin протокол</translation>
-    </message>
     <message>
         <source>Zerocoin Actions:</source>
         <translation>Действия Zerocoin </translation>
@@ -2041,10 +2032,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>Возможно отображаемая информация устарела. Ваш кошелек автоматически синхронизируется с сетью MERGE после установки соединения, но этот процесс еще не завершен. </translation>
-    </message>
-    <message>
-        <source>Enter an amount of Piv to convert to zPiv</source>
-        <translation>Введите сумму в Piv для  конвертации в zPiv</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2085,70 +2072,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1:</source>
-        <translation>Номинал со значением 1:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1:</source>
-        <translation>Номинал со значением 1:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5:</source>
-        <translation>Номинал со значением 5:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5:</source>
-        <translation>Номинал со значением 5:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 10:</source>
-        <translation>Номинал со значением 10:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 10:</source>
-        <translation>Номинал со значением 10:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 50:</source>
-        <translation>Номинал со значением 50:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 50:</source>
-        <translation>Номинал со значением 50:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 100:</source>
-        <translation>Номинал со значением 100:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 100:</source>
-        <translation>Номинал со значением 100:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 500:</source>
-        <translation>Номинал со значением 500:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 500:</source>
-        <translation>Номинал со значением 500:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1000:</source>
-        <translation>Номинал со значением 1000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1000:</source>
-        <translation>Номинал со значением 1000:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5000:</source>
-        <translation>Номинал со значением 5000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5000:</source>
-        <translation>Номинал со значением 5000:</translation>
     </message>
     <message>
         <source>Priority:</source>

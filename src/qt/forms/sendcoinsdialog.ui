@@ -1385,16 +1385,6 @@
         <number>3</number>
        </property>
        <item>
-        <widget class="QCheckBox" name="checkzMERGE">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Anonymized MERGE</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLabel" name="label">
          <property name="text">
           <string>Balance:</string>

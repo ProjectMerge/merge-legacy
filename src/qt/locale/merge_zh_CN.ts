@@ -1132,7 +1132,7 @@ Address: %4
     <name>PeerTableModel</name>
     </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>显示的信息可能已过期。建立连接后，您的钱包会自动与MERGE网络同步，但此过程尚未完成。</translation>

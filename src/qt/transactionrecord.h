@@ -81,17 +81,6 @@ public:
         MNReward,
         RecvFromOther,
         SendToSelf,
-        ZerocoinMint,
-        ZerocoinSpend,
-        RecvFromZerocoinSpend,
-        ZerocoinSpend_Change_zPiv,
-        ZerocoinSpend_FromMe,
-        RecvWithObfuscation,
-        ObfuscationDenominate,
-        ObfuscationCollateralPayment,
-        ObfuscationMakeCollaterals,
-        ObfuscationCreateDenominations,
-        Obfuscated
     };
 
     /** Number of confirmation recommended for accepting a transaction */

@@ -908,7 +908,7 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
     <name>PeerTableModel</name>
     </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>Quantity:</source>
         <translation>Kvantitet:</translation>

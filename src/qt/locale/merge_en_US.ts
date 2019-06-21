@@ -3572,22 +3572,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Received via Obfuscation</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Obfuscation Denominate</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Obfuscation Collateral Payment</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Obfuscation Make Collateral Inputs</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Obfuscation Create Denominations</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Sent to</translation>
     </message>
@@ -3606,10 +3590,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Mined</source>
         <translation>Mined</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>Obfuscated</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3685,26 +3665,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Sent to</source>
         <translation>Sent to</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>Obfuscated</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Obfuscation Make Collateral Inputs</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Obfuscation Create Denominations</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Obfuscation Denominate</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Obfuscation Collateral Payment</translation>
     </message>
     <message>
         <source>To yourself</source>

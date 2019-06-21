@@ -130,48 +130,6 @@
          </property>
         </spacer>
        </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0">
-         <property name="sizeConstraint">
-          <enum>QLayout::SetFixedSize</enum>
-         </property>
-         <item>
-          <widget class="QLabel" name="labelPreferredDenom">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>16777215</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</string>
-           </property>
-           <property name="text">
-            <string>Preferred Automint zMERGE Denomination</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="preferredDenom">
-           <property name="maximumSize">
-            <size>
-             <width>16777215</width>
-             <height>27</height>
-            </size>
-           </property>
-           <property name="toolTip">
-            <string>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</string>
-           </property>
-           <property name="maxVisibleItems">
-            <number>9</number>
-           </property>
-           <property name="maxCount">
-            <number>9</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="tabWallet">

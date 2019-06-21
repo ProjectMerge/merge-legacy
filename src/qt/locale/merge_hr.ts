@@ -331,7 +331,7 @@
     <name>PeerTableModel</name>
     </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>0</source>
         <translation>0</translation>

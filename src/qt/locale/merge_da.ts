@@ -1989,7 +1989,7 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
+    
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>De viste informationer kan være uddaterede. Deres tegnebog synkronisere automatism med MERGE netværket så snart en forbindelse er etalbleret, men denne proces er ikke færdiggjort endnu. </translation>
@@ -3424,22 +3424,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Modtaget via tilsløring</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Tilslør designerede</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Samlet tilsløret betaling</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Tilslørede samlede tilføjelser</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Opret tilsløret designering</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Sendt til</translation>
     </message>
@@ -3458,10 +3442,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Mined</source>
         <translation>Mineret</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>skjult</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -3537,26 +3517,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>Sent to</source>
         <translation>Sendt til</translation>
-    </message>
-    <message>
-        <source>Obfuscated</source>
-        <translation>skjult</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Tilslørede samlede tilføjelser</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Opret tilsløret designering</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Tilslør designerede</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Samlet tilsløret betaling</translation>
     </message>
     <message>
         <source>To yourself</source>

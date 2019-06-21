@@ -1730,14 +1730,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Prozentsatz der automatisierten zMERGE</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough MERGE for this denomination is available</source>
-        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend MERGE für diese Stückelung verfügbar ist</translation>
-    </message>
-    <message>
-        <source>Preferred Automint zMERGE Denomination</source>
-        <translation>Bevorzugte automatisierte zMERGE Stückelung </translation>
-    </message>
-    <message>
         <source>Connect to the MERGE network through a SOCKS5 proxy.</source>
         <translation>Durch einen SOCKS5 Proxy mit dem MERGE Netzwerk verbinden.</translation>
     </message>
@@ -2068,15 +2060,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     </message>
 </context>
 <context>
-    <name>PrivacyDialog</name>
-    <message>
-        <source>MERGE which were anonymized via Zerocin Protocol</source>
-        <translation>MERGE, die über das Zerocoin-Protokoll anonymisiert wurden</translation>
-    </message>
-    <message>
-        <source>Zerocoin MERGE (zMERGE)</source>
-        <translation>Zerocoin MERGE (zMERGE)</translation>
-    </message>
     <message>
         <source>Zerocoin Actions:</source>
         <translation>Zerocoin Aktionen:</translation>
@@ -2084,10 +2067,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the MERGE network after a connection is established, but this process has not completed yet.</source>
         <translation>Die angezeigte Information ist möglicherweise nicht mehr aktuell. Ihre Wallet synchronisiert sich automatisch mit dem MERGE-Netzwerk, nachdem eine Verbindung hergestellt wurde. Aber dieser Vorgang ist noch nicht abgeschlossen.</translation>
-    </message>
-    <message>
-        <source>Enter an amount of Piv to convert to zPiv</source>
-        <translation>Eingabe des Piv-Betrags, um in zPiv umzuwandeln</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2110,10 +2089,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>0.000 000 00 MERGE</translation>
     </message>
     <message>
-        <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
-        <translation>Zurücksetzen der Zerocoin-Wallet-DB. Löscht Transaktionen, die es nicht in die Blockchain geschafft haben.</translation>
-    </message>
-    <message>
         <source>Reset</source>
         <translation>Zurücksetzen</translation>
     </message>
@@ -2130,56 +2105,12 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
         <translation>Betrag:</translation>
     </message>
     <message>
-        <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
-        <translation>Erneutes Scannen der kompletten Blockchain nach Zerocoin Prägungen und deren Meta-Daten</translation>
-    </message>
-    <message>
         <source>ReScan</source>
         <translation>Erneut Scannen</translation>
     </message>
     <message>
-        <source>Status and/or Mesages from the last Mint Action.</source>
-        <translation>Status und/oder Mitteilungen aus der letzten Prägung</translation>
-    </message>
-    <message>
-        <source>zPiv Control</source>
-        <translation>zPiv Kontrolle</translation>
-    </message>
-    <message>
-        <source>zPiv Selected:</source>
-        <translation>zPiv Ausgewählt:</translation>
-    </message>
-    <message>
         <source>Quantity Selected:</source>
         <translation>Menge ausgewählt:</translation>
-    </message>
-    <message>
-        <source>Spend Zerocoin. Without 'Pay To:' address creates payments to yourself.</source>
-        <translation>Überweise Zerocoin. Ohne Empfänger-Adresse werden Zahlungen an Sie selbst erstellt.</translation>
-    </message>
-    <message>
-        <source>Spend Zerocoin</source>
-        <translation>Überweise Zerocoin</translation>
-    </message>
-    <message>
-        <source>Available Balance:</source>
-        <translation>Verfügbare Bilanz:</translation>
-    </message>
-    <message>
-        <source>0 zMERGE</source>
-        <translation>0 zMERGE</translation>
-    </message>
-    <message>
-        <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
-        <translation>Sicherheitsstufe für Zerocoin-Transaktionen. Höher ist besser, benötigt jedoch mehr Zeit und Ressourcen.</translation>
-    </message>
-    <message>
-        <source>Security Level:</source>
-        <translation>Sicherheitsstufe:</translation>
-    </message>
-    <message>
-        <source>Security Level 1 - 100 (default: 42)</source>
-        <translation>Sicherheitsstufe 1 - 100 (Voreinstellung: 42)</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2216,98 +2147,6 @@ https://www.transifex.com/MERGE-project/MERGE-project-translations</translation>
     <message>
         <source>A&amp;mount:</source>
         <translation>Betra&amp;g:</translation>
-    </message>
-    <message>
-        <source>Convert Change to Zerocoin (might cost additional fees)</source>
-        <translation>Wandle Wechselgeld in Zerocoin um (kann zusätzliche Gebühren kosten)</translation>
-    </message>
-    <message>
-        <source>If checked, the wallet tries to minimize the returning change instead of minimizing the number of spent denominations.</source>
-        <translation>Falls aktiviert, versucht die Wallet, das zurückkehrende Wechselgeld zu minimieren, anstatt die Anzahl der verbrauchten Stückelungen zu minimieren.</translation>
-    </message>
-    <message>
-        <source>Minimize Change</source>
-        <translation>Minimiert Wechselgeld</translation>
-    </message>
-    <message>
-        <source>Information about the available Zerocoin funds.</source>
-        <translation>Informationen über den verfügbaren Zerocoin-Bestand.</translation>
-    </message>
-    <message>
-        <source>Zerocoin Stats:</source>
-        <translation>Zerocoin Statistiken:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1:</source>
-        <translation>Stückelungen mit Wert 1:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1:</source>
-        <translation>Stücke mit Wert 1:</translation>
-    </message>
-    <message>
-        <source>0 x</source>
-        <translation>0 x</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5:</source>
-        <translation>Stückelungen mit Wert 5:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5:</source>
-        <translation>Stücke mit Wert 5:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 10:</source>
-        <translation>Stückelungen mit Wert 10:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 10:</source>
-        <translation>Stücke mit Wert 10:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 50:</source>
-        <translation>Stückelungen mit Wert 50:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 50:</source>
-        <translation>Stücke mit Wert 50:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 100:</source>
-        <translation>Stückelungen mit Wert 100:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 100:</source>
-        <translation>Stücke mit Wert 100:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 500:</source>
-        <translation>Stückelungen mit Wert 500:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 500:</source>
-        <translation>Stücke mit Wert 500:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 1000:</source>
-        <translation>Stückelungen mit Wert 1000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 1000:</source>
-        <translation>Stücke mit Wert 1000:</translation>
-    </message>
-    <message>
-        <source>Denominations with value 5000:</source>
-        <translation>Stückelungen mit Wert 5000:</translation>
-    </message>
-    <message>
-        <source>Denom. with value 5000:</source>
-        <translation>Stücke mit Wert 5000:</translation>
-    </message>
-    <message>
-        <source>Note: This hidden objects are used for communication between the 'Coin Control' dialog and its parent objects. We don't want to change/reimplement the existing Coin Control, so this objects must be here, even when we don't use them. No, we don't like this approach, either.</source>
-        <translation>Hinweis: Diese verborgenen Objekte werden für die Kommunikation zwischen dem Dialog "Coin Kontrolle" und den übergeordneten Objekten verwendet. Wir wollen die bestehende Coin Kontrolle nicht ändern / reimplementieren. Also müssen diese Objekte hier sein, auch wenn wir sie nicht benutzen. Nein, das gefällt uns auch nicht.</translation>
     </message>
     <message>
         <source>Priority:</source>
@@ -3869,22 +3708,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>über/durch Verschleierung empfangen</translation>
     </message>
     <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Stückelung der Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Sicherheitspfandzahlung für Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verschleierung Erzeugung des Sicherheitspfand</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verschleierung Erzeugung der Stückelung</translation>
-    </message>
-    <message>
         <source>Sent to</source>
         <translation>Überwiesen an</translation>
     </message>
@@ -3905,20 +3728,12 @@ Bitte haben Sie Geduld...</translation>
         <translation>Erarbeitet</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verschleiert</translation>
-    </message>
-    <message>
         <source>Converted Piv to zPiv</source>
         <translation>Umgewandeltes MERGE zu zMERGE</translation>
     </message>
     <message>
         <source>Spent zPiv</source>
         <translation>Ausgeben zMERGE</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Empfangene MERGE von zMERGE</translation>
     </message>
     <message>
         <source>Minted Change as zPiv from zPiv Spend</source>
@@ -4008,26 +3823,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>Überwiesen an</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verschleiert</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verschleierung Erzeugung des Sicherheitspfand</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verschleierung Erzeugung der Stückelung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Stückelung der Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Sicherheitspfandzahlung für Verschleierung</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>Eigenüberweisung</translation>
     </message>
@@ -4042,26 +3837,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>Masternode Reward</source>
         <translation>Masternode Vergütung</translation>
-    </message>
-    <message>
-        <source>Received Piv from zPiv</source>
-        <translation>Empfangene MERGE von zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Mint</source>
-        <translation>Zerocoin Prägung</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend</source>
-        <translation>Zerocoin Ausgabe</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPiv</source>
-        <translation>Zerocoin Ausgabe, Wechselgeld in zMERGE</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend to Self</source>
-        <translation>Zerocoin Ausgabe an sich Selbst</translation>
     </message>
     <message>
         <source>Other</source>

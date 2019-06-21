@@ -73,18 +73,6 @@ void OptionsModel::Init()
         settings.setValue("fCoinControlFeatures", false);
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
-    if (!settings.contains("nPreferredDenom"))
-        settings.setValue("nPreferredDenom", 0);
-    nPreferredDenom = settings.value("nPreferredDenom", "0").toLongLong();
-    if (!settings.contains("nZeromintPercentage"))
-        settings.setValue("nZeromintPercentage", 10);
-    nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
-
-    if (!settings.contains("nAnonymizeMergeAmount"))
-        settings.setValue("nAnonymizeMergeAmount", 1000);
-
-    nAnonymizeMergeAmount = settings.value("nAnonymizeMergeAmount").toLongLong();
-
     if (!settings.contains("fShowMasternodesTab"))
         settings.setValue("fShowMasternodesTab", masternodeConfig.getCount());
 
@@ -147,13 +135,6 @@ void OptionsModel::Init()
         settings.setValue("language", "");
     if (!SoftSetArg("-lang", settings.value("language").toString().toStdString()))
         addOverriddenOption("-lang");
-
-    if (settings.contains("nZeromintPercentage"))
-        SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
-    if (settings.contains("nPreferredDenom"))
-        SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
-    if (settings.contains("nAnonymizeMergeAmount"))
-        SoftSetArg("-anonymizeMergeamount", settings.value("nAnonymizeMergeAmount").toString().toStdString());
 
     language = settings.value("language").toString();
 }
@@ -231,12 +212,6 @@ QVariant OptionsModel::data(const QModelIndex& index, int role) const
             return settings.value("nDatabaseCache");
         case ThreadsScriptVerif:
             return settings.value("nThreadsScriptVerif");
-        case ZeromintPercentage:
-            return QVariant(nZeromintPercentage);
-        case ZeromintPrefDenom:
-            return QVariant(nPreferredDenom);
-        case AnonymizeMERGEAmount:
-            return QVariant(nAnonymizeMergeAmount);
         case Listen:
             return settings.value("fListen");
         default:
@@ -339,22 +314,6 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
                 settings.setValue("language", value);
                 setRestartRequired(true);
             }
-            break;
-        case ZeromintPercentage:
-            nZeromintPercentage = value.toInt();
-            settings.setValue("nZeromintPercentage", nZeromintPercentage);
-            emit zeromintPercentageChanged(nZeromintPercentage);
-            break;
-        case ZeromintPrefDenom:
-            nPreferredDenom = value.toInt();
-            settings.setValue("nPreferredDenom", nPreferredDenom);
-            emit preferredDenomChanged(nPreferredDenom);
-            break;
-
-        case AnonymizeMERGEAmount:
-            nAnonymizeMergeAmount = value.toInt();
-            settings.setValue("nAnonymizeMergeAmount", nAnonymizeMergeAmount);
-            emit anonymizeMERGEAmountChanged(nAnonymizeMergeAmount);
             break;
         case CoinControlFeatures:
             fCoinControlFeatures = value.toBool();

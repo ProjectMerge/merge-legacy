@@ -44,9 +44,9 @@ QString BitcoinUnits::id(int unit)
     case MERGE:
         return QString("MERGE");
     case mMERGE:
-        return QString("mmerge");
+        return QString("mMERGE");
     case uMERGE:
-        return QString::fromUtf8("umerge");
+        return QString::fromUtf8("uMERGE");
     default:
         return QString("???");
     }

@@ -6,9 +6,9 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "rpcclient.h"
+#include "rpc/client.h"
 
-#include "rpcprotocol.h"
+#include "rpc/protocol.h"
 #include "ui_interface.h"
 #include "util.h"
 
@@ -75,6 +75,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"getblockheader", 1},
         {"gettransaction", 1},
         {"getrawtransaction", 1},
+        {"getrawtransaction", 2},
         {"createrawtransaction", 0},
         {"createrawtransaction", 1},
         {"signrawtransaction", 1},
@@ -114,7 +115,9 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"reservebalance", 1},
         {"setstakesplitthreshold", 0},
         {"autocombinerewards", 0},
-        {"autocombinerewards", 1}
+        {"autocombinerewards", 1},
+        {"getexplorerblock", 0},
+        {"getexplorerblock", 1},
     };
 
 class CRPCConvertTable

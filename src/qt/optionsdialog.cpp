@@ -45,8 +45,6 @@ OptionsDialog::OptionsDialog(QWidget* parent, bool enableWallet) : QDialog(paren
     ui->databaseCache->setMaximum(nMaxDbCache);
     ui->threadsScriptVerif->setMinimum(-(int)boost::thread::hardware_concurrency());
     ui->threadsScriptVerif->setMaximum(MAX_SCRIPTCHECK_THREADS);
-    ui->preferredDenom->setVisible(false);
-    ui->labelPreferredDenom->setVisible(false);
 
 /* Network elements init */
 #ifndef USE_UPNP
@@ -177,9 +175,6 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->bitcoinAtStartup, OptionsModel::StartAtStartup);
     mapper->addMapping(ui->threadsScriptVerif, OptionsModel::ThreadsScriptVerif);
     mapper->addMapping(ui->databaseCache, OptionsModel::DatabaseCache);
-
-    // Zerocoin preferred denomination
-    mapper->addMapping(ui->preferredDenom, OptionsModel::ZeromintPrefDenom);
 
     /* Wallet */
     mapper->addMapping(ui->spendZeroConfChange, OptionsModel::SpendZeroConfChange);
