@@ -198,14 +198,14 @@ public:
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
         txNew.vout[0].nValue = 0 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("045c9205a032bd6ba8cfcbd8c6b163528b4b801d2cbdb90e9510b67c520b6db26d69f89ddef680d9b3e12e97026877b854395b2c74532b6e1ccb3d0416e87f98ec") << OP_CHECKSIG;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("0469b0149714a501f21298ee9b559be519f79c35194ba5e143f55b8036972bcf7d0f6c3e5479d0e51b013628e0f0c5e0ea7c090fdaad6cf0bf686c4a35a07f5ecf") << OP_CHECKSIG;
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
         genesis.nTime = 1545670001;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 86643;
+        genesis.nNonce = 4480615;
 
         if (genesis.nNonce == 0) {
 	          while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -217,8 +217,8 @@ public:
 	      }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000c525f441a49600a90513841553fd0e09a2d5eacd3f67649bd7609ee338a"));
-        assert(genesis.hashMerkleRoot == uint256("0x4c218b8dd3d653815dce0ea7d14827c1708247ba39f7137886ab19567ecac159"));
+        assert(hashGenesisBlock == uint256("0x00000ef935afac04f6f8f347d40eb80f048cd89b010dc2bb27770054bd54fd28"));
+        assert(genesis.hashMerkleRoot == uint256("0x705ea6c69f9003f9f45e9e02f8d541a98a0edd231de7e1a25b937a5b21085096"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
