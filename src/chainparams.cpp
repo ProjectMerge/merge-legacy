@@ -87,9 +87,9 @@ public:
         nDefaultPort = 52000;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 750;
-        nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
+        nEnforceBlockUpgradeMajority = 8100; // 75%
+        nRejectBlockOutdatedMajority = 10260; // 95%
+        nToCheckBlockUpgradeMajority = 10800; // Approximate expected amount of blocks in 7 days (1440*7.5)
         nMinerThreads = 0;
         nTargetTimespan = 10 * 60;
         nTargetSpacing = 1 * 60;
