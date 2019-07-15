@@ -175,7 +175,7 @@ Value getrawtransaction(const Array& params, bool fHelp)
 
     bool fVerbose = false;
     if (params.size() > 1)
-        fVerbose = (params[1].get_bool() != 0);
+        fVerbose = (params[1].get_int() != 0);
 
     CTransaction tx;
     uint256 hashBlock = 0;
