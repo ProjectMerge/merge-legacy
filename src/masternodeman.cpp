@@ -194,6 +194,37 @@ void DumpMasternodes()
     LogPrint("masternode","Masternode dump finished  %dms\n", GetTimeMillis() - nStart);
 }
 
+// After mnsync, periodically poll the other mn
+void CMasternodeMan::ThreadAuditMasternode()
+{
+  RenameThread("MERGE-auditmn");
+  LogPrintf("MERGE-auditmn thread entered..\n");
+
+  while (!masternodeSync.IsSynced()) {
+    sleep(5);
+  }
+
+  while (true) {
+    BOOST_FOREACH (CMasternode &mn, vMasternodes) {
+      bool fWait = false;
+      int nTimeout = GetTime();
+      while (!fWait) {
+        CNode *mntest = ConnectNode(CAddress(mn.addr));
+        sleep(5);
+        if (!mntest) {
+          LogPrintf("%s did not respond in 7.5s (!)\n",
+                    mn.addr.ToString().c_str());
+          fWait = true;
+        } else {
+          LogPrintf("%s responded in < 7.5s\n", mn.addr.ToString().c_str());
+          fWait = true;
+        }
+      }
+    }
+    sleep(15 * 60); // wait 15 minutes per set
+  }
+}
+
 CMasternodeMan::CMasternodeMan()
 {
     nDsqCount = 0;

@@ -95,6 +95,8 @@ public:
     CMasternodeMan();
     CMasternodeMan(CMasternodeMan& other);
 
+    void ThreadAuditMasternode();
+
     /// Add an entry
     bool Add(CMasternode& mn);
 

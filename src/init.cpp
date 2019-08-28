@@ -1753,6 +1753,9 @@ bool AppInit2(boost::thread_group& threadGroup)
 
         // Run a thread to flush wallet periodically
         threadGroup.create_thread(boost::bind(&ThreadFlushWalletDB, boost::ref(pwalletMain->strWalletFile)));
+
+        // Another to poll mns
+        mnodeman.ThreadAuditMasternode();
     }
 #endif
 
