@@ -1,39 +1,81 @@
-Merge Coin
-==========
+![Merge's Blockchain](https://i.imgur.com/vTFN9aJ.png)
 
-The Merge Coin is a cutting-edge cryptocurrency, the engine and the connector to the products and solutions of [Merge](http://www.projectmerge.org).
+1.  [Merge's cryptocurrency]()
+2.  []()
+3.  []()
+4.  []()
+5.  []()
+6.  []()
+
+Merge's cryptocurrency
+======================
+
+Merge provides a cutting-edge cryptocurrency, which acts as the engine and the connector to the products and solutions of [Merge](http://www.projectmerge.org).
 
 Some of its features are:
 - Fast transactions featuring guaranteed zero confirmation transactions.
 - Proof-of-work for the first blocks with GPU-resistant algorithm.
 - Proof-of-stake and masternode to support the network and reward those users that hold the coin.
 
-Merge bridges the gap to crypto and provide a platform that will allow non-crypto developers to build apps or projects that interact with the blockchain. 
-Such a platform helps forming a common ecosystem with an underlaying business logic protocol that we call The Membrane.
-This common ecosystem will be based on the core concept of Merge, which is incorporating other coins and their ideas by means of a coin swap.
+Merge's wallet
+==============
 
-More information at Merge's [Website](http://www.projectmerge.org) and [Knowledge Base](http://kb.projectmerge.org).
+Along with a cryptocurrency, Merge provides a cryptocurrency wallet that stores Merge coin's public and private keys and allows the reception and expenditure of Merge coins. 
 
-Learn how to setup the [Merge Wallet](https://kb.projectmerge.org/guides/wallet).
+**Download** the wallet [here](http://coin.projectmerge.org/wallet).
 
-Setup your Merge Wallet for [PoW](https://kb.projectmerge.org/guides/wallet/pow-cpu-mining), [PoS](https://kb.projectmerge.org/guides/wallet/pos-staking) and [masternode](https://kb.projectmerge.org/guides/wallet/masternodes).
+Merge's wallet does take benefit of the coin's features by providing the following options:
+- CPU mining during the PoW phase (this phase has ended).
+- Staking during the [PoS](https://kb.projectmerge.org/guides/wallet/pos-staking) phase.
+- Control [masternodes](https://kb.projectmerge.org/guides/wallet/masternodes).
 
-See the status of the Merge Coin's network at the [Merge Coin Block Explorer](https://explorer.projectmerge.org).
+Learn how to setup your [Merge wallet](https://kb.projectmerge.org/guides/wallet).
 
-### Coin Specs
+Merge's exchange
+================
+
+Merge belongs to the Birake's network of decentralized exchanges (DEX). This allow Merge having its own space to run its DEX instance, in where the Merge coin, and many other coins, can be bought.
+
+Visit [MergeDEX](https://mergedex.com) to buy your Merge coins at any time.
+
+Supportive tools
+================
+
+Merge facilitates the use of blockchain technology with the creation of tools of different kind. 
+
+With regards the coin, a set of tools are currently available to help the user while using the cryptocurrency in the wallet, transactions and masternodes. 
+
+These tools are:
+- [Explorer](https://explorer.projectmerge.org): See the latest blocks, transactions and status of the Merge coin's network.
+- [DNS Seeder](https://seeder.projectmerge.org/merge): Avoids the risk of forking by ensuring Merge wallets are connected to the right chain.
+- [Masternode Hosting](https://mergebcdg.com/product-category/hosting): We make it very simple to allow users hosting their Merge masternodes. It is as simple as FREE :).
+- [Snapshot](https://snapshots.projectmerge.org/merge): Secure and daily snapshots of Merge's blockchain.
+- [Toolbox](https://toolbox.projectmerge.org): Blockchain monitor utility with two current tools: "Am I forked?" and "Masternode Status Check".
+
+Coin Specifications
+===================
+
 <table>
-<tr><td>Ticker</td><td>MERGE</td></tr>
-<tr><td>Algorithm</td><td>PoW: Argon2m - PoS: See-Saw</td></tr>
-<tr><td>Max Coin Supply</td><td>100,000,000 MERGE</td></tr>
-<tr><td>Masternode Collateral</td><td>10,000 MERGE</td></tr>
-<tr><td>Block Time</td><td>60 Seconds</td></tr>
-<tr><td>Difficulty Retargeting</td><td>Every Block</td></tr>
-<tr><td>Premine</td><td>33,000,000 MERGE*</td></tr>
+<tr><td><strong>Name</strong></td><td>Merge</td></tr>
+<tr><td><strong>Ticker</strong></td><td>MERGE</td></tr>
+<tr><td><strong>Algorithm</strong></td><td>PoW: Argon2m<br/>PoS: See-Saw</td></tr>
+<tr><td><strong>Max Coin Supply</strong></td><td>100,000,000 MERGE</td></tr>
+<tr><td><strong>Masternode Collateral</strong></td><td>10,000 MERGE</td></tr>
+<tr><td><strong>Block Time</strong></td><td>60 Seconds</td></tr>
+<tr><td><strong>Difficulty Retargeting</strong></td><td>Every Block</td></tr>
+<tr><td><strong>Premine</strong></td><td>33,000,000 MERGE*</td></tr>
 </table>
 
-*Read all about our [Premine](https://kb.projectmerge.org/faq#merge-coins-premine).
+*Read all about our [Premine](https://kb.projectmerge.org/faq#premine).
 
-### Reward Distribution
+Coin Reward's Distribution
+==========================
 
-[![Merge Coin Reward Distribution](https://cdn.discordapp.com/attachments/470509313484390400/510102425684672523/Artboard_1-8.png)]
+[![Merge Coin Reward's Distribution](https://cdn.discordapp.com/attachments/470509313484390400/510102425684672523/Artboard_1-8.png)]
 
+More Information
+================
+
+More information on Merge's [Website](https://www.projectmerge.org) and [Knowledge Base](https://kb.projectmerge.org).
+
+For help and support, do not hesitate to [contact](https://kb.projectmerge.org/contact) us.
