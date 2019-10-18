@@ -1,14 +1,18 @@
 ![Merge's Blockchain](https://i.imgur.com/vTFN9aJ.png)
 
-1.  [Merge's cryptocurrency]()
-2.  []()
-3.  []()
-4.  []()
-5.  []()
-6.  []()
+Table of Contents
+=================
 
-Merge's cryptocurrency
-======================
+1.  [Merge's Coin](https://gitlab.projectmerge.org/ProjectMerge/merge#merges-coin)
+2.  [Merge's Wallet](https://gitlab.projectmerge.org/ProjectMerge/merge#merges-wallet)
+3.  [Merge's Exchange](https://gitlab.projectmerge.org/ProjectMerge/merge#merges-exchange)
+4.  [Supportive Tools](https://gitlab.projectmerge.org/ProjectMerge/merge#supportive-tools)
+5.  [Coin Specifications](https://gitlab.projectmerge.org/ProjectMerge/merge#coin-specifications)
+6.  [Coin Reward's Distribution](https://gitlab.projectmerge.org/ProjectMerge/merge#coin-rewards-distribution)
+7.  [More Information](https://gitlab.projectmerge.org/ProjectMerge/merge#more-information)
+
+Merge's Coin
+============
 
 Merge provides a cutting-edge cryptocurrency, which acts as the engine and the connector to the products and solutions of [Merge](http://www.projectmerge.org).
 
@@ -17,7 +21,7 @@ Some of its features are:
 - Proof-of-work for the first blocks with GPU-resistant algorithm.
 - Proof-of-stake and masternode to support the network and reward those users that hold the coin.
 
-Merge's wallet
+Merge's Wallet
 ==============
 
 Along with a cryptocurrency, Merge provides a cryptocurrency wallet that stores Merge coin's public and private keys and allows the reception and expenditure of Merge coins. 
@@ -31,14 +35,14 @@ Merge's wallet does take benefit of the coin's features by providing the followi
 
 Learn how to setup your [Merge wallet](https://kb.projectmerge.org/guides/wallet).
 
-Merge's exchange
+Merge's Exchange
 ================
 
 Merge belongs to the Birake's network of decentralized exchanges (DEX). This allow Merge having its own space to run its DEX instance, in where the Merge coin, and many other coins, can be bought.
 
 Visit [MergeDEX](https://mergedex.com) to buy your Merge coins at any time.
 
-Supportive tools
+Supportive Tools
 ================
 
 Merge facilitates the use of blockchain technology with the creation of tools of different kind. 
