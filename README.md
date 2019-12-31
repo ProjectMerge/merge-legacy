@@ -38,9 +38,11 @@ Learn how to setup your [Merge wallet](https://kb.projectmerge.org/guides/wallet
 Merge's Exchange
 ================
 
-Merge belongs to the Birake's network of decentralized exchanges (DEX). This allow Merge having its own space to run its DEX instance, in where the Merge coin, and many other coins, can be bought.
+Merge belongs to Birake's Shared Exchange Network of Decentralized Exchanges (DEX). This allow Merge having its own space to run its DEX instance, in where the Merge coin, and many other coins, can be bought.
 
 Visit [MergeDEX](https://mergedex.com) to buy your Merge coins at any time.
+
+Alternatively, Merge can be bought on [Folgory](https://folgory.com).
 
 Supportive Tools
 ================
