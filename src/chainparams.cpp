@@ -187,7 +187,7 @@ public:
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
-        nLastPOWBlock = 1000;
+        nLastPOWBlock = 80;
         nModifierUpdateBlock = 50;
 
         genesis.SetNull();
@@ -203,9 +203,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1545670001;
+        genesis.nTime = 1593028277;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 4480615;
+        genesis.nNonce = 604475;
 
         if (genesis.nNonce == 0) {
 	          while (genesis.GetHash() > bnProofOfWorkLimit) {
@@ -217,7 +217,7 @@ public:
 	      }
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000ef935afac04f6f8f347d40eb80f048cd89b010dc2bb27770054bd54fd28"));
+        assert(hashGenesisBlock == uint256("0x00000eb6d80fd7c1dc4e1c5c72b3217299d6d154f2c48b57e4aa122a5c978ef8"));
         assert(genesis.hashMerkleRoot == uint256("0x705ea6c69f9003f9f45e9e02f8d541a98a0edd231de7e1a25b937a5b21085096"));
 
         vFixedSeeds.clear();
