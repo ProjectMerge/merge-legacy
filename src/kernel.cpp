@@ -291,6 +291,11 @@ bool stakeTargetHit(uint256 hashProofOfStake, int64_t nValueIn, uint256 bnTarget
     return (uint256(hashProofOfStake) < bnCoinDayWeight * bnTargetPerCoinDay);
 }
 
+void DebugStakeHash(uint64_t currentModifier, unsigned int nTimeBlockFrom, unsigned int prevoutn, uint256 prevouthash, unsigned int nTimeTx)
+{
+    LogPrintf("modifier %016llx ntimeblockfrom %d prevoutn %d prevouthash %s ntimetx %d\n", currentModifier, nTimeBlockFrom, prevoutn, prevouthash.ToString().c_str(), nTimeTx);
+}
+
 //instead of looping outside and reinitializing variables many times, we will give a nTimeTx and also search interval so that we can do all the hashing here
 bool CheckStakeKernelHash(unsigned int nBits, const CBlock blockFrom, const CTransaction txPrev, const COutPoint prevout, unsigned int& nTimeTx, unsigned int nHashDrift, bool fCheck, uint256& hashProofOfStake, bool fPrintProofOfStake)
 {
@@ -315,6 +320,11 @@ bool CheckStakeKernelHash(unsigned int nBits, const CBlock blockFrom, const CTra
     if (!GetKernelStakeModifier(blockFrom.GetHash(), nStakeModifier, nStakeModifierHeight, nStakeModifierTime, fPrintProofOfStake)) {
         LogPrintf("CheckStakeKernelHash(): failed to get kernel stake modifier \n");
         return false;
+    }
+
+    if (fDebug) {
+        LogPrintf("debug blockhash %s\n", blockFrom.GetHash().ToString().c_str());
+        DebugStakeHash(nStakeModifier, nTimeBlockFrom, prevout.n, prevout.hash, nTimeTx);
     }
 
     //create data stream once instead of repeating it in the loop
