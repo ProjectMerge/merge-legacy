@@ -187,7 +187,7 @@ public:
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
-        nLastPOWBlock = 1000;
+        nLastPOWBlock = 300;
         nModifierUpdateBlock = 50;
 
         genesis.SetNull();
