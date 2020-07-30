@@ -237,7 +237,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04aba3f6d2e8066a19ef79724d7340d3259dea3fc00b7a8ad7e60e91c0984609ab33559f80dd366894ecfcf26025bd2db59a8b8de444fdcff349e07ae36399ad67";
+        strSporkKey = "02ddae409575fcea44f0429b213965ca41091534c9944ad8302ca45d43f53bf4c6";
         strObfuscationPoolDummyAddress = "ZERGEXXXXXXXXXXXXXXXXXXXXXXXcMy12n";
         nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
