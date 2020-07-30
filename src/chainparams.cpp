@@ -203,21 +203,12 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1545670001;
+        genesis.nTime = 1596132246;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 4480615;
-
-        if (genesis.nNonce == 0) {
-	          while (genesis.GetHash() > bnProofOfWorkLimit) {
-                 genesis.nNonce++;
-		             if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
-	          }
-	          printf("nonce was %d \n", genesis.nNonce);
-            printf("genesis block %s\n", genesis.ToString().c_str());
-	      }
+        genesis.nNonce = 1543987;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000ef935afac04f6f8f347d40eb80f048cd89b010dc2bb27770054bd54fd28"));
+        assert(hashGenesisBlock == uint256("0x000006720fa94c5b23d310b886feecccd14cd7465e0b2bb41651afa1c81498a0"));
         assert(genesis.hashMerkleRoot == uint256("0x705ea6c69f9003f9f45e9e02f8d541a98a0edd231de7e1a25b937a5b21085096"));
 
         vFixedSeeds.clear();
