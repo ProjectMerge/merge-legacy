@@ -5467,6 +5467,11 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
     return true;
 }
 
+bool IsTestnet()
+{
+    return Params().NetworkID() == CBaseChainParams::TESTNET;
+}
+
 // Note: whenever a protocol update is needed toggle between both implementations (comment out the formerly active one)
 //       so we can leave the existing clients untouched (old SPORK will stay on so they don't see even older clients).
 //       Those old clients won't react to the changes of the other (new) SPORK because at the time of their implementation
@@ -5475,6 +5480,9 @@ int ActiveProtocol()
 {
     // SPORK_15 is used for 70911. Nodes < 70911 don't see it and still get their protocol version via SPORK_14 and their
     // own ModifierUpgradeBlock()
+
+    if (IsTestnet())
+            return 70914;
 
     if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;

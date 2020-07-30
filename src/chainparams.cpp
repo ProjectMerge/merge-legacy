@@ -187,7 +187,7 @@ public:
         nMaturity = 25;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 100000000 * COIN;
-        nLastPOWBlock = 1000;
+        nLastPOWBlock = 300;
         nModifierUpdateBlock = 50;
 
         genesis.SetNull();
@@ -203,21 +203,12 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1545670001;
+        genesis.nTime = 1596132246;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 4480615;
-
-        if (genesis.nNonce == 0) {
-	          while (genesis.GetHash() > bnProofOfWorkLimit) {
-                 genesis.nNonce++;
-		             if (genesis.nNonce % 1024 == 0) printf("nonce %08x \n", genesis.nNonce);
-	          }
-	          printf("nonce was %d \n", genesis.nNonce);
-            printf("genesis block %s\n", genesis.ToString().c_str());
-	      }
+        genesis.nNonce = 1543987;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x00000ef935afac04f6f8f347d40eb80f048cd89b010dc2bb27770054bd54fd28"));
+        assert(hashGenesisBlock == uint256("0x000006720fa94c5b23d310b886feecccd14cd7465e0b2bb41651afa1c81498a0"));
         assert(genesis.hashMerkleRoot == uint256("0x705ea6c69f9003f9f45e9e02f8d541a98a0edd231de7e1a25b937a5b21085096"));
 
         vFixedSeeds.clear();
@@ -246,7 +237,7 @@ public:
         fHeadersFirstSyncingActive = false;
 
         nPoolMaxTransactions = 3;
-        strSporkKey = "04aba3f6d2e8066a19ef79724d7340d3259dea3fc00b7a8ad7e60e91c0984609ab33559f80dd366894ecfcf26025bd2db59a8b8de444fdcff349e07ae36399ad67";
+        strSporkKey = "02ddae409575fcea44f0429b213965ca41091534c9944ad8302ca45d43f53bf4c6";
         strObfuscationPoolDummyAddress = "ZERGEXXXXXXXXXXXXXXXXXXXXXXXcMy12n";
         nStartMasternodePayments = genesis.nTime + 5400;
         nBudget_Fee_Confirmations = 6;
