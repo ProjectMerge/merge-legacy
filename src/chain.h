@@ -212,7 +212,7 @@ public:
         SetNull();
     }
 
-    CBlockIndex(const CBlock& block)
+    CBlockIndex(const CBlockHeader& block)
     {
         SetNull();
 
@@ -231,13 +231,11 @@ public:
         nStakeModifierChecksum = 0;
         hashProofOfStake = uint256();
 
-        if (block.IsProofOfStake()) {
+        if (block.nNonce == 0) {
             SetProofOfStake();
-            prevoutStake = block.vtx[1].vin[0].prevout;
-            nStakeTime = block.nTime;
         } else {
             prevoutStake.SetNull();
-            nStakeTime = 0;
+            nStakeTime = block.nTime;
         }
     }
     
@@ -462,7 +460,6 @@ public:
         block.nNonce = nNonce;
         return block.GetHash();
     }
-
 
     std::string ToString() const
     {

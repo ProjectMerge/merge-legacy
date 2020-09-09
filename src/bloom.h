@@ -31,17 +31,16 @@ enum bloomflags {
 
 /**
  * BloomFilter is a probabilistic filter which SPV clients provide
- * so that we can filter the transactions we sends them.
+ * so that we can filter the transactions we send them.
  * 
  * This allows for significantly more efficient transaction and block downloads.
  * 
- * Because bloom filters are probabilistic, an SPV node can increase the false-
- * positive rate, making us send them transactions which aren't actually theirs, 
+ * Because bloom filters are probabilistic, a SPV node can increase the false-
+ * positive rate, making us send it transactions which aren't actually its,
  * allowing clients to trade more bandwidth for more privacy by obfuscating which
- * keys are owned by them.
+ * keys are controlled by them.
  */
-class CBloomFilter
-{
+class CBloomFilter {
 private:
     std::vector<unsigned char> vData;
     bool isFull;
@@ -51,6 +50,10 @@ private:
     unsigned char nFlags;
 
     unsigned int Hash(unsigned int nHashNum, const std::vector<unsigned char>& vDataToHash) const;
+
+    // Private constructor for CRollingBloomFilter, no restrictions on size
+    CBloomFilter(unsigned int nElements, double nFPRate, unsigned int nTweak);
+    friend class CRollingBloomFilter;
 
 public:
     /**
@@ -63,7 +66,14 @@ public:
      * nFlags should be one of the BLOOM_UPDATE_* enums (not _MASK)
      */
     CBloomFilter(unsigned int nElements, double nFPRate, unsigned int nTweak, unsigned char nFlagsIn);
-    CBloomFilter() : isFull(true), isEmpty(false), nHashFuncs(0), nTweak(0), nFlags(0) {}
+    CBloomFilter()
+        : isFull(true)
+        , isEmpty(false)
+        , nHashFuncs(0)
+        , nTweak(0)
+        , nFlags(0)
+    {
+    }
 
     ADD_SERIALIZE_METHODS;
 
@@ -95,6 +105,28 @@ public:
 
     //! Checks for empty and full filters to avoid wasting cpu
     void UpdateEmptyFull();
+};
+
+/**
+ * RollingBloomFilter is a probabilistic "keep track of most recently inserted" set.
+ * Construct it with the number of items to keep track of, and a false-positive rate.
+ *
+ * contains(item) will always return true if item was one of the last N things
+ * insert()'ed ... but may also return true for items that were not inserted.
+ */
+class CRollingBloomFilter {
+public:
+    CRollingBloomFilter(unsigned int nElements, double nFPRate, unsigned int nTweak);
+
+    void insert(const std::vector<unsigned char>& vKey);
+    bool contains(const std::vector<unsigned char>& vKey) const;
+
+    void clear();
+
+private:
+    unsigned int nBloomSize;
+    unsigned int nInsertions;
+    CBloomFilter b1, b2;
 };
 
 #endif // BITCOIN_BLOOM_H
